@@ -1,13 +1,15 @@
 ---
 layout: page
-title: About
+title: [Gal Weizman](https://weizman.github.io/)
 ---
-
-# [Gal Weizman](https://weizman.github.io/)
 
 > *Browser javascript internals expert, specializing in web and client side security*
 
-> [twitter](https://twitter.com/WeizmanGal) | [github](https://github.com/weizman/) | [weizmangal@gmail.com](mailto:weizmangal@gmail.com) | *Visit my [Personal blog](https://weizman.github.io/) for published work*
+<p class="message">
+   <a href="https://twitter.com/WeizmanGal">twitter</a> |
+   <a href="https://github.com/weizman/">github</a> |
+   Visit my <a href="https://weizman.github.io/">personal blog</a> for published work
+</p>
 
 #### Expertise
 
