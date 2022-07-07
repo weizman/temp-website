@@ -1,6 +1,7 @@
 ---
 layout: page
-title: [Gal Weizman](https://weizman.github.io/)
+title: Gal Weizman
+url: https://weizman.github.io/
 ---
 
 > *Browser javascript internals expert, specializing in web and client side security*
