@@ -26,8 +26,8 @@ url: https://weizman.github.io/
 
 #### Personal Experience
 
-* [Disclosure](./page-whatsapp-vuln/) of a critical chain of vulnerabilities in WhatsApp to Facebook (CVE-2019-18426)
-* [Disclosure](./page-csp-vuln/) of a medium vulnerability in Chromium to Google (CVE-2020-6519)
+* [Disclosure](https://weizman.github.io/page-whatsapp-vuln/) of a critical chain of vulnerabilities in WhatsApp to Facebook (CVE-2019-18426)
+* [Disclosure](https://weizman.github.io//page-csp-vuln/) of a medium vulnerability in Chromium to Google (CVE-2020-6519)
 * Research and [publishing](https://github.com/weizman/awesome-javascript-anti-debugging) of highly advanced browser anti debugging techniques
 * Live talks including [OWASP Global AppSec conf](https://www.youtube.com/watch?v=YAHze5bKmek)
 
