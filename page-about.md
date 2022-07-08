@@ -9,7 +9,8 @@ url: https://weizman.github.io/
 <p class="message">
    <a href="https://twitter.com/WeizmanGal">twitter</a> |
    <a href="https://github.com/weizman/">github</a> |
-   Visit my <a href="https://weizman.github.io/">personal blog</a> for published work
+   <a href="https://www.linkedin.com/in/weizmangal/">linkedin</a> |
+   <a href="https://weizman.github.io/">blog</a> |
 </p>
 
 #### Expertise
