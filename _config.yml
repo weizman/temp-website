@@ -10,7 +10,7 @@ title:            Gal Weizman
 tagline:          'A Jekyll theme'
 description:      'Browser javascript internals expert, specializing in web and client side security <br><br> <a href="https://github.com/weizman">Github</a> | <a href="https://twitter.com/weizmangal">Twitter</a> | <a href="https://www.linkedin.com/in/weizmangal/">Linkedin</a>'
 url:              https://weizman.github.io/
-baseurl:          /
+baseurl:          https://weizman.github.io/
 about:            /page-about
 
 paginate:         5000
