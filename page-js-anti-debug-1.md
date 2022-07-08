@@ -5,8 +5,6 @@ url: https://weizman.github.io/
 date: 18/12/2019
 ---
 
-_Originally was posted on [Perimeterx](https://weizman.github.io/page-js-anti-debug-1/) (The company I was working for at the time this article was written)_
-
 _Later on was published on [Medium](https://medium.com/@weizmangal/javascript-anti-debugging-some-next-level-sh-t-part-1-abusing-sourcemappingurl-da91ff948e66)_
 
 > **tl;dr - Abusing [SourceMappingURL](https://developer.mozilla.org/en-US/docs/Tools/Debugger/How_to/Use_a_source_map) feature can allow attackers to create one of the strongest Cross Browsers Javascript Anti Debugging techniques that was ever seen ([fully detailed live demo](https://us-central1-smap-251411.cloudfunctions.net/index))**

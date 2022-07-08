@@ -5,8 +5,6 @@ url: https://weizman.github.io/
 date: 14/02/2020
 ---
 
-_Originally was posted on [Perimeterx](https://weizman.github.io/page-whatsapp-vuln/) (The company I was working for at the time this article was written)_
-
 > tl;dr: This is the story of how I found and helped **Facebook** patch multiple security flaws in **WhatsApp**, all the way from a simple **Open-Redirect** through a **Persistent-XSS** and **CSP-bypass** to a full cross platforms **Read From The Local File System** on both Windows and Mac and got **12,500$** as a reward!
 
 > Checkout the [technical project and the exploit](https://github.com/weizman/CVE-2019-18426)
