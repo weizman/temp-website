@@ -26,9 +26,9 @@ url: https://weizman.github.io/
 
 #### Personal Experience
 
-* [Disclosure](https://weizman.github.io/?WhatsApp-Vulnerability-Disclosure-Read-Permissions-From-The-File-System-(CVE-2019-18426)) of a critical chain of vulnerabilities in WhatsApp to Facebook (CVE-2019-18426)
-* [Disclosure](https://weizman.github.io/?csp-bypass-vul) of a medium vulnerability in Chromium to Google (CVE-2020-6519)
-* Research and [publishing](https://weizman.github.io/?javascript-anti-debugging-some-next-level-shit-part-1) of highly advanced browser anti debugging techniques
+* [Disclosure](/page-whatsapp-vuln/) of a critical chain of vulnerabilities in WhatsApp to Facebook (CVE-2019-18426)
+* [Disclosure](/page-csp-vuln/) of a medium vulnerability in Chromium to Google (CVE-2020-6519)
+* Research and [publishing](https://github.com/weizman/awesome-javascript-anti-debugging) of highly advanced browser anti debugging techniques
 * Live talks including [OWASP Global AppSec conf](https://www.youtube.com/watch?v=YAHze5bKmek)
 
 #### Work Experience
