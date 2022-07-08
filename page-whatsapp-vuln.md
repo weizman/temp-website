@@ -2,9 +2,8 @@
 layout: page
 title: CVE-2019-18426 - WhatsApp Vulnerability Disclosure
 url: https://weizman.github.io/
+date: 14/02/2020
 ---
-
-### 14/02/2020
 
 _Originally was posted on [Perimeterx](https://www.perimeterx.com/tech-blog/2020/whatsapp-fs-read-vuln-disclosure/) (The company I was working for at the time this article was written)_
 
