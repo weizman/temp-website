@@ -13,4 +13,4 @@ url:              https://weizman.github.io/
 baseurl:          /
 about:            /page-about
 
-paginate:         5
+paginate:         5000
