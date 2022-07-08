@@ -7,7 +7,7 @@ date: 01/09/2021
 
 > **tl;dr - Abusing the [Chromium Devtools Scope Pane](https://developers.google.com/web/tools/chrome-devtools/javascript#check-values) can allow execution of Javascript by the devtools while the main thread is paused by the debugger! I used this trick to create a very powerful [anti debugging technique library](https://www.npmjs.com/package/debug-tracker-poc) that tracks the flow of debugging done by the user and changes the flow of execution accordingly - check out the [DEMO](https://debug-tracker.ue.r.appspot.com/)**
 
-As part of a long term anti debugging techniques research I do (highly recommending you to read the [first part](/page-js-anti-debug-1/) of my work if you never did in order to understand the nature of my work), I came across a [list of techniques](https://x-c3ll.github.io/posts/javascript-antidebugging/), and it was [section 4](https://x-c3ll.github.io/posts/javascript-antidebugging/#0x04-devtools-detection-i-chrome-getter) which led me to do the research I will present in this article:
+As part of a long term anti debugging techniques research I do (highly recommending you to read the [first part](./page-js-anti-debug-1/) of my work if you never did in order to understand the nature of my work), I came across a [list of techniques](https://x-c3ll.github.io/posts/javascript-antidebugging/), and it was [section 4](https://x-c3ll.github.io/posts/javascript-antidebugging/#0x04-devtools-detection-i-chrome-getter) which led me to do the research I will present in this article:
 
 ```javascript
 (function xyz(){
@@ -261,7 +261,7 @@ The hardest one would probably be "luring the victims to their web", which is ba
 Once this challenge is passed by the attacker and they managed to execute their malicious code in the victim's browser, another big challenge that the attacker has to cope with is to keep silent and make sure the attack is undetectable and untraceable.
 **This in my opinion should be one of the most important aspects attackers should pay attention to when constructing an attacking system** (and I can assure you that governments level attackers most certainty do). As many resources and effort attackers put into their attacking system, the more they'll wish to protect it and make sure it stays undercover. Otherwise, being careless will (and had in the past) result in all of those resources and effort going down the drain, which is a hard blow to recover from.
 
-Attackers can take their products to the next level by using sophisticated anti debugging tricks, such as the one I presented in the [first part](/page-js-anti-debug-1/) of this article, or such as the one presented in this part of the article.
+Attackers can take their products to the next level by using sophisticated anti debugging tricks, such as the one I presented in the [first part](./page-js-anti-debug-1/) of this article, or such as the one presented in this part of the article.
 
 By using this trick and protect specific sensitive functions when are being debugged (by either getting the devtools stuck, changing top level javascript objects in order to mess with the flow of code afterwards, or anything else really), instead of general devtools protection, **attackers can make their anti debugging protection more precise and their rate of success higher by making sure to bail on the attack only when truly are in danger of being uncovered**.
 
@@ -273,7 +273,7 @@ This question will be fully answered in the next non-technical article I am plan
 
 ### To sum up
 
-I will repeat what I wrote in the [first part](/page-js-anti-debug-1/) of this article:
+I will repeat what I wrote in the [first part](./page-js-anti-debug-1/) of this article:
 
 > *As someone who has experienced the world of web security and hacking quite a lot in my military service, I can tell you that this trick right here will take the game to the next level if used correctly.*
 
