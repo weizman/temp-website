@@ -1,6 +1,6 @@
 ---
 layout: page
-title: CVE-2020-6519 - Chromium Vulnerability Disclosure
+title: CVE-2020-6519 - Chromium 83 Zero Day Full CSP Bypass Cross Platforms
 url: https://weizman.github.io/
 date: 02/09/2020
 ---

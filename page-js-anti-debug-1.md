@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Javascript Anti Debugging - Some Next Level Shit (Part 1)
+title: Javascript Anti Debugging - Abusing SourceMappingURL
 url: https://weizman.github.io/
 date: 18/12/2019
 ---
