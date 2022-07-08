@@ -2,9 +2,8 @@
 layout: page
 title: CVE-2020-6519 - Chromium Vulnerability Disclosure
 url: https://weizman.github.io/
+date: 02/09/2020
 ---
-
-### 02/09/2020
 
 _Originally was posted on [Perimeterx](https://www.perimeterx.com/tech-blog/2020/csp-bypass-vuln-disclosure/) (The company I was working for at the time this article was written)_
 
