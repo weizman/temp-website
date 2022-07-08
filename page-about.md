@@ -10,7 +10,7 @@ url: https://weizman.github.io/
    <a href="https://twitter.com/WeizmanGal">twitter</a> |
    <a href="https://github.com/weizman/">github</a> |
    <a href="https://www.linkedin.com/in/weizmangal/">linkedin</a> |
-   <a href="https://weizman.github.io/">blog</a> |
+   <a href="https://weizman.github.io/">blog</a>
 </p>
 
 #### Expertise
