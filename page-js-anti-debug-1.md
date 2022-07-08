@@ -5,7 +5,7 @@ url: https://weizman.github.io/
 date: 18/12/2019
 ---
 
-_Originally was posted on [Perimeterx](https://www.perimeterx.com/blog/javascript-anti-debugging-1/) (The company I was working for at the time this article was written)_
+_Originally was posted on [Perimeterx](https://weizman.github.io/page-js-anti-debug-1/) (The company I was working for at the time this article was written)_
 
 _Later on was published on [Medium](https://medium.com/@weizmangal/javascript-anti-debugging-some-next-level-sh-t-part-1-abusing-sourcemappingurl-da91ff948e66)_
 

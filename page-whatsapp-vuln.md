@@ -5,7 +5,7 @@ url: https://weizman.github.io/
 date: 14/02/2020
 ---
 
-_Originally was posted on [Perimeterx](https://www.perimeterx.com/tech-blog/2020/whatsapp-fs-read-vuln-disclosure/) (The company I was working for at the time this article was written)_
+_Originally was posted on [Perimeterx](https://weizman.github.io/page-whatsapp-vuln/) (The company I was working for at the time this article was written)_
 
 > tl;dr: This is the story of how I found and helped **Facebook** patch multiple security flaws in **WhatsApp**, all the way from a simple **Open-Redirect** through a **Persistent-XSS** and **CSP-bypass** to a full cross platforms **Read From The Local File System** on both Windows and Mac and got **12,500$** as a reward!
 
