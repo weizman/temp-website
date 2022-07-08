@@ -2,9 +2,8 @@
 layout: page
 title: Javascript Anti Debugging - Some Next Level Shit (Part 1)
 url: https://weizman.github.io/
+date: 18/12/2019
 ---
-
-### 18/12/2019
 
 _Originally was posted on [Perimeterx](https://www.perimeterx.com/blog/javascript-anti-debugging-1/) (The company I was working for at the time this article was written)_
 
