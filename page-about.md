@@ -2,6 +2,8 @@
 layout: page
 title: Gal Weizman
 url: https://weizman.github.io/
+description: Browser javascript internals expert, specializing in web and client side security
+keywords: Gal, Weizman, Browser, javascript, security, web, 8200, research
 ---
 
 > *Browser javascript internals expert, specializing in web and client side security*
