@@ -143,7 +143,7 @@ I had to think of a way to manage to create a very small payload that would load
 
 Bypassing CSP rules is made easier by [Google's CSP Evaluator](https://csp-evaluator.withgoogle.com/). You just throw the URL address of the target website into the text box, and it immediately tells you its CSP configuration and how safe (or unsafe) the website is:
 
-![6](./content/img/6.jpg)
+![6](/content/img/6.jpg)
 
 You see that `object-src [missing]` down there? (😈)
 
