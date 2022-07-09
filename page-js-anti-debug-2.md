@@ -3,6 +3,8 @@ layout: page
 title: Javascript Anti Debugging - Abusing Chromium Devtools Scope Pane
 url: https://weizman.github.io/
 date: 01/09/2021
+description: Abusing the Chromium Devtools Scope Pane can allow execution of Javascript by the devtools while the main thread is paused by the debugger
+keywords: browsers, anti debugging, javascript, web, security, devtools, scope, research, debugger
 ---
 
 > **tl;dr - Abusing the [Chromium Devtools Scope Pane](https://developers.google.com/web/tools/chrome-devtools/javascript#check-values) can allow execution of Javascript by the devtools while the main thread is paused by the debugger! I used this trick to create a very powerful [anti debugging technique library](https://www.npmjs.com/package/debug-tracker-poc) that tracks the flow of debugging done by the user and changes the flow of execution accordingly - check out the [DEMO](https://debug-tracker.ue.r.appspot.com/)**
