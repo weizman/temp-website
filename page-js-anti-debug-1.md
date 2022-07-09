@@ -3,6 +3,8 @@ layout: page
 title: Javascript Anti Debugging - Abusing SourceMappingURL
 url: https://weizman.github.io/
 date: 18/12/2019
+description: Abusing SourceMappingURL feature can allow attackers to create one of the strongest Cross Browsers Javascript Anti Debugging techniques
+keywords: browsers, anti debugging, javascript, web, security, csp, SourceMappingURL, research
 ---
 
 _Later on was published on [Medium](https://medium.com/@weizmangal/javascript-anti-debugging-some-next-level-sh-t-part-1-abusing-sourcemappingurl-da91ff948e66)_
