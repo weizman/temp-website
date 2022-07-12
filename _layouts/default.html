@@ -3,7 +3,12 @@
 
   {% include head.html %}
 
-  <body class="theme-base-0b">
+  <body>
+    <script>
+      const items = ['08', '09', '0a', '0b', '0c', '0d', '0e', '0f'];
+      const item = items[Math.floor(Math.random()*items.length)];
+      document.body.classList.add('theme-base-' + item);
+    </script>
 
 
     {% include sidebar.html %}
