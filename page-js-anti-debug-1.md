@@ -9,7 +9,7 @@ keywords: browsers, anti debugging, javascript, web, security, csp, SourceMappin
 
 _Later on was published on [Medium](https://medium.com/@weizmangal/javascript-anti-debugging-some-next-level-sh-t-part-1-abusing-sourcemappingurl-da91ff948e66)_
 
-> **tl;dr - Abusing [SourceMappingURL](https://developer.mozilla.org/en-US/docs/Tools/Debugger/How_to/Use_a_source_map) feature can allow attackers to create one of the strongest Cross Browsers Javascript Anti Debugging techniques that was ever seen ([fully detailed live demo](https://us-central1-smap-251411.cloudfunctions.net/index))**
+> tl;dr - Abusing [SourceMappingURL](https://developer.mozilla.org/en-US/docs/Tools/Debugger/How_to/Use_a_source_map) feature can allow attackers to create one of the strongest Cross Browsers Javascript Anti Debugging techniques that was ever seen ([fully detailed live demo](https://us-central1-smap-251411.cloudfunctions.net/index))
 
 This article’s purpose is to introduce a new Javascript Anti Debugging technique in an advanced level and therefore assumes the reader already has an understanding of the different aspects of web security and what Javascript Anti Debugging really is.
 
