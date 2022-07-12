@@ -7,7 +7,7 @@ description: Chromium 83 Zero Day Full CSP Bypass Cross Platforms
 keywords: chromium, exploit, vulnerability, CSP, javascript, web, security
 ---
 
-> This is the story of how I found and helped **Google** [patch](https://chromereleases.googleblog.com/2020/07/stable-channel-update-for-desktop.html#:\~:text=Gal%20Weizman%20(@WeizmanGal)%20of%20PerimeterX) a [**vulnerability in Chrome browser**](https://nvd.nist.gov/vuln/detail/CVE-2020-6519) that could have allowed attackers to [**fully bypass CSP rules**](https://crbug.com/1064676) since Chrome 73 (March 2019), and how researching it taught me that today's CSP mechanism design is the reason **no one uses CSP correctly and therefore many of the biggest websites in the world are exposed to this vulnerability**.
+> tl;dr - This is the story of how I found and helped **Google** [patch](https://chromereleases.googleblog.com/2020/07/stable-channel-update-for-desktop.html#:\~:text=Gal%20Weizman%20(@WeizmanGal)%20of%20PerimeterX) a [**vulnerability in Chrome browser**](https://nvd.nist.gov/vuln/detail/CVE-2020-6519) that could have allowed attackers to [**fully bypass CSP rules**](https://crbug.com/1064676) since Chrome 73 (March 2019), and how researching it taught me that today's CSP mechanism design is the reason **no one uses CSP correctly and therefore many of the biggest websites in the world are exposed to this vulnerability**.
 
 ### Bypassing CSP completely can be very bad..
 
