@@ -1,6 +1,6 @@
 ---
 layout: post
-title: unload And beforeunload Events And How To Easily Debug Them Both!
+title: List EVERY event that exists in the browser
 ---
 
 Check out my [next post](https://medium.com/@weizmangal/list-every-event-that-exists-in-the-browser-b771579d9b04) 
