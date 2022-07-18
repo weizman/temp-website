@@ -183,3 +183,29 @@ to a lot of other purposes, in and outside of the security field.
 
 ### [Across ↔](https://github.com/weizman/across)
 
+Across specifically is a new technology (also security related) that is a bit bigger than the supply chain attacks problem, but could not have been
+created without leaning on Snow and Securely.
+
+Across aspires to establish a way for two scripts within a webpage to communicate with each other securly based on their origin.
+
+In other words, with Across script `https://x.com/a.js` can share information with `https://y.com/b.js` and stay assured that this information:
+
+* really did come from the sender script and not any other entity.
+* was not tampered by any other entity.
+* was not read by any other entity.
+
+which is a state that cannot be achieved based on how modern browsers work.
+
+To me, Across is a very exciting technology that unlocks possibilities that were non existing until now.
+
+With Across third party scripts can safely exchange information with each on the client side without needing a server.
+Across can be used to set up a "proxy script" to sensitive APIs and grant access to those APIs only to specific scripts based on their origin.
+
+This unlocks the ability to solve security problems, redefine business relations between different javascript vendors and more.
+
+Across is also a security drived project that could not have been made without:
+* Snow - to apply itself in all new windows in the webpage to remain secured;
+* Securely - to eliminate the ability of an attacker to sabotage Across's core functionality by overriding APIs it uses.
+
+> *To dive into Across and learn more about this, its source code, how to install and use, how and why it works and designed*
+> *the way it is and to see a live demonstration of how it works refer to the resources [listed above](#across-)*
