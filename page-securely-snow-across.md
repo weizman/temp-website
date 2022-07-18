@@ -127,6 +127,59 @@ function constructKey() {
 This infect allows you to avoid potential hooks or go through them when needed, depends on the usecase, which can be very affective 
 against supply chain attacks when executing sensitive operations.
 
-> *To dive into Securely, the source code, how to install and use, how and why it works and designed*
+> *To dive into Securely and learn more about this, its source code, how to install and use, how and why it works and designed*
 > *the way it is and to see a live demonstration of how it works refer to the resources [listed above](#securely-)*
+
+### [Snow ❄️](https://github.com/weizman/snow)
+
+Another thing attackers can do is the opposite of what Securely comes to defend against - let me explain.
+
+There are already third party vendors that offer security services to websites against supply chain attacks by hooking sensitive
+APIs in the website (just like attackers do) in order to track their usage and discover malicious activity.
+
+So for example, if attackers might use `fetch` API to exfiltrate sensitive information from the website, these vendors hook
+`fetch` API so that attackers go through them and by that can observe/block such malicious activity.
+
+The problem with that approach is `iframes`
+
+When creating a new `iframe`, a new `window` is attached to it, with all the usual APIs the top window exposes.
+So if such a security vendor hooks `fetch` API to catch attackers, the attackers can easily avoid that hook by creating
+a new iframe and pulling out of there a brand new `fetch` API.
+
+**By granting you the very first right of execution on every new iframe that 
+comes to life within the web app, [Snow ❄️](https://github.com/weizman/snow) comes to solve exactly that.**
+
+So if security vendors used to hook fetch like this:
+
+```javascript
+const realFetch = window.fetch;
+window.fetch = function(arg1, arg2, arg3) {
+    console.log('fetch activity logged, might be an attacker', arg1, arg2, arg3);
+    return realFetch.call(this, arg1, arg2, arg3);
+};
+```
+
+With Snow you can now apply that code to every new iframe that comes to life within the app:
+
+```javascript
+const snow = require('@weizman/snow');
+snow((win) => {
+    const realFetch = win.fetch;
+    win.fetch = function(arg1, arg2, arg3) {
+        console.log('fetch activity logged, might be an attacker', arg1, arg2, arg3);
+        return realFetch.call(this, arg1, arg2, arg3);
+    };
+});
+```
+
+Snow is a security driven project - it aspires to cover all techniques there are to creating new iframes, and it makes sure its
+internal functionality is secure by calling sensitive operations via `Securely`.
+
+Snow aspires to set a new standart hermatic solution to nested ownership of windows in a webpage. Therefore, snow is very useful
+to a lot of other purposes, in and outside of the security field.
+
+> *To dive into Snow and learn more about this, its source code, how to install and use, how and why it works and designed*
+> *the way it is and to see a live demonstration of how it works refer to the resources [listed above](#snow-)*
+
+### [Across ↔](https://github.com/weizman/across)
 
