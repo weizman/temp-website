@@ -199,7 +199,9 @@ which is a state that cannot be achieved based on how modern browsers work.
 To me, Across is a very exciting technology that unlocks possibilities that were non existing until now.
 
 With Across third party scripts can safely exchange information with each other on the client side without needing a server.
-Across can be used to set up a "proxy script" to sensitive APIs and grant access to those APIs only to specific scripts based on their origin.
+
+Across can also be used to fight the supply chain attacks problem.
+For example, Across can be used to set up a "proxy script" to sensitive APIs and grant access to those APIs only to specific scripts based on their origin.
 
 This unlocks the ability to solve security problems, redefine business relations between different javascript vendors and more.
 
@@ -211,3 +213,32 @@ Across is also a security drived project that could not have been made without:
 
 > *To dive into Across and learn more about this, its source code, how to install and use, how and why it works and designed*
 > *the way it is and to see a live demonstration of how it works refer to the resources [listed above](#across-)*
+
+## My Take
+
+As someone with vast experience in aspects of browser javascript security, including but not limited to supply chain defense, I wish
+Securely, Snow and Across will be adopted and contributed to in order to get them ready for production usage.
+
+I believe all three of them can be used to create more secure software that is less vulnerable to unwanted code that is executing within
+a website in a browser, thanks to them handling exactly the security problems javascript allows as of today.
+
+That being said, my approach is not the only one, I highly recommend learning about the counter 
+approach that [LavaMoat](https://github.com/lavamoat/lavamoat) brings.
+
+I hope that with time we learn how to integrate and adopt all solutions as they are important together for creating a more secure
+development platform for javascript web apps.
+
+It is important to note - Securely, Snow and Across are platforms for development, they are not standalone solutions.
+In order for them to be effective one must use them as tools to fruther secure their web app.
+
+## Feedback
+
+I'd love to hear your feedback! Whether its help with the project, feedback on my approach and perception of the 
+problem and the solution or anything else - it is highly appreciated.
+
+Because eventually, these tools cannot take off without adoption.
+
+I encourage you to read further about these technologies. Each one of them has its own README, WIKI and DEMO files that
+aspire to explain and demonstrate these projects further as much as possible, in terms of motivation, technical explanation, demonstration and usage.
+
+Hope this turns out helpful!
