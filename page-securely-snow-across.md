@@ -12,34 +12,34 @@ keywords: browser, javascript, supply chain attack, security, xss, securely, sno
 > *tl;dr - Today I share my "side project" for the past year, three browser javascript security libraries that aim to perform as
 platforms for creating web apps that are more resilient to and limiting of unwanted code execution such as XSS and javascript supply chain attacks:*
 
-#### [Across ↔](https://github.com/weizman/across)
+#### [Across ↔](https://github.com/lavamoat/across)
 
 Across standard allows different scripts within the same web application to communicate with each other by passing messages between one another securely.
 
-[🎬 Live Demo](https://weizman.github.io/across/demo/) | 
-[📖 Technical explanation](https://github.com/weizman/across/wiki/Introducing-Across#across-technically-explained) | 
-[⚙️ Installation and usage](https://github.com/weizman/across#install) | 
-[👩🏽‍💻 Source Code](https://github.com/weizman/across) | 
-[💪🏻 Motivation behind this project](https://github.com/weizman/across/wiki/Introducing-Across)
+[🎬 Live Demo](https://lavamoat.github.io/across/demo/) | 
+[📖 Technical explanation](https://github.com/lavamoat/across/wiki/Introducing-Across#across-technically-explained) | 
+[⚙️ Installation and usage](https://github.com/lavamoat/across#install) | 
+[👩🏽‍💻 Source Code](https://github.com/lavamoat/across) | 
+[💪🏻 Motivation behind this project](https://github.com/lavamoat/across/wiki/Introducing-Across)
 
-#### [Snow ❄️](https://github.com/weizman/snow)
+#### [Snow ❄️](https://github.com/lavamoat/snow)
 
 Snow aspires to standardize how to recursively own newborn windows within a browser webpage, from the context of the webpage itself.
 
-[🎬 Live Demo](https://weizman.github.io/snow/demo/) | 
-[📖 Technical explanation](https://github.com/weizman/snow/wiki/Introducing-Snow#why-snow-solves-a-non-trivial-problem) | 
-[⚙️ Installation and usage](https://github.com/weizman/snow#usage) | 
-[👩🏽‍💻 Source Code](https://github.com/weizman/snow) | 
-[💪🏻 Motivation behind this project](https://github.com/weizman/snow/wiki/Introducing-Snow)
+[🎬 Live Demo](https://lavamoat.github.io/snow/demo/) | 
+[📖 Technical explanation](https://github.com/lavamoat/snow/wiki/Introducing-Snow#why-snow-solves-a-non-trivial-problem) | 
+[⚙️ Installation and usage](https://github.com/lavamoat/snow#usage) | 
+[👩🏽‍💻 Source Code](https://github.com/lavamoat/snow) | 
+[💪🏻 Motivation behind this project](https://github.com/lavamoat/snow/wiki/Introducing-Snow)
 
-#### [Securely 🔒](https://github.com/weizman/securely)
+#### [Securely 🔒](https://github.com/lavamoat/securely)
 
 Securely allows you to call native APIs using their original behaviour even if they were tampered within the web app.
 
-[🎬 Live Demo](https://weizman.github.io/securely/demo/) | 
-[📖 Technical explanation](https://github.com/weizman/securely#securely-technically-explained-whats-the-s-suffix-for) | 
-[⚙️ Installation and usage](https://github.com/weizman/securely#usage) | 
-[👩🏽‍💻 Source Code](https://github.com/weizman/securely)
+[🎬 Live Demo](https://lavamoat.github.io/securely/demo/) | 
+[📖 Technical explanation](https://github.com/lavamoat/securely#securely-technically-explained-whats-the-s-suffix-for) | 
+[⚙️ Installation and usage](https://github.com/lavamoat/securely#usage) | 
+[👩🏽‍💻 Source Code](https://github.com/lavamoat/securely)
 
 **`Across` is built on top of `Snow`. Both `Across` and `Snow` are built on top of `Securely`.**
 
@@ -54,7 +54,7 @@ To prevent such attacks, there are many different areas to defend.
 In my attempt, I focus on the real time prevention in the browser. 
 Or in other words, what can attackers do once they successfully run within the website in the browser, and what I can do to make it harder for them?
 
-### [Securely 🔒](https://github.com/weizman/securely)
+### [Securely 🔒](https://github.com/lavamoat/securely)
 
 One thing attackers can do is to use the native option of javascript to override builtin functionalities and by that potentially have
 the website legit code go through their malicious hooks and leak sensitive information:
@@ -89,7 +89,7 @@ For example, the approach taken by [Consensys](https://github.com/consensys) [Me
 which runs on [Endo](https://github.com/endojs)'s [SES](https://github.com/endojs/endo) technology is the lockdown method, which is generally 
 to freeze the ability to apply such hooks in the first place to prevent such attacks exactly.
 
-**A lax alternative to this approach is [Securely 🔒](https://github.com/weizman/securely).**
+**A lax alternative to this approach is [Securely 🔒](https://github.com/lavamoat/securely).**
 
 Securely permits the web app and all js code that runs within it to apply such hooks out of belief that
 these hooks are a legitimate and unseparatable part of the service provided by many third party vendors, especially in websites.
@@ -130,7 +130,7 @@ against supply chain attacks when executing sensitive operations.
 > *To dive into Securely and learn more about this, its source code, how to install and use, how and why it works and designed*
 > *the way it is and to see a live demonstration of how it works refer to the resources [listed above](#securely-)*
 
-### [Snow ❄️](https://github.com/weizman/snow)
+### [Snow ❄️](https://github.com/lavamoat/snow)
 
 Another thing attackers can do is the opposite of what Securely comes to defend against - let me explain.
 
@@ -147,7 +147,7 @@ So if such a security vendor hooks `fetch` API to catch attackers, the attackers
 a new iframe and pulling out of there a brand new `fetch` API.
 
 **By granting you the very first right of execution on every new iframe that 
-comes to life within the web app, [Snow ❄️](https://github.com/weizman/snow) comes to solve exactly that.**
+comes to life within the web app, [Snow ❄️](https://github.com/lavamoat/snow) comes to solve exactly that.**
 
 So if security vendors used to hook fetch like this:
 
@@ -181,12 +181,12 @@ to a lot of other purposes, in and outside of the security field.
 > *To dive into Snow and learn more about this, its source code, how to install and use, how and why it works and designed*
 > *the way it is and to see a live demonstration of how it works refer to the resources [listed above](#snow-)*
 
-### [Across ↔](https://github.com/weizman/across)
+### [Across ↔](https://github.com/lavamoat/across)
 
 Across specifically is a new technology (also security related) that is a bit bigger than the supply chain attacks problem, but could not have been
 created without leaning on Snow and Securely.
 
-**In order to unlock the ability for two scripts within a webpage to communicate with each other securly based on their origin, [Across ↔](https://github.com/weizman/across) aspires to establish a way to do so**
+**In order to unlock the ability for two scripts within a webpage to communicate with each other securly based on their origin, [Across ↔](https://github.com/lavamoat/across) aspires to establish a way to do so**
 
 In other words, with Across script `https://x.com/a.js` can share information with `https://y.com/b.js` and stay assured that this information:
 
@@ -205,7 +205,7 @@ For example, Across can be used to set up a "proxy script" to sensitive APIs and
 
 This unlocks the ability to solve security problems, redefine business relations between different javascript vendors and more.
 
-I dive into the possibilities Across unlocks in the [following section](https://github.com/weizman/across/wiki/Introducing-Across#unlocking-possibilities-with-across)
+I dive into the possibilities Across unlocks in the [following section](https://github.com/lavamoat/across/wiki/Introducing-Across#unlocking-possibilities-with-across)
 
 Across is also a security drived project that could not have been made without:
 * Snow - to apply itself in all new windows in the webpage to remain secured;
