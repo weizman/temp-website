@@ -125,7 +125,7 @@ function constructKey() {
 ```
 
 This infect allows you to avoid potential hooks or go through them when needed, depends on the usecase, which can be very affective 
-against supply chain attacks when executing sensitive operations.
+against prototype pollution and MITB attacks when executing sensitive operations.
 
 > *To dive into Securely and learn more about this, its source code, how to install and use, how and why it works and designed*
 > *the way it is and to see a live demonstration of how it works refer to the resources [listed above](#securely-)*
