@@ -10,7 +10,7 @@ keywords: browser, javascript, supply chain attack, security, xss, securely, sno
 ## Introducing Securely 🔒, Snow ❄️ and Across ↔
 
 > *tl;dr - Today I share my "side project" for the past year, three browser javascript security libraries that aim to perform as
-platforms for creating web apps that are more resilient to and limiting of unwanted code execution such as XSS and javascript supply chain attacks:*
+tools for creating web apps that are more resilient to and limiting of unwanted code execution such as XSS and javascript supply chain attacks:*
 
 #### [Across ↔](https://github.com/lavamoat/across)
 
@@ -228,7 +228,7 @@ approach that [LavaMoat](https://github.com/lavamoat/lavamoat) brings.
 I hope that with time we learn how to integrate and adopt all solutions as they are important together for creating a more secure
 development platform for javascript web apps.
 
-It is important to note - Securely, Snow and Across are platforms for development, they are not standalone solutions.
+It is important to note - Securely, Snow and Across are tools for development, they are not standalone solutions.
 In order for them to be effective one must use them as tools to fruther secure their web app.
 
 ## Feedback
