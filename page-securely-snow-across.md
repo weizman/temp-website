@@ -117,7 +117,7 @@ You can build in browser capabillities and tools and use Snow to eliminate the p
 Across is an excellent example to that.
 
 > *To dive into Snow and learn more about this, its source code, how to install and use, how and why it works and designed*
-> *the way it is and to see a live demonstration of how it works refer to the resources [listed above](#snow-)*
+> *the way it is and to see a live demonstration of how it works refer to the resources [listed above](#snow-%EF%B8%8F)*
 
 ### [Across ↔](https://github.com/lavamoat/across)
 
