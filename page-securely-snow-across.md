@@ -59,6 +59,8 @@ Or in other words, what can attackers do once they successfully run within the w
 > Snow intercepts every possible way of creating a new iframe, and grants you first access to its window, even before the creator of that iframe.
 > In this [DEMO CTF](https://lavamoat.github.io/snow/demo/) I use Snow to disable access to `alert` API - think you can bypass Snow and pop an alert?
 
+![Snow DEMO CTF](https://s4.gifyu.com/images/Screen-Recording-2022-08-07-at-17.39.25.gif)
+
 Lack of full control over iFrames is a major enabler for successfully carrying supply chain attacks. 
 To be more precise, let's get into the attackers shows:
 
