@@ -62,7 +62,7 @@ Or in other words, what can attackers do once they successfully run within the w
 ![Snow DEMO CTF](https://s4.gifyu.com/images/Screen-Recording-2022-08-07-at-17.39.25.gif)
 
 Lack of full control over iFrames is a major enabler for successfully carrying supply chain attacks. 
-To be more precise, let's get into the attackers shows:
+To be more precise, let's get into the attackers shoes:
 
 Assuming we already successfully breached the supply chain of a web app and we use our code execution to steal information and exfiltrate it
 using `fetch` API:
