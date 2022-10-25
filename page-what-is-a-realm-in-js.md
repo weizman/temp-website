@@ -11,7 +11,7 @@ As part of my long term research around browser javascript security, in the past
 
 Due to the rise of dependencies based development, the javascript ecosystem (and the browser javascript ecosystem in particular) is far more vulnerable to what we know as ["supply chain attacks"](https://en.wikipedia.org/wiki/Supply_chain_attack) - and the ability to create new realms in javascript is being leveraged to successfully carry out such attacks against web apps (if you want to understand why is that I recommend reading [my previous post](https://twitter.com/WeizmanGal/status/1576942106156810240) on this).
 
-The realms security field is far from being properly addressed, and I hope to gradually fix that starting buy later introducing the first open source realms security tool - [Snow-JS ❄️](https://github.com/lavamoat/snow) by [LavaMoat 🌋](https://github.com/lavamoat).
+The realms security field is far from being properly addressed, and I hope to gradually fix that starting buy introducing the first open source realms security tool - [Snow-JS ❄️](https://github.com/lavamoat/snow) by [LavaMoat 🌋](https://github.com/lavamoat) (stay tuned).
 
 But in order for any of this to make sense, we must first understand **what realms are** - and apparently that's not an easy question to answer in a correct yet an **informal** and educational way.
 
@@ -110,7 +110,7 @@ Any changes/alternations/updates to the execution environment, the global object
 
 ## Grasp the concept of what realms really are
 
-Congratz for making it through the boring technical defintion part - now's the less formal part where it'll all click!
+Congratz 🎉 for making it through the boring technical defintion part - now's the less formal part where it'll all click!
 
 ### Realms in "real life"
 
@@ -124,9 +124,9 @@ As we just learned, the web app lives within that realm which provides it with a
 
 However, a new realm can be created to be living within the top main realm and that realm will have **its own separate and unique set of everything mentioned above**.
 
-In the browser that can be achieved in different ways. [Web workers](https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API), [iframes](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/iframe), [service workers](https://developer.mozilla.org/en-US/docs/Web/API/Service_Worker_API), etc - all of those rise up when created with their own realm.
+In the browser that can be achieved in different ways. [Web workers](https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API), [iframes](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/iframe), [service workers](https://developer.mozilla.org/en-US/docs/Web/API/Service_Worker_API), etc - when any of those are created they rise up with their own dedicated realm.
 
-**The uniqueness of each realm is a great way to better grasp the idea of what a realm is.**
+#### The uniqueness of each realm is a great way to better grasp the idea of what a realm is.
 
 If for example we load the following website:
 
@@ -174,6 +174,52 @@ window.Array === some_iframe.contentWindow.Array // false
 ```javascript
 window.Infinity === some_iframe.contentWindow.Infinity // true
 ```
+
+### Identity discontinuity
+
+Identity discontinuity is a state that can only be achieved due to the existence of realms as a feature, which helps in emphasizing how unique they are.
+
+To demonstrate the concept properly we'll use the [`instanceof` operator](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/instanceof).
+
+Imagine we have a third party service that creats blue buttons and is loaded via an iframe (for whatever reason), so that the web app consumes its services as follows:
+
+```html
+<html>
+    <iframe id="blue_buttons_iframe">
+        <script>
+            window.top.createBlueButton = function(text) {
+                const button = document.createElement('button');
+                button.style.color = 'blue';
+                button.value = text;
+                return button;
+            };
+        </script>
+    </iframe>
+    <body>
+        <script>
+            const blueButton = window.createBlueButton('my blue button');
+            if (!blueButton instanceof HTMLButtonElement) {
+                throw new Error('blue button created does not seem to actually be a button element!');
+            }
+            document.body.appendChild(blueButton);
+        </script>
+    </body>
+</html>
+```
+
+With `instanceof` you can tell whether what's on the left of the operator is an instace of what's on its right. So for example, since `button` elements are instances of the `HTMLButtonElement` interface, the result for `document.createElement('button') instanceof HTMLButtonElement` is `true`, whereas the result for `document.createElement('div') instanceof HTMLButtonElement` is `false` - because a `div` element inherits from `HTMLDivElement` and not the `HTMLButtonElement` obviously.
+
+However, in our example the `instanceof` check will return `false` and the custom error will be thrown - even though `blueButton` inherits from `HTMLButtonElement`.
+
+How's that possible? This happens because inheriting from `HTMLButtonElement` in general is not enough to count as an "instace of" - **the tested object must be an instance of the interface from the specific realm it came from in the first place.**
+
+The intentention of the `instanceof` check originally was to make sure that the blue buttons third party service really provided a button element and nothing else, but in reality the blue button is created in a different realm from where the `HTMLButtonElement` interface comes from and therefore the `instaceof` check will forever return `false`.
+
+The described bug is due to the introduction of identity discontinuity to the code which goes to show how unique are realms and everything they provide.
+
+Solving identity discontinuity is not always trivial. In the example above, changing the check into `blueButton instanceof blue_buttons_iframe.contentWindow.HTMLButtonElement` would have fixed the issue, but that is not a scalable nor a convenient solution.
+
+> *In order for an object to be an instance of an interface, the object must be created at/derived from the exact realm of that interface.*
 
 ### Cross realms access
 
