@@ -23,7 +23,7 @@ You can informally think of a realm as basically an ecosystem in which a javascr
 
 So - what do javascript programs need?
 
-### 1) A global execution environment
+### 1) A [global execution environment](https://tc39.es/ecma262/#sec-global-environment-records)
 
 In javascript, there can be many different scripts running in the same environment. 
 Scripts can form scopes which are canonical execution environments where inner scopes can access variables of outer scopes, but not the other way around:
@@ -42,7 +42,7 @@ Scripts can form scopes which are canonical execution environments where inner s
 
 In the example above we show how a scope can be defined using javascript, but what if we write a javascript program that also declares variables, but does so without actually declaring a scope?
 
-This is known as "top level declarations" - everything that is declared (or runs in general) outside of any defined scopes is under the default outer most scope, which is the **global** execution environment.
+This is known as "top level declarations" - everything that is declared (or runs in general) outside of any defined scopes is under the default [outer most scope](https://tc39.es/ecma262/#sec-global-environment-records), which is the **global** execution environment.
 
 Variables declared under this outer most scope are shared among the different scripts under the global execution environment:
 
@@ -54,22 +54,22 @@ Variables declared under this outer most scope are shared among the different sc
 
 > *A realm provides the javascript program with its own single global execution environment.*
 
-The examples above use `const` which populates new definitions in what is known as the "declarative environment", alongside `let`, `class`, `module`, `import`, and/or `function` declarations.
+The examples above use `const` which populates new definitions in what is known as the ["declarative environment"](https://tc39.es/ecma262/#sec-declarative-environment-records), alongside `let`, `class`, `module`, `import`, and/or `function` declarations.
 
-The rest of the possible ways for new definitions fall under what is known as the "object environment",
+The rest of the possible ways for new definitions fall under what is known as the ["object environment"](https://tc39.es/ecma262/#sec-object-environment-records),
 which includes `var`, `function`, `async function`, `function*`, `async function*` (the `*` representing the generator function).
 
-Both the "declarative environment" and the "object environment" together comprise the mentioned global execution environment.
+Both the "declarative environment" and the "object environment" together are what the mentioned global execution environment is composed of.
 
 The "object environment", in addition to the above, also provides all of what are known as "builtin globals" due to its base object being what is known as the "global object".
 
-### 2) A global object (and intrinsic objects)
+### 2) A [global object](https://tc39.es/ecma262/#sec-global-object) (and [intrinsic objects](https://tc39.es/ecma262/#sec-well-known-intrinsic-objects))
 
 After having a proper environment for javascript programs to execute within, they also need to be able to perform advanced operations, including but not limited to platform based ones. 
 
-The global object provides access to builtins such as different [intrinsics](https://tc39.es/ecma262/#sec-well-known-intrinsic-objects), objects, APIs, etc (whether platform specific or not) that enrich and utilize it to be richer and more useful.
+The global object provides access to builtins such as different intrinsics, objects, APIs, etc (whether platform specific or not) that enrich and utilize it to be richer and more useful.
 
-> *The global object is referenced as `window` for browsers and `global` for NodeJS environments - in both `globalThis` can also be used.*
+> *The global object is referenced as [`window`](https://developer.mozilla.org/en-US/docs/Web/API/Window) for browsers and [`global`](https://nodejs.org/api/globals.html#globals_global) for NodeJS environments - in both [`globalThis`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/globalThis) can also be used.*
 
 To start with the non platform based ones, the global object exposes some builtin intrinsic objects: 
 1. [values](https://tc39.es/ecma262/#sec-value-properties-of-the-global-object) (e.g. `undefined`, `Infinity`, etc);
@@ -108,15 +108,15 @@ As mentioned before, realms is a javascript concept and is not exclusive to brow
 
 Now that we defined what realms are, it's time to "put a face to the name".
 
-In the browser, by default there is only one realm and that is the top main realm. That is the realm where the web app that the browser loaded lives.
+In the browser, by default there is only one realm and that is the [top](https://developer.mozilla.org/en-US/docs/Web/API/Window/top) main realm. That is the realm where the web app that the browser loaded lives.
 
 As we just learned, the web app lives within that realm which provides it with a global execution environment, an outer most scope and a global object that grants access to different intrinsic objects, platform specific APIs, etc.
 
 However, a new realm can be created to be living within the top main realm and that realm will have **its own separate and unique set of everything mentioned above**.
 
-In the browser that can be achieved in different ways. Web workers, iframes, service workers, etc - all of those rise up when created with their own realm.
+In the browser that can be achieved in different ways. [Web workers](https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API), [iframes](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/iframe), [service workers](https://developer.mozilla.org/en-US/docs/Web/API/Service_Worker_API), etc - all of those rise up when created with their own realm.
 
-The uniqueness of each realm is a great way to better grasp the idea of what a realm is.
+**The uniqueness of each realm is a great way to better grasp the idea of what a realm is.**
 
 If for example we load the following website:
 
@@ -124,28 +124,22 @@ If for example we load the following website:
 <html>
     <head></head>
     <body>
-        <iframe></iframe>
+        <iframe id="some_iframe"></iframe>
     </body>
 </html>
 ```
 
-Then there are two different realms - the top main realm, and the new realm within the iframe, so that:
+Then there are two different realms - the top main realm, and the new realm within the iframe, so that each realm has its own unique identity with a unique global object and a global execution environment:
 
 ```javascript
-const ifr = document.body.appendChild(document.createElement('iframe')).contentWindow;
-```
-
-Each realm has its own unique identity with a unique global object and a global execution environment:
-
-```javascript
-window === ifr.contentWindow // false
+window === some_iframe.contentWindow // false
 ```
 
 And each realm has its own set of intrinsic objects and platform based APIs:
 
 ```javascript
-window.fetch === ifr.contentWindow.fetch // false
-window.Array === ifr.contentWindow.Array // false
+window.fetch === some_iframe.contentWindow.fetch // false
+window.Array === some_iframe.contentWindow.Array // false
 ```
 
 ```html
@@ -165,13 +159,18 @@ window.Array === ifr.contentWindow.Array // false
 </html>
 ```
 
+[Primitives](https://developer.mozilla.org/en-US/docs/Glossary/Primitive) however are identical across realms:
+
+```javascript
+window.Infinity === some_iframe.contentWindow.Infinity // true
+```
+
 ### Cross realms access
 
-In the examples above we use the property `contentWindow` to demonstrate how realms are unique and how they expose similar yet not identical objects. `contentWindow` is a property that exposes the global object (`window`) of another realm.
+In the examples above we use the property [`contentWindow`](https://developer.mozilla.org/en-US/docs/Web/API/HTMLIFrameElement/contentWindow) to demonstrate how realms are unique and how they expose similar yet not identical objects. `contentWindow` is a property that exposes the global object (`window`) of another realm.
 
-It can be used for new realms of iframes or tabs (`open()` API), however access can be very limited based on whether the accessing realm is in the same origin as the accessed realm or not.
+It can be used for new realms of iframes or tabs ([`open()`](https://developer.mozilla.org/en-US/docs/Web/API/Window/open) API), however access can be very limited based on whether the accessing realm is in the same origin as the accessed realm or not.
 
 Realms created within web workers or service workers are not accessible in such manner.
 
 > *To learn more about realms it is advised to keep track with the educational [awesome-javascript-realms-security](https://github.com/weizman/awesome-javascript-realms-security/) repo and to learn more about realms security make sure to check the [LavaMoat 🌋](https://github.com/lavamoat) tool [Snow-JS ❄️](https://github.com/lavamoat/snow).*
-
