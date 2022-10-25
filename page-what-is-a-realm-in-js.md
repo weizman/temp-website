@@ -17,7 +17,7 @@ But in order for any of this to make sense, we must first understand **what real
 
 > *NOTE: The context of this post is focused around browser javascript, therefore it may apply to javascript in general but that is not guaranteed.*
 
-## A realm - the world where javascript lives 
+## A [realm](https://tc39.es/ecma262/#sec-code-realms) - the world where javascript lives 
 
 You can informally think of a realm as basically an ecosystem in which a javascript program lives. And just like any other ecosystem, it includes different elements that javascript programs must get in order to exist within it.
 
