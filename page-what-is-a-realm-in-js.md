@@ -177,7 +177,7 @@ Realms created within web workers or service workers are not accessible in such 
 
 ## To sum up
 
-I wrote this content because I couldn't find any useful, accurate and understandable information on what realms are and what defines them. It was crucial to understand realms fully in order for me to dive deeper into the role of realms in supply chain attacks and security in general - I hope you find this useful as well.
+I came up with this content because I couldn't find any useful, accurate and understandable information on what realms are and what defines them. It was crucial to understand realms fully in order for me to dive deeper into the role of realms in supply chain attacks and security in general - I hope you find this useful as well.
 
 You can always catch up on my research and development of the field on the [awesome-javascript-realms-security](https://github.com/weizman/awesome-javascript-realms-security/) repo.
 
