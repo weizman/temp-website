@@ -9,11 +9,11 @@ keywords: research, realms, security, iframe, window, javascript
 
 As part of my long term research around browser javascript security, in the past year I have been focusing specifically on security for realms.
 
-Due to the rise of dependencies based development, the javascript ecosystem (and the browser javascript ecosystem in particular) is far more vulnerable to what we know as "supply chain attacks" - and the ability to create new realms in javascript is being leveraged to successfully carry out such attacks against web apps (if you want to understand why is that you should read [my following post](/) about this, but it will be hard if you don't yet feel comfortable with the defenition of a "realm").
+Due to the rise of dependencies based development, the javascript ecosystem (and the browser javascript ecosystem in particular) is far more vulnerable to what we know as "supply chain attacks" - and the ability to create new realms in javascript is being leveraged to successfully carry out such attacks against web apps (if you want to understand why is that you should read [my following post](/) about this, but it will be hard if you don't yet feel comfortable with the definition of a "realm").
 
 The realms security field is far from being properly addressed, and I hope to gradually fix that starting buy later introducing the first open source realms security tool - [Snow-JS ❄️](https://github.com/lavamoat/snow) by [LavaMoat 🌋](https://github.com/lavamoat).
 
-But in order for any of this to make sense, we must first understand **what realms are** - and apperantly that's not an easy question to answer in a correct yet an **informal** and educational way.
+But in order for any of this to make sense, we must first understand **what realms are** - and apparently that's not an easy question to answer in a correct yet an **informal** and educational way.
 
 > *NOTE: The context of this post is focused around browser javascript, therefore it may apply to javascript in general but that is not guaranteed.*
 
@@ -26,7 +26,7 @@ So - what do javascript programs need?
 ### 1) A global execution environment
 
 In javascript, there can be many different scripts running in the same environment. 
-Scripts can form scopes which are cannonical execution environments where inner scopes can access variables of outer scopes, but not the other way around:
+Scripts can form scopes which are canonical execution environments where inner scopes can access variables of outer scopes, but not the other way around:
 
 ```html
 <script>
@@ -54,9 +54,9 @@ Variables declared under this outer most scope are shared among the different sc
 
 > *A realm provides the javascript program with its own single global execution environment.*
 
-The examples above use `const` which populates new defenitions in what is known as the "declarative environment", alongside `let`, `class`, `module`, `import`, and/or `function` declarations.
+The examples above use `const` which populates new definitions in what is known as the "declarative environment", alongside `let`, `class`, `module`, `import`, and/or `function` declarations.
 
-The rest of the possible ways for new defenitions fall under what is known as the "object environment",
+The rest of the possible ways for new definitions fall under what is known as the "object environment",
 which includes `var`, `function`, `async function`, `function*`, `async function*` (the `*` representing the generator function).
 
 Both the "declarative environment" and the "object environment" together comprise the mentioned global execution environment.
@@ -67,7 +67,7 @@ The "object environment", in addition to the above, also provides all of what ar
 
 After having a proper environment for javascript programs to execute within, they also need to be able to perform advanced operations, including but not limited to platform based ones. 
 
-The global object provides access to builtins such as different [intrinsics](https://tc39.es/ecma262/#sec-well-known-intrinsic-objects), objects, APIs, etc (whether platform specific or not) that enrich and utlize it to be richer and more useful.
+The global object provides access to builtins such as different [intrinsics](https://tc39.es/ecma262/#sec-well-known-intrinsic-objects), objects, APIs, etc (whether platform specific or not) that enrich and utilize it to be richer and more useful.
 
 > *The global object is referenced as `window` for browsers and `global` for NodeJS environments - in both `globalThis` can also be used.*
 
@@ -96,11 +96,11 @@ console.log(window.variable); // 2 (therefore they are accessible via the global
 
 The last thing that can be associated with a realm is the javascript code that runs within the execution environment of that realm.
 
-Any changes/alternations/updates to the execution environment, the global object or anything that is derived under a realm is also accossiated exclusivly with that realm.
+Any changes/alternations/updates to the execution environment, the global object or anything that is derived under a realm is also accossiated exclusively with that realm.
 
-## Grasp the concept of what really realms are
+## Grasp the concept of what realms really are
 
-Congratz for making it through the boring technical defention part - now's the less formal part where it'll all click!
+Congratz for making it through the boring technical defintion part - now's the less formal part where it'll all click!
 
 ### Realms in "real life"
 
@@ -112,7 +112,7 @@ In the browser, by default there is only one realm and that is the top main real
 
 As we just learned, the web app lives within that realm which provides it with a global execution environment, an outer most scope and a global object that grants access to different intrinsic objects, platform specific APIs, etc.
 
-However, a new realm can be created to be living within the top main realm and that realm will have **its own seperate and unique set of everything mentioned above**.
+However, a new realm can be created to be living within the top main realm and that realm will have **its own separate and unique set of everything mentioned above**.
 
 In the browser that can be achieved in different ways. Web workers, iframes, service workers, etc - all of those rise up when created with their own realm.
 
@@ -129,19 +129,19 @@ If for example we load the following website:
 </html>
 ```
 
-Than there are two different realms - the top main realm, and the new realm within the iframe, so that:
+Then there are two different realms - the top main realm, and the new realm within the iframe, so that:
 
 ```javascript
 const ifr = document.body.appendChild(document.createElement('iframe')).contentWindow;
 ```
 
-1. Each realm has its own unique identity with a unique global object and a global execution environment:
+Each realm has its own unique identity with a unique global object and a global execution environment:
 
 ```javascript
 window === ifr.contentWindow // false
 ```
 
-2. Each realm has its own set of intrinsic objects and platform based APIs:
+And each realm has its own set of intrinsic objects and platform based APIs:
 
 ```javascript
 window.fetch === ifr.contentWindow.fetch // false
@@ -149,14 +149,20 @@ window.Array === ifr.contentWindow.Array // false
 ```
 
 ```html
-<script> window.top_array = []; </script>
-<iframe> 
-    <script> window.top.iframe_array = []; </script> 
-</iframe>
-<script>
-    // top_array and iframe_array were born in different realms
-    Object.getPrototypeOf(window.iframe_array) === Object.getPrototypeOf(window.top_array) // false
-</script>
+<html>
+    <script> 
+        window.top_array = []; 
+    </script>
+    <iframe> 
+        <script> 
+            window.top.iframe_array = []; 
+        </script> 
+    </iframe>
+    <script>
+        // top_array and iframe_array were born in different realms
+        Object.getPrototypeOf(window.iframe_array) === Object.getPrototypeOf(window.top_array) // false
+    </script>
+</html>
 ```
 
 ### Cross realms access
@@ -168,3 +174,4 @@ It can be used for new realms of iframes or tabs (`open()` API), however access 
 Realms created within web workers or service workers are not accessible in such manner.
 
 > *To learn more about realms it is advised to keep track with the educational [awesome-javascript-realms-security](https://github.com/weizman/awesome-javascript-realms-security/) repo and to learn more about realms security make sure to check the [LavaMoat 🌋](https://github.com/lavamoat) tool [Snow-JS ❄️](https://github.com/lavamoat/snow).*
+
