@@ -7,7 +7,7 @@ description: An easy to understand explanation of what realms are in javascript
 keywords: research, realms, security, iframe, window, javascript
 ---
 
-As part of my long term research around browser javascript security, in the past year I have been focusing specifically on security for realms.
+As part of my long term research around browser javascript security, in the past year I have been focusing specifically on [security for realms ⭐️](https://github.com/weizman/awesome-javascript-realms-security).
 
 Due to the rise of dependencies based development, the javascript ecosystem (and the browser javascript ecosystem in particular) is far more vulnerable to what we know as "supply chain attacks" - and the ability to create new realms in javascript is being leveraged to successfully carry out such attacks against web apps (if you want to understand why is that you should read [my following post](/) about this, but it will be hard if you don't yet feel comfortable with the definition of a "realm").
 
