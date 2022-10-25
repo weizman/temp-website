@@ -61,7 +61,7 @@ which includes `var`, `function`, `async function`, `function*`, `async function
 
 Both the "declarative environment" and the "object environment" together are what the mentioned global execution environment is composed of.
 
-The "object environment", in addition to the above, also provides all of what are known as "builtin globals" due to its base object being what is known as the "global object".
+The "object environment", in addition to the above, also provides all of what are known as ["builtin global objects"](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects) due to its base object being what is known as the "global object".
 
 ### 2) A [global object](https://tc39.es/ecma262/#sec-global-object) (and [intrinsic objects](https://tc39.es/ecma262/#sec-well-known-intrinsic-objects))
 
@@ -79,6 +79,8 @@ To start with the non platform based ones, the global object exposes some builti
 
 In addition to those, the global object also exposes different platform specific APIs. 
 In the browser for example there are `fetch`, `alert`, `document` and more.
+
+The [`DOM`](https://developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model) for example is a well known browser specific API that is exposed via the global object, and here too every realm has its own unique separate DOM.
 
 In the context of the "global execution environment" section, in addition to these builtins, the global object also exports anything that was declared under the "object environment":
 
@@ -173,4 +175,10 @@ It can be used for new realms of iframes or tabs ([`open()`](https://developer.m
 
 Realms created within web workers or service workers are not accessible in such manner.
 
-> *To learn more about realms it is advised to keep track with the educational [awesome-javascript-realms-security](https://github.com/weizman/awesome-javascript-realms-security/) repo and to learn more about realms security make sure to check the [LavaMoat 🌋](https://github.com/lavamoat) tool [Snow-JS ❄️](https://github.com/lavamoat/snow).*
+## To sum up
+
+I wrote this content because I couldn't find any useful, accurate and understandable information on what realms are and what defines them. It was crucial to understand realms fully in order for me to dive deeper into the role of realms in supply chain attacks and security in general - I hope you find this useful as well.
+
+You can always catch up on my research and development of the field on the [awesome-javascript-realms-security](https://github.com/weizman/awesome-javascript-realms-security/) repo.
+
+I also recommend you learn more about [LavaMoat 🌋](https://github.com/lavamoat) tool [Snow-JS ❄️](https://github.com/lavamoat/snow) to further understand the defensive security effort around securing javascript realms.
