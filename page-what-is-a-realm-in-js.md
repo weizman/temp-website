@@ -85,11 +85,19 @@ The [`DOM`](https://developer.mozilla.org/en-US/docs/Web/API/Document_Object_Mod
 In the context of the "global execution environment" section, in addition to these builtins, the global object also exports anything that was declared under the "object environment":
 
 ```javascript
-const constant = 1; // `const` declrations fall under the "declarative environment"
-console.log(window.constant); // undefined (therefore they are not accessible via the global object)
+// `const` declrations fall under the "declarative environment"
+const constant = 1;
 
-var variable = 2; // `var` declrations fall under the "object environment"
-console.log(window.variable); // 2 (therefore they are accessible via the global object)
+// and therefore they are not accessible via the global object
+console.log(window.constant); // undefined
+
+// however,
+
+// `var` declrations fall under the "object environment"
+var variable = 2;
+
+// and therefore they are accessible via the global object
+console.log(window.variable); // 2
 ```
 
 > *Any platform specific objects and APIs are accessible via the global object along with all intrinsic objects and new properties declared by code.*
