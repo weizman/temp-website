@@ -171,7 +171,7 @@ window.Infinity === some_iframe.contentWindow.Infinity // true
 
 In the examples above we use the property [`contentWindow`](https://developer.mozilla.org/en-US/docs/Web/API/HTMLIFrameElement/contentWindow) to demonstrate how realms are unique and how they expose similar yet not identical objects. `contentWindow` is a property that exposes the global object (`window`) of another realm.
 
-It can be used for new realms of iframes or tabs ([`open()`](https://developer.mozilla.org/en-US/docs/Web/API/Window/open) API), however access can be very limited based on whether the accessing realm is in the same origin as the accessed realm or not.
+It can be used for new realms of iframes or tabs ([`open()`](https://developer.mozilla.org/en-US/docs/Web/API/Window/open) API), however access can be very limited based on whether the accessing realm is in the [same origin](https://developer.mozilla.org/en-US/docs/Web/Security/Same-origin_policy) as the accessed realm or not.
 
 Realms created within web workers or service workers are not accessible in such manner.
 
