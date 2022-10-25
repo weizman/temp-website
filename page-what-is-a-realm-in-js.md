@@ -67,11 +67,11 @@ The "object environment", in addition to the above, also provides all of what ar
 
 After having a proper environment for javascript programs to execute within, they also need to be able to perform advanced operations, including but not limited to platform based ones. 
 
-The global object provides access to builtins such as different primitives, [intrinsics](https://tc39.es/ecma262/#sec-well-known-intrinsic-objects), objects, APIs, etc (whether platform specific or not) that enrich and utlize it to be richer and more useful.
+The global object provides access to builtins such as different [intrinsics](https://tc39.es/ecma262/#sec-well-known-intrinsic-objects), objects, APIs, etc (whether platform specific or not) that enrich and utlize it to be richer and more useful.
 
 > *The global object is referenced as `window` for browsers and `global` for NodeJS environments - in both `globalThis` can also be used.*
 
-To start with the non platform based ones, the global object exposes some builtin primitives and intrinsic objects: 
+To start with the non platform based ones, the global object exposes some builtin intrinsic objects: 
 1. [values](https://tc39.es/ecma262/#sec-value-properties-of-the-global-object) (e.g. `undefined`, `Infinity`, etc);
 2. [functions](https://tc39.es/ecma262/#sec-function-properties-of-the-global-object) (e.g. `eval`, `parseInt`, etc);
 3. [constructors](https://tc39.es/ecma262/#sec-constructor-properties-of-the-global-object) (e.g. `Boolean`, `Date`, etc);
@@ -110,10 +110,61 @@ Now that we defined what realms are, it's time to "put a face to the name".
 
 In the browser, by default there is only one realm and that is the top main realm. That is the realm where the web app that the browser loaded lives.
 
-As we just learned, the web app lives within that realm which provides it with a global execution environment, an outer most scope and a global object that grants access to different primitives, intrinsic objects, platform specific APIs, etc.
+As we just learned, the web app lives within that realm which provides it with a global execution environment, an outer most scope and a global object that grants access to different intrinsic objects, platform specific APIs, etc.
 
 However, a new realm can be created to be living within the top main realm and that realm will have **its own seperate and unique set of everything mentioned above**.
 
 In the browser that can be achieved in different ways. Web workers, iframes, service workers, etc - all of those rise up when created with their own realm.
+
+The uniqueness of each realm is a great way to better grasp the idea of what a realm is.
+
+If for example we load the following website:
+
+```html
+<html>
+    <head></head>
+    <body>
+        <iframe></iframe>
+    </body>
+</html>
+```
+
+Than there are two different realms - the top main realm, and the new realm within the iframe, so that:
+
+```javascript
+const ifr = document.body.appendChild(document.createElement('iframe')).contentWindow;
+```
+
+1. Each realm has its own unique identity with a unique global object and a global execution environment:
+
+```javascript
+window === ifr.contentWindow // false
+```
+
+2. Each realm has its own set of intrinsic objects and platform based APIs:
+
+```javascript
+window.fetch === ifr.contentWindow.fetch // false
+window.Array === ifr.contentWindow.Array // false
+```
+
+```html
+<script> window.top_array = []; </script>
+<iframe> 
+    <script> window.top.iframe_array = []; </script> 
+</iframe>
+<script>
+    // top_array and iframe_array were born in different realms
+    Object.getPrototypeOf(window.iframe_array) === Object.getPrototypeOf(window.top_array) // false
+</script>
+```
+
+### Cross realms access
+
+In the examples above we use the property `contentWindow` to demonstrate how realms are unique and how they expose similar yet not identical objects. `contentWindow` is a property that exposes the global object (`window`) of another realm.
+
+It can be used for new realms of iframes or tabs (`open()` API), however access can be very limited based on whether the accessing realm is in the same origin as the accessed realm or not.
+
+Realms created within web workers or service workers are not accessible in such manner.
 
 > *To learn more about realms it is advised to keep track with the educational [awesome-javascript-realms-security](https://github.com/weizman/awesome-javascript-realms-security/) repo and to learn more about realms security make sure to check the [LavaMoat 🌋](https://github.com/lavamoat) tool [Snow-JS ❄️](https://github.com/lavamoat/snow).*
