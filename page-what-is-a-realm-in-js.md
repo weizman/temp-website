@@ -124,6 +124,10 @@ As we just learned, the web app lives within that realm which provides it with a
 
 However, a new realm can be created to live within the top main realm, and that realm will have **its own separate and unique set of everything mentioned above**.
 
+Whether there's only one realm or a few, realms co-exist within what is known as [agent](https://tc39.es/ecma262/#sec-agents)s and agents co-exist within what is known as [agent cluster](https://tc39.es/ecma262/#sec-agent-clusters)s. 
+Try not to worry about these two for now, might cover those in a second post.
+For now, all you need to know about agents is the "1-to-many" relationship it has with realms and that realms live within their parent agent.
+
 In the browser, that can be achieved in different ways. [Web workers](https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API), [iframes](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/iframe), [service workers](https://developer.mozilla.org/en-US/docs/Web/API/Service_Worker_API), etc - when any of those are created they rise up with their own dedicated realm.
 
 #### The uniqueness of each realm is a great way to better grasp the idea of what a realm is.
@@ -227,7 +231,9 @@ In the examples above we use the property [`contentWindow`](https://developer.mo
 
 It can be used for new realms of iframes or tabs ([`open()`](https://developer.mozilla.org/en-US/docs/Web/API/Window/open) API), however, sync access can be very limited based on whether the accessing realm is in the [same origin](https://developer.mozilla.org/en-US/docs/Web/Security/Same-origin_policy) as the accessed realm or not.
 
-Realms created within web workers or service workers are not accessible in such a manner.
+It all comes down to the fact that same origin realms are children of the same agent whereas cross origin realms are children of different agents by definition.
+
+Realms created within web workers or service workers are not accessible in such a sync manner at all.
 
 All realms are accessible through more limiting async communication channels such as [postMessage()](https://developer.mozilla.org/en-US/docs/Web/API/Window/postMessage) API.
 
