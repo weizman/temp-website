@@ -9,6 +9,21 @@
       const item = items[Math.floor(Math.random()*items.length)];
       document.body.classList.add('theme-base-' + item);
     </script>
+    <script>
+      window.addEventListener('load', () => {
+        document.querySelectorAll('h1,h2,h3,h4,h5,h6,h7').forEach(h => {
+            h.oldOpacity = h.style.opacity;
+            h.newOpacity = 0.5;
+            h.oldCursor = h.style.cursor;
+            h.newCursor = 'pointer';
+            h.addEventListener('click', () => location.hash = h.id);
+            h.addEventListener('mouseover', () => h.style.opacity = h.newOpacity);
+            h.addEventListener('mouseover', () => h.style.cursor = h.newCursor);
+            h.addEventListener('mouseout', () => h.style.opacity = h.oldOpacity);
+            h.addEventListener('mouseout', () => h.style.cursor = h.oldCursor);
+        });
+      });
+    </script>
 
 
     {% include sidebar.html %}
