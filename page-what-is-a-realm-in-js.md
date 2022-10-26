@@ -9,24 +9,24 @@ keywords: research, realms, security, iframe, window, JavaScript
 
 As part of my long term research around browser JavaScript security, in the past year I have been focusing specifically on [security for realms ⭐️](https://github.com/weizman/awesome-JavaScript-realms-security).
 
-Due to the rise of dependencies based development, the JavaScript ecosystem (and the browser JavaScript ecosystem in particular) is far more vulnerable to what we know as ["supply chain attacks"](https://en.wikipedia.org/wiki/Supply_chain_attack) - and the ability to create new realms in JavaScript is being leveraged to successfully carry out such attacks against web apps (if you want to understand why is that I recommend reading [my previous post](https://twitter.com/WeizmanGal/status/1576942106156810240) on this).
+Due to the rise of dependencies-based development, the JavaScript ecosystem (and the browser JavaScript ecosystem in particular) is far more vulnerable to what we know as ["supply chain attacks"](https://en.wikipedia.org/wiki/Supply_chain_attack) - and the ability to create new realms in JavaScript is being leveraged to successfully carry out such attacks against web apps (if you want to understand why that is I recommend reading [my previous post](https://twitter.com/WeizmanGal/status/1576942106156810240) on this).
 
-The realms security field is far from being properly addressed, and I hope to gradually fix that starting buy introducing the first open source realms security tool - [Snow-JS ❄️](https://github.com/lavamoat/snow) by [LavaMoat 🌋](https://github.com/lavamoat) (stay tuned).
+The realms security field is far from being properly addressed, and I hope to gradually fix that starting by introducing the first open source realms security tool - [Snow-JS ❄️](https://github.com/lavamoat/snow) by [LavaMoat 🌋](https://github.com/lavamoat) (stay tuned).
 
-But in order for any of this to make sense, we must first understand **what realms are** - and apparently that's not an easy question to answer in a correct yet an **informal** and educational way.
+But in order for any of this to make sense, we must first understand **what realms are** - and apparently that's not an easy question to answer in a correct, yet **informal** and educational way.
 
-> *NOTE: The context of this post is focused around browser JavaScript, therefore it may apply to JavaScript in general but that is not guaranteed.*
+> *NOTE: The context of this post is focused around browser JavaScript, therefore it may apply to JavaScript in general, but that is not guaranteed.*
 
 ## A [realm](https://tc39.es/ecma262/#sec-code-realms) - the world where JavaScript lives 
 
-You can informally think of a realm as basically an ecosystem in which a JavaScript program lives. And just like any other ecosystem, it includes different elements that JavaScript programs must get in order to exist within it.
+You can informally think of a realm as basically an ecosystem in which a JavaScript program lives. And just like any other ecosystem, it includes different elements that JavaScript programs must have in order to exist within it.
 
 So - what do JavaScript programs need?
 
 ### 1) A [global execution environment](https://tc39.es/ecma262/#sec-global-environment-records)
 
 In JavaScript, there can be many different scripts running in the same environment. 
-Scripts can form scopes which are canonical execution environments where inner scopes can access variables of outer scopes, but not the other way around:
+Scripts can form [scopes](https://developer.mozilla.org/en-US/docs/Glossary/Scope) which are canonical execution environments in which values and expressions are "visible" or can be referenced. Scopes can also be layered in a hierarchy, so that child scopes have access to parent scopes, but not vice versa:
 
 ```html
 <script>
@@ -40,11 +40,12 @@ Scripts can form scopes which are canonical execution environments where inner s
 </script>
 ```
 
-In the example above we show how a scope can be defined using JavaScript, but what if we write a JavaScript program that also declares variables, but does so without actually declaring a scope?
+In the example above we show how a scope can be defined using JavaScript. 
+But what if we write a JavaScript program that also declares variables, and does so without actually declaring a scope?
 
-This is known as "top level declarations" - everything that is declared (or runs in general) outside of any defined scopes is under the default [outer most scope](https://tc39.es/ecma262/#sec-global-environment-records), which is the **global** execution environment.
+This is known as a "top level declaration" - everything that is declared (or runs in general) outside of any defined scope is under the default [outer-most scope](https://tc39.es/ecma262/#sec-global-environment-records), which is the **global** execution environment.
 
-Variables declared under this outer most scope are shared among the different scripts under the global execution environment:
+Variables declared under this outer-most scope are shared among the different scripts under the global execution environment:
 
 ```html
 <script> const x = 1; </script>
@@ -54,24 +55,23 @@ Variables declared under this outer most scope are shared among the different sc
 
 > *A realm provides the JavaScript program with its own single global execution environment.*
 
-The examples above use `const` which populates new definitions in what is known as the ["declarative environment"](https://tc39.es/ecma262/#sec-declarative-environment-records), alongside `let`, `class`, `module`, `import`, and/or `function` declarations.
+The examples above use `const`, which populates new definitions in what is known as the ["declarative environment"](https://tc39.es/ecma262/#sec-declarative-environment-records), alongside `let`, `class`, `module`, `import`, and/or `function` declarations.
 
-The rest of the possible ways for new definitions fall under what is known as the ["object environment"](https://tc39.es/ecma262/#sec-object-environment-records),
-which includes `var`, `function`, `async function`, `function*`, `async function*` (the `*` representing the generator function).
+All other ways of creating new definitions fall under what is knowns as the ["object environment"](https://tc39.es/ecma262/#sec-object-environment-records), which includes `var`, `function`, `async function`, `function*`, `async function*` (the `*` representing the generator function).
 
-Both the "declarative environment" and the "object environment" together are what the mentioned global execution environment is composed of.
+Both the “declarative environment” and the “object environment” together make up the aforementioned global execution environment.
 
-The "object environment", in addition to the above, also provides all of what are known as ["builtin global objects"](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects) due to its base object being what is known as the "global object".
+The "object environment", in addition to the above, also provides all of what are known as ["built-in global objects"](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects) due to its base object being what is known as the "global object".
 
 ### 2) A [global object](https://tc39.es/ecma262/#sec-global-object) (and [intrinsic objects](https://tc39.es/ecma262/#sec-well-known-intrinsic-objects))
 
-After having a proper environment for JavaScript programs to execute within, they also need to be able to perform advanced operations, including but not limited to platform based ones. 
+After having a proper environment in which JavaScript programs can execute, they also need to be able to perform advanced operations, including but not limited to platform based ones. 
 
-The global object provides access to builtins such as different intrinsics, objects, APIs, etc (whether platform specific or not) that enrich and utilize it to be richer and more useful.
+The global object provides access to built-ins such as different intrinsics, objects, APIs, etc (whether platform specific or not) that enrich and enable it to be fuller-featured and more useful.
 
-> *The global object is referenced as [`window`](https://developer.mozilla.org/en-US/docs/Web/API/Window) for browsers and [`global`](https://nodejs.org/api/globals.html#globals_global) for NodeJS environments - in both [`globalThis`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/globalThis) can also be used.*
+> *The global object is referenced as [`window`](https://developer.mozilla.org/en-US/docs/Web/API/Window) for browsers and [`global`](https://nodejs.org/api/globals.html#globals_global) for NodeJS environments; in both, [`globalThis`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/globalThis) can also be used.*
 
-To start with the non platform based ones, the global object exposes some builtin intrinsic objects: 
+To start with the non platform based ones, the global object exposes some built-in intrinsic objects: 
 1. [values](https://tc39.es/ecma262/#sec-value-properties-of-the-global-object) (e.g. `undefined`, `Infinity`, etc);
 2. [functions](https://tc39.es/ecma262/#sec-function-properties-of-the-global-object) (e.g. `eval`, `parseInt`, etc);
 3. [constructors](https://tc39.es/ecma262/#sec-constructor-properties-of-the-global-object) (e.g. `Boolean`, `Date`, etc);
@@ -80,9 +80,9 @@ To start with the non platform based ones, the global object exposes some builti
 In addition to those, the global object also exposes different platform specific APIs. 
 In the browser for example there are `fetch`, `alert`, `document` and more.
 
-The [`DOM`](https://developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model) for example is a well known browser specific API that is exposed via the global object, and here too every realm has its own unique separate DOM.
+The [`DOM`](https://developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model), for example is a well known browser specific API that is exposed via the global object, and here too every realm has its own unique separate DOM.
 
-In the context of the "global execution environment" section, in addition to these builtins, the global object also exports anything that was declared under the "object environment":
+In the context of the "global execution environment" section, in addition to these built-ins, the global object also exports anything that was declared under the "object environment":
 
 ```JavaScript
 // `const` declrations fall under the "declarative environment"
@@ -106,11 +106,11 @@ console.log(window.variable); // 2
 
 The last thing that can be associated with a realm is the JavaScript code that runs within the execution environment of that realm.
 
-Any changes/alternations/updates to the execution environment, the global object or anything that is derived under a realm is also accossiated exclusively with that realm.
+Any changes/alternations/updates to the execution environment, the global object or anything that is derived under a realm, is also associated exclusively with that realm.
 
 ## Grasp the concept of what realms really are
 
-Congratz 🎉 for making it through the boring technical defintion part - now's the less formal part where it'll all click!
+Congratz 🎉 for making it through the boring technical definition part - now's the less formal part where it'll all click!
 
 ### Realms in "real life"
 
@@ -120,11 +120,11 @@ Now that we defined what realms are, it's time to "put a face to the name".
 
 In the browser, by default there is only one realm and that is the [top](https://developer.mozilla.org/en-US/docs/Web/API/Window/top) main realm. That is the realm where the web app that the browser loaded lives.
 
-As we just learned, the web app lives within that realm which provides it with a global execution environment, an outer most scope and a global object that grants access to different intrinsic objects, platform specific APIs, etc.
+As we just learned, the web app lives within that realm which provides it with a global execution environment, an outer-most scope and a global object that grants access to different intrinsic objects, platform specific APIs, etc.
 
-However, a new realm can be created to be living within the top main realm and that realm will have **its own separate and unique set of everything mentioned above**.
+However, a new realm can be created to live within the top main realm, and that realm will have **its own separate and unique set of everything mentioned above**.
 
-In the browser that can be achieved in different ways. [Web workers](https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API), [iframes](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/iframe), [service workers](https://developer.mozilla.org/en-US/docs/Web/API/Service_Worker_API), etc - when any of those are created they rise up with their own dedicated realm.
+In the browser, that can be achieved in different ways. [Web workers](https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API), [iframes](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/iframe), [service workers](https://developer.mozilla.org/en-US/docs/Web/API/Service_Worker_API), etc - when any of those are created they rise up with their own dedicated realm.
 
 #### The uniqueness of each realm is a great way to better grasp the idea of what a realm is.
 
@@ -169,7 +169,7 @@ window.Array === some_iframe.contentWindow.Array // false
 </html>
 ```
 
-[Primitives](https://developer.mozilla.org/en-US/docs/Glossary/Primitive) however are identical across realms:
+[Primitives](https://developer.mozilla.org/en-US/docs/Glossary/Primitive), however, are identical across realms:
 
 ```JavaScript
 window.Infinity === some_iframe.contentWindow.Infinity // true
@@ -181,7 +181,7 @@ Identity discontinuity is a state that can only be achieved due to the existence
 
 To demonstrate the concept properly we'll use the [`instanceof` operator](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/instanceof).
 
-Imagine we have a third party service that creats blue buttons and is loaded via an iframe (for whatever reason), so that the web app consumes its services as follows:
+Imagine we have a third party service that creates blue buttons and is loaded via an iframe (for whatever reason), so that the web app consumes its services as follows:
 
 ```html
 <html>
@@ -207,13 +207,13 @@ Imagine we have a third party service that creats blue buttons and is loaded via
 </html>
 ```
 
-With `instanceof` you can tell whether what's on the left of the operator is an instace of what's on its right. So for example, since `button` elements are instances of the `HTMLButtonElement` interface, the result for `document.createElement('button') instanceof HTMLButtonElement` is `true`, whereas the result for `document.createElement('div') instanceof HTMLButtonElement` is `false` - because a `div` element inherits from `HTMLDivElement` and not the `HTMLButtonElement` obviously.
+With `instanceof`, you can tell whether what's on the left of the operator is an instance of what's on its right. So for example, since `button` elements are instances of the `HTMLButtonElement` interface, the result for `document.createElement('button') instanceof HTMLButtonElement` is `true`, whereas the result for `document.createElement('div') instanceof HTMLButtonElement` is `false` - because a `div` element inherits from `HTMLDivElement` and not the `HTMLButtonElement`, obviously.
 
 However, in our example the `instanceof` check will return `false` and the custom error will be thrown - even though `blueButton` inherits from `HTMLButtonElement`.
 
-How's that possible? This happens because inheriting from `HTMLButtonElement` in general is not enough to count as an "instace of" - **the tested object must be an instance of the interface from the specific realm it came from in the first place.**
+How's that possible? This happens because inheriting from `HTMLButtonElement` in general is not enough to count as an "instance of" - **the tested object must be an instance of the interface from the specific realm it came from in the first place.**
 
-The intentention of the `instanceof` check originally was to make sure that the blue buttons third party service really provided a button element and nothing else, but in reality the blue button is created in a different realm from where the `HTMLButtonElement` interface comes from and therefore the `instaceof` check will forever return `false`.
+The intention of the `instanceof` check originally was to make sure that the blue buttons third party service really provided a button element and nothing else, but in reality the blue button is created in a different realm from where the `HTMLButtonElement` interface comes from and therefore the `instaceof` check will forever return `false`.
 
 The described bug is due to the introduction of identity discontinuity to the code which goes to show how unique are realms and everything they provide.
 
@@ -225,16 +225,16 @@ Solving identity discontinuity is not always trivial. In the example above, chan
 
 In the examples above we use the property [`contentWindow`](https://developer.mozilla.org/en-US/docs/Web/API/HTMLIFrameElement/contentWindow) to demonstrate how realms are unique and how they expose similar yet not identical objects. `contentWindow` is a property that exposes the global object (`window`) of another realm for sync interaction.
 
-It can be used for new realms of iframes or tabs ([`open()`](https://developer.mozilla.org/en-US/docs/Web/API/Window/open) API), however sync access can be very limited based on whether the accessing realm is in the [same origin](https://developer.mozilla.org/en-US/docs/Web/Security/Same-origin_policy) as the accessed realm or not.
+It can be used for new realms of iframes or tabs ([`open()`](https://developer.mozilla.org/en-US/docs/Web/API/Window/open) API), however, sync access can be very limited based on whether the accessing realm is in the [same origin](https://developer.mozilla.org/en-US/docs/Web/Security/Same-origin_policy) as the accessed realm or not.
 
-Realms created within web workers or service workers are not accessible in such manner.
+Realms created within web workers or service workers are not accessible in such a manner.
 
 All realms are accessible through more limiting async communication channels such as [postMessage()](https://developer.mozilla.org/en-US/docs/Web/API/Window/postMessage) API.
 
-## To sum up
+## In summation
 
 I came up with this content because I couldn't find any useful, accurate and understandable information on what realms are and what defines them. It was crucial to understand realms fully in order for me to dive deeper into the role of realms in supply chain attacks and security in general - I hope you find this useful as well.
 
 You can always catch up on my research and development of the field on the [awesome-JavaScript-realms-security](https://github.com/weizman/awesome-JavaScript-realms-security/) repo.
 
-I also recommend you learn more about [LavaMoat 🌋](https://github.com/lavamoat) tool [Snow-JS ❄️](https://github.com/lavamoat/snow) to further understand the defensive security effort around securing JavaScript realms.
+I also recommend you learn more about the [LavaMoat 🌋](https://github.com/lavamoat) tool [Snow-JS ❄️](https://github.com/lavamoat/snow) to further understand the defensive security effort around securing JavaScript realms.
