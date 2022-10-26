@@ -63,6 +63,8 @@ Both the “declarative environment” and the “object environment” together
 
 The "object environment", in addition to the above, also provides all of what are known as ["built-in global objects"](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects) due to its base object being what is known as the "global object".
 
+> Be aware of that the effect different declarations statements have over the global object through the "object environment" drifts from the above explanation when JavaScript code executes under `use strict;` mode and/or when it executes as module code rather than script code!
+
 ### 2) A [global object](https://tc39.es/ecma262/#sec-global-object) (and [intrinsic objects](https://tc39.es/ecma262/#sec-well-known-intrinsic-objects))
 
 After having a proper environment in which JavaScript programs can execute, they also need to be able to perform advanced operations, including but not limited to platform based ones. 
