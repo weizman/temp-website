@@ -239,6 +239,8 @@ Realms created within web workers or service workers are not accessible in such 
 
 All realms are accessible through more limiting async communication channels such as [postMessage()](https://developer.mozilla.org/en-US/docs/Web/API/Window/postMessage) API.
 
+> *It is worth mentioning that different and interesting complimentary solutions to some of the limitations described here will be introduced shortly once the famous [shadow realms proposal](https://github.com/tc39/proposal-shadowrealm/blob/main/explainer.md) lands - worth staying tuned on that!*
+
 ## In summation
 
 I came up with this content because I couldn't find any useful, accurate and understandable information on what realms are and what defines them. It was crucial to understand realms fully in order for me to dive deeper into the role of realms in supply chain attacks and security in general - I hope you find this useful as well.
