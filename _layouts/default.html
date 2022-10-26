@@ -13,7 +13,7 @@
       window.addEventListener('load', () => {
         document.querySelectorAll('h1,h2,h3,h4,h5,h6,h7,em').forEach(h => {
             if (h.tagName === 'EM') {
-              h.id = h.textContent.join('-');
+              h.id = h.textContent.split(' ').join('-');
             }
             h.oldOpacity = h.style.opacity;
             h.newOpacity = 0.5;
