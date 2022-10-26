@@ -10,7 +10,7 @@
       document.body.classList.add('theme-base-' + item);
     </script>
     <script>
-      window.addEventListener('load', () => {
+      document.addEventListener('DOMContentLoaded', () => {
         document.querySelectorAll('h1,h2,h3,h4,h5,h6,h7,em').forEach(h => {
             if (h.tagName === 'EM') {
               h.id = h.textContent.split(' ').join('-');
