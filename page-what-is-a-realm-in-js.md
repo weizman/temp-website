@@ -15,7 +15,7 @@ The realms security field is far from being properly addressed, and I hope to gr
 
 But in order for any of this to make sense, we must first understand **what realms are** - and apparently that's not an easy question to answer in a correct, yet **informal** and educational way.
 
-> *NOTE: The context of this post is focused around browser JavaScript, therefore it may apply to JavaScript in general, but that is not guaranteed.*
+> *The context of this post is focused around browser JavaScript, therefore it may apply to JavaScript in general, but that is not guaranteed.*
 
 ## A [realm](https://tc39.es/ecma262/#sec-code-realms) - the world where JavaScript lives 
 
