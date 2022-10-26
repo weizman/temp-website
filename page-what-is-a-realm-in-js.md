@@ -1,31 +1,31 @@
 ---
 layout: page
-title: What is a realm in javascript?
+title: What is a realm in JavaScript?
 url: https://weizman.github.io/
 date: 28/10/2022
-description: An easy to understand explanation of what realms are in javascript
-keywords: research, realms, security, iframe, window, javascript
+description: An easy to understand explanation of what realms are in JavaScript
+keywords: research, realms, security, iframe, window, JavaScript
 ---
 
-As part of my long term research around browser javascript security, in the past year I have been focusing specifically on [security for realms ⭐️](https://github.com/weizman/awesome-javascript-realms-security).
+As part of my long term research around browser JavaScript security, in the past year I have been focusing specifically on [security for realms ⭐️](https://github.com/weizman/awesome-JavaScript-realms-security).
 
-Due to the rise of dependencies based development, the javascript ecosystem (and the browser javascript ecosystem in particular) is far more vulnerable to what we know as ["supply chain attacks"](https://en.wikipedia.org/wiki/Supply_chain_attack) - and the ability to create new realms in javascript is being leveraged to successfully carry out such attacks against web apps (if you want to understand why is that I recommend reading [my previous post](https://twitter.com/WeizmanGal/status/1576942106156810240) on this).
+Due to the rise of dependencies based development, the JavaScript ecosystem (and the browser JavaScript ecosystem in particular) is far more vulnerable to what we know as ["supply chain attacks"](https://en.wikipedia.org/wiki/Supply_chain_attack) - and the ability to create new realms in JavaScript is being leveraged to successfully carry out such attacks against web apps (if you want to understand why is that I recommend reading [my previous post](https://twitter.com/WeizmanGal/status/1576942106156810240) on this).
 
 The realms security field is far from being properly addressed, and I hope to gradually fix that starting buy introducing the first open source realms security tool - [Snow-JS ❄️](https://github.com/lavamoat/snow) by [LavaMoat 🌋](https://github.com/lavamoat) (stay tuned).
 
 But in order for any of this to make sense, we must first understand **what realms are** - and apparently that's not an easy question to answer in a correct yet an **informal** and educational way.
 
-> *NOTE: The context of this post is focused around browser javascript, therefore it may apply to javascript in general but that is not guaranteed.*
+> *NOTE: The context of this post is focused around browser JavaScript, therefore it may apply to JavaScript in general but that is not guaranteed.*
 
-## A [realm](https://tc39.es/ecma262/#sec-code-realms) - the world where javascript lives 
+## A [realm](https://tc39.es/ecma262/#sec-code-realms) - the world where JavaScript lives 
 
-You can informally think of a realm as basically an ecosystem in which a javascript program lives. And just like any other ecosystem, it includes different elements that javascript programs must get in order to exist within it.
+You can informally think of a realm as basically an ecosystem in which a JavaScript program lives. And just like any other ecosystem, it includes different elements that JavaScript programs must get in order to exist within it.
 
-So - what do javascript programs need?
+So - what do JavaScript programs need?
 
 ### 1) A [global execution environment](https://tc39.es/ecma262/#sec-global-environment-records)
 
-In javascript, there can be many different scripts running in the same environment. 
+In JavaScript, there can be many different scripts running in the same environment. 
 Scripts can form scopes which are canonical execution environments where inner scopes can access variables of outer scopes, but not the other way around:
 
 ```html
@@ -40,7 +40,7 @@ Scripts can form scopes which are canonical execution environments where inner s
 </script>
 ```
 
-In the example above we show how a scope can be defined using javascript, but what if we write a javascript program that also declares variables, but does so without actually declaring a scope?
+In the example above we show how a scope can be defined using JavaScript, but what if we write a JavaScript program that also declares variables, but does so without actually declaring a scope?
 
 This is known as "top level declarations" - everything that is declared (or runs in general) outside of any defined scopes is under the default [outer most scope](https://tc39.es/ecma262/#sec-global-environment-records), which is the **global** execution environment.
 
@@ -52,7 +52,7 @@ Variables declared under this outer most scope are shared among the different sc
 <script> const z = x + y; // 3 </script>
 ```
 
-> *A realm provides the javascript program with its own single global execution environment.*
+> *A realm provides the JavaScript program with its own single global execution environment.*
 
 The examples above use `const` which populates new definitions in what is known as the ["declarative environment"](https://tc39.es/ecma262/#sec-declarative-environment-records), alongside `let`, `class`, `module`, `import`, and/or `function` declarations.
 
@@ -65,7 +65,7 @@ The "object environment", in addition to the above, also provides all of what ar
 
 ### 2) A [global object](https://tc39.es/ecma262/#sec-global-object) (and [intrinsic objects](https://tc39.es/ecma262/#sec-well-known-intrinsic-objects))
 
-After having a proper environment for javascript programs to execute within, they also need to be able to perform advanced operations, including but not limited to platform based ones. 
+After having a proper environment for JavaScript programs to execute within, they also need to be able to perform advanced operations, including but not limited to platform based ones. 
 
 The global object provides access to builtins such as different intrinsics, objects, APIs, etc (whether platform specific or not) that enrich and utilize it to be richer and more useful.
 
@@ -84,7 +84,7 @@ The [`DOM`](https://developer.mozilla.org/en-US/docs/Web/API/Document_Object_Mod
 
 In the context of the "global execution environment" section, in addition to these builtins, the global object also exports anything that was declared under the "object environment":
 
-```javascript
+```JavaScript
 // `const` declrations fall under the "declarative environment"
 const constant = 1;
 
@@ -102,9 +102,9 @@ console.log(window.variable); // 2
 
 > *Any platform specific objects and APIs are accessible via the global object along with all intrinsic objects and new properties declared by code.*
 
-### 3) Javascript itself
+### 3) JavaScript itself
 
-The last thing that can be associated with a realm is the javascript code that runs within the execution environment of that realm.
+The last thing that can be associated with a realm is the JavaScript code that runs within the execution environment of that realm.
 
 Any changes/alternations/updates to the execution environment, the global object or anything that is derived under a realm is also accossiated exclusively with that realm.
 
@@ -114,7 +114,7 @@ Congratz 🎉 for making it through the boring technical defintion part - now's 
 
 ### Realms in "real life"
 
-As mentioned before, realms is a javascript concept and is not exclusive to browsers, but I will stick to browsers in my explanation.
+As mentioned before, realms is a JavaScript concept and is not exclusive to browsers, but I will stick to browsers in my explanation.
 
 Now that we defined what realms are, it's time to "put a face to the name".
 
@@ -141,13 +141,13 @@ If for example we load the following website:
 
 Then there are two different realms - the top main realm, and the new realm within the iframe, so that each realm has its own unique identity with a unique global object and a global execution environment:
 
-```javascript
+```JavaScript
 window === some_iframe.contentWindow // false
 ```
 
 And each realm has its own set of intrinsic objects and platform based APIs:
 
-```javascript
+```JavaScript
 window.fetch === some_iframe.contentWindow.fetch // false
 window.Array === some_iframe.contentWindow.Array // false
 ```
@@ -171,7 +171,7 @@ window.Array === some_iframe.contentWindow.Array // false
 
 [Primitives](https://developer.mozilla.org/en-US/docs/Glossary/Primitive) however are identical across realms:
 
-```javascript
+```JavaScript
 window.Infinity === some_iframe.contentWindow.Infinity // true
 ```
 
@@ -235,6 +235,6 @@ All realms are accessible through more limiting async communication channels suc
 
 I came up with this content because I couldn't find any useful, accurate and understandable information on what realms are and what defines them. It was crucial to understand realms fully in order for me to dive deeper into the role of realms in supply chain attacks and security in general - I hope you find this useful as well.
 
-You can always catch up on my research and development of the field on the [awesome-javascript-realms-security](https://github.com/weizman/awesome-javascript-realms-security/) repo.
+You can always catch up on my research and development of the field on the [awesome-JavaScript-realms-security](https://github.com/weizman/awesome-JavaScript-realms-security/) repo.
 
-I also recommend you learn more about [LavaMoat 🌋](https://github.com/lavamoat) tool [Snow-JS ❄️](https://github.com/lavamoat/snow) to further understand the defensive security effort around securing javascript realms.
+I also recommend you learn more about [LavaMoat 🌋](https://github.com/lavamoat) tool [Snow-JS ❄️](https://github.com/lavamoat/snow) to further understand the defensive security effort around securing JavaScript realms.
