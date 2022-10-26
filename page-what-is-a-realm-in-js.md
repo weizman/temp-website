@@ -84,7 +84,7 @@ The [`DOM`](https://developer.mozilla.org/en-US/docs/Web/API/Document_Object_Mod
 
 In the context of the "global execution environment" section, in addition to these built-ins, the global object also exports anything that was declared under the "object environment":
 
-```JavaScript
+```javascript
 // `const` declrations fall under the "declarative environment"
 const constant = 1;
 
@@ -141,13 +141,13 @@ If for example we load the following website:
 
 Then there are two different realms - the top main realm, and the new realm within the iframe, so that each realm has its own unique identity with a unique global object and a global execution environment:
 
-```JavaScript
+```javascript
 window === some_iframe.contentWindow // false
 ```
 
 And each realm has its own set of intrinsic objects and platform based APIs:
 
-```JavaScript
+```javascript
 window.fetch === some_iframe.contentWindow.fetch // false
 window.Array === some_iframe.contentWindow.Array // false
 ```
@@ -171,7 +171,7 @@ window.Array === some_iframe.contentWindow.Array // false
 
 [Primitives](https://developer.mozilla.org/en-US/docs/Glossary/Primitive), however, are identical across realms:
 
-```JavaScript
+```javascript
 window.Infinity === some_iframe.contentWindow.Infinity // true
 ```
 
