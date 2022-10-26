@@ -132,7 +132,7 @@ Whether there's only one realm or a few, realms co-exist within what is known as
 
 Try not to worry about these two for now, might cover those in a second post.
 
-For now, all you need to know about agents is the "1-to-many" relationship it has with realms and that realms live within their parent agent (realms under a single agent also share the agent's famous resource - the [event loop](https://html.spec.whatwg.org/multipage/webappapis.html#event-loops).
+For now, all you need to know about agents is the "1-to-many" relationship it has with realms and that realms live within their parent agent (realms under a single agent also share the agent's famous resource - the [event loop](https://html.spec.whatwg.org/multipage/webappapis.html#event-loops)).
 
 #### The uniqueness of each realm is a great way to better grasp the idea of what a realm is.
 
