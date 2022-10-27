@@ -124,15 +124,50 @@ In the browser, by default there is only one realm and that is the [top](https:/
 
 As we just learned, the web app lives within that realm which provides it with a global execution environment, an outer-most scope and a global object that grants access to different intrinsic objects, platform specific APIs, etc.
 
-However, a new realm can be created to live within the top main realm, and that realm will have **its own separate and unique set of everything mentioned above**.
+However, new realms can be created by the web app and co-exist - and every new realm will have **its own separate and unique set of everything mentioned above.**
 
-In the browser, that can be achieved in different ways. [Web workers](https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API), [iframes](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/iframe), [service workers](https://developer.mozilla.org/en-US/docs/Web/API/Service_Worker_API), etc - when any of those are created they rise up with their own dedicated realm.
+Every realm lives inside what is known as an [agent](https://tc39.es/ecma262/#sec-agents), and an agent can be the parent of multiple realms.
+Realms can have child or sibling realms.
 
-Whether there's only one realm or a few, realms co-exist within what is known as [agent](https://tc39.es/ecma262/#sec-agents)s and agents co-exist within what is known as [agent cluster](https://tc39.es/ecma262/#sec-agent-clusters)s. 
+> Agents will be covered in a different post. All there is to know is that an agent is an entity with different resources it provides to the realm/s it hosts (e.g. the [event loop](https://html.spec.whatwg.org/multipage/webappapis.html#event-loops)).
 
-Try not to worry about these two for now, might cover those in a second post.
+In the browser, realms can be created in various ways and whether they'll be the child of the same agent or not depends on the nature of the realms and the relationship they have with each other. Here are some examples:
 
-For now, all you need to know about agents is the "1-to-many" relationship it has with realms and that realms live within their parent agent (realms under a single agent also share the agent's famous resource - the [event loop](https://html.spec.whatwg.org/multipage/webappapis.html#event-loops)).
+1. Two [iframes](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/iframe) (either parent and child or siblings) of the same origin will form two realms under a single agent.
+2. Two [iframes](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/iframe) (either parent and child or siblings) of two different origins will form two realms under separate agents (furthermore, to keep cross origin site isolation, the parent agents of the two realms are children to separate [agent clusters](https://tc39.es/ecma262/#sec-agent-clusters) which run in different processes).
+3. The top main realm and a [service worker](https://developer.mozilla.org/en-US/docs/Web/API/Service_Worker_API) are two realms under separate agents under a single agent cluster (so is a [web worker](https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API)).
+
+Those relationships also dictate to what extent realms can communicate with one another. 
+
+Same origin iframe realms share a single event loop and can access each others environment synchronously and freely using the [`contentWindow`](https://developer.mozilla.org/en-US/docs/Web/API/HTMLIFrameElement/contentWindow) property:
+
+```javascript
+// https://example.com
+const ifr = document.createElement('iframe');
+ifr.src = 'https://example.com'; // same origin
+ifr.onload = () => {
+    console.log(ifr.contentWindow.document.body);
+    // <body></body>
+}
+document.body.appendChild(ifr);
+```
+
+But cross origin iframe realms get much more limited access using the same API:
+
+```javascript
+// https://example.com
+const ifr = document.createElement('iframe');
+ifr.src = '//cross.origin.com'; // cross origin
+ifr.onload = () => {
+    console.log(ifr.contentWindow.document.body);
+    // Uncaught DOMException: Blocked a frame with origin "https://example.com" from accessing a cross-origin frame.
+}
+document.body.appendChild(ifr);
+```
+
+Cross origin realms can still communicate with each other, but the communication is more limited and is based on the [postMessage()](https://developer.mozilla.org/en-US/docs/Web/API/Window/postMessage) asynchronous API. This also applies when trying to communicate with web workers, service workers, etc.
+
+> *It is worth mentioning that different and interesting complimentary solutions to some of the limitations described here will be introduced shortly once the famous [shadow realms proposal](https://github.com/tc39/proposal-shadowrealm/blob/main/explainer.md) lands - worth staying tuned on that!*
 
 #### The uniqueness of each realm is a great way to better grasp the idea of what a realm is.
 
@@ -228,20 +263,6 @@ The described bug is due to the introduction of identity discontinuity to the co
 Solving identity discontinuity is not always trivial. In the example above, changing the check into `blueButton instanceof blue_buttons_iframe.contentWindow.HTMLButtonElement` would have fixed the issue, but that is not a scalable nor a convenient solution.
 
 > *In order for an object to be an instance of an interface, the object must be created at/derived from the exact realm of that interface.*
-
-### Cross realms access
-
-In the examples above we use the property [`contentWindow`](https://developer.mozilla.org/en-US/docs/Web/API/HTMLIFrameElement/contentWindow) to demonstrate how realms are unique and how they expose similar yet not identical objects. `contentWindow` is a property that exposes the global object (`window`) of another realm for sync interaction.
-
-It can be used for new realms of iframes or tabs ([`open()`](https://developer.mozilla.org/en-US/docs/Web/API/Window/open) API), however, sync access can be very limited based on whether the accessing realm is in the [same origin](https://developer.mozilla.org/en-US/docs/Web/Security/Same-origin_policy) as the accessed realm or not.
-
-It all comes down to the fact that same origin realms are children of the same agent whereas cross origin realms are children of different agents by definition.
-
-Realms created within web workers or service workers are not accessible in such a sync manner at all.
-
-All realms are accessible through more limiting async communication channels such as [postMessage()](https://developer.mozilla.org/en-US/docs/Web/API/Window/postMessage) API.
-
-> *It is worth mentioning that different and interesting complimentary solutions to some of the limitations described here will be introduced shortly once the famous [shadow realms proposal](https://github.com/tc39/proposal-shadowrealm/blob/main/explainer.md) lands - worth staying tuned on that!*
 
 ## In summation
 
