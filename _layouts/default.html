@@ -22,10 +22,10 @@
             h.oldCursor = h.style.cursor;
             h.newCursor = 'pointer';
             h.addEventListener('click', () => location.hash = h.id);
-            h.addEventListener('mouseover', () => h.textContent = h.newText);
+            h.addEventListener('mouseover', () => h.firstChild.before('# '));
             h.addEventListener('mouseover', () => h.style.opacity = h.newOpacity);
             h.addEventListener('mouseover', () => h.style.cursor = h.newCursor);
-            h.addEventListener('mouseout', () => h.textContent = h.oldText);
+            h.addEventListener('mouseout', () => h.firstChild.remove());
             h.addEventListener('mouseout', () => h.style.opacity = h.oldOpacity);
             h.addEventListener('mouseout', () => h.style.cursor = h.oldCursor);
         });
