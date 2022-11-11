@@ -5,6 +5,7 @@ url: https://weizman.github.io/
 date: 28/10/2022
 description: An easy to understand explanation of what realms are in JavaScript
 keywords: research, realms, security, iframe, window, JavaScript
+image: https://ca.slack-edge.com/T02P98BKE-U03HNTJFP4Z-b811211dc27e-512
 ---
 
 As part of my long term research around browser JavaScript security, in the past year I have been focusing specifically on [security for realms ⭐️](https://github.com/weizman/awesome-JavaScript-realms-security).
