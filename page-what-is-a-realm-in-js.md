@@ -5,7 +5,7 @@ url: https://weizman.github.io/
 date: 28/10/2022
 description: An easy to understand explanation of what realms are in JavaScript
 keywords: research, realms, security, iframe, window, JavaScript
-image: realms.png
+image: realms.jpg
 
 ---
 
