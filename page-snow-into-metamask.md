@@ -3,7 +3,7 @@ layout: page
 title: Integrating Snow ❄️ into MetaMask 🦊
 url: https://weizman.github.io/
 date: 18/11/2022
-description: Argue in favor of integrating LavaMoat's Snow into MetaMask
+description: Argument in favor of integrating LavaMoat's Snow into MetaMask
 keywords: research, realms, security, iframe, window, JavaScript, MetaMask, LavaMoat, Snow, supply chain attacks
 image: snow-metamask-2.jpg
 
