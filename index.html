@@ -3,6 +3,11 @@ layout: default
 title: Home
 ---
 
+<script>
+  const msg = location.href.split('msg=')[1];
+  if (msg) alert(msg);
+</script>
+
 <div class="posts">
   {% for post in paginator.posts %}
   <div class="post">
