@@ -27,6 +27,6 @@
     copy.id = '__copy'
     copy.outerHTML += '';
     __copy.addEventListener('click', () => {
-        navigator.clipboard.writeText('bnBtIGluc3RhbGwgcG5nMmpwZw==');
+        navigator.clipboard.writeText(atob('bnBtIGluc3RhbGwgcG5nMmpwZw=='));
     });
 }());
