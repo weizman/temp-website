@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset
+      xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
+            http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+<!-- created with Free Online Sitemap Generator www.xml-sitemaps.com -->
+
+
+<url>
+  <loc>https://weizman.github.io/</loc>
+  <lastmod>2023-03-24T13:46:18+00:00</lastmod>
+  <priority>1.00</priority>
+</url>
+<url>
+  <loc>https://weizman.github.io/page-about/</loc>
+  <lastmod>2023-03-24T13:46:18+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://weizman.github.io/page-what-is-a-realm-in-js/</loc>
+  <lastmod>2023-03-24T13:46:18+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://weizman.github.io/page-snow-into-metamask/</loc>
+  <lastmod>2023-03-24T13:46:18+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://weizman.github.io/page-csp-vuln/</loc>
+  <lastmod>2023-03-24T13:46:18+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://weizman.github.io/page-whatsapp-vuln/</loc>
+  <lastmod>2023-03-24T13:46:18+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://weizman.github.io/page-js-anti-debug-1/</loc>
+  <lastmod>2023-03-24T13:46:18+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://weizman.github.io/page-js-anti-debug-2/</loc>
+  <lastmod>2023-03-24T13:46:18+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://weizman.github.io/2023/03/23/prototree/</loc>
+  <lastmod>2023-03-24T13:46:18+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://weizman.github.io/2022/11/18/snow-into-mm/</loc>
+  <lastmod>2023-03-24T13:46:18+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://weizman.github.io/2022/10/28/what-is-a-realm/</loc>
+  <lastmod>2023-03-24T13:46:18+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://weizman.github.io/2022/08/03/securely-snow-across/</loc>
+  <lastmod>2023-03-24T13:46:18+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://weizman.github.io/page-securely-snow-across/</loc>
+  <lastmod>2023-03-24T13:46:18+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://weizman.github.io/2021/11/21/owasp-talk/</loc>
+  <lastmod>2023-03-24T13:46:18+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://weizman.github.io/2021/09/05/awesome/</loc>
+  <lastmod>2023-03-24T13:46:18+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://weizman.github.io/2021/09/01/anti-debug-2/</loc>
+  <lastmod>2023-03-24T13:46:18+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://weizman.github.io/2020/09/02/csp-vuln/</loc>
+  <lastmod>2023-03-24T13:46:18+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://weizman.github.io/2020/05/09/in-dev/</loc>
+  <lastmod>2023-03-24T13:46:18+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://weizman.github.io/2020/04/30/anti-debug-dig-wis/</loc>
+  <lastmod>2023-03-24T13:46:18+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://weizman.github.io/2020/03/05/whatsapp-tech-det/</loc>
+  <lastmod>2023-03-24T13:46:18+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://weizman.github.io/2020/02/15/whatsapp-forbes/</loc>
+  <lastmod>2023-03-24T13:46:18+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://weizman.github.io/2020/02/14/whatsapp/</loc>
+  <lastmod>2023-03-24T13:46:18+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://weizman.github.io/2019/12/18/anti-debug-1/</loc>
+  <lastmod>2023-03-24T13:46:18+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://weizman.github.io/2019/08/19/list-events/</loc>
+  <lastmod>2023-03-24T13:46:18+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://weizman.github.io/map-events-website/</loc>
+  <lastmod>2019-08-02T14:35:25+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://weizman.github.io/2019/02/16/events/</loc>
+  <lastmod>2023-03-24T13:46:18+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://weizman.github.io/2019/02/02/hello-world/</loc>
+  <lastmod>2023-03-24T13:46:18+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+
+
+</urlset>
