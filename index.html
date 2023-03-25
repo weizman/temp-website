@@ -12,21 +12,21 @@ title: Home
 		.posts {
 			width: 60vw;
 		}
-		.container {
+		.container2 {
 			float: left;
 			width: 33.33%;
 			padding: 10px;
 			box-sizing: border-box;
 		}
 		
-		.container img {
+		.container2 img {
 			display: block;
 			max-width: 100%;
 			height: auto;
 			margin: 0 auto;
 		}
 		
-		.container h4 {
+		.container2 h4 {
 			text-align: center;
 			margin-top: 10px;
 			height: 100px;
@@ -36,7 +36,7 @@ title: Home
 
 <div class="posts">
   {% for post in paginator.posts %}
-  	<div class="container">
+  	<div class="container2">
       <a href="{{ post.url }}">
         <h4> <a href="{{ post.url }}"> {{ post.title }} </a> </h4>
         <img src="https://weizman.github.io/content/img/2a.jpg" alt="{{ post.title }}" />
