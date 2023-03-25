@@ -9,6 +9,9 @@ title: Home
 </script>
 
 	<style>
+		.posts {
+			width: 60vw;
+		}
 		.container {
 			float: left;
 			width: 33.33%;
@@ -34,8 +37,8 @@ title: Home
   {% for post in paginator.posts %}
   	<div class="container">
       <a href="{{ post.url }}">
+        <h4> <a href="{{ post.url }}"> {{ post.title }} </a> </h4>
         <img src="https://weizman.github.io/content/img/2a.jpg" alt="{{ post.title }}" />
-        <h2> <a href="{{ post.url }}"> {{ post.title }} </a> </h2>
         <span class="post-date">{{ post.date | date_to_string }}</span>
       </a>
     </div>
