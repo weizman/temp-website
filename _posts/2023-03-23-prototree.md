@@ -1,6 +1,11 @@
 ---
 layout: post
-title: Proto Tree 🌳 - I mapped the entire prototype chain in JavaScript as a tree!
+title: Proto Tree 🌳
+url: https://weizman.github.io/
+date: 27/03/2023
+description: I mapped the entire prototype chain in JavaScript as a tree!
+keywords: research, prototype, chain, security, iframe, window, JavaScript, tree
+image: snow-metamask-2.jpg
 ---
 
 ## The prototype chain in JavaScript
