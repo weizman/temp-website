@@ -1,5 +1,6 @@
 ---
 layout: post
+canonical: https://weizman.github.io/2022/10/28/what-is-a-realm-in-js/
 title: What is a realm in JavaScript?
 url: https://weizman.github.io/
 date: 28/10/2022

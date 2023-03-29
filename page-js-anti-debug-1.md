@@ -1,5 +1,6 @@
 ---
 layout: page
+canonical: https://weizman.github.io/2019/12/18/js-anti-debug-1/
 title: Javascript Anti Debugging - Abusing SourceMappingURL
 url: https://weizman.github.io/
 date: 18/12/2019
