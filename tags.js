@@ -1,4 +1,16 @@
 (function(){
+    function getSelectedTags() {
+        let tags = new URLSearchParams(document.currentScript.src).get('tags');
+        if (tags) {
+            return tags.split(',');
+        }
+        tags = new URLSearchParams(window.location.search).get('tags');
+        if (tags) {
+            return tags.split(',');
+        }
+        return [];
+    }
+
     const parent = document.currentScript.parentElement;
 
     top.TAGS = {
@@ -8,10 +20,8 @@
             'Posts', 'News', 'Supply-Chain-Security',
             'Discovery', 'Browser', 'Top', 'MetaMask', 'LavaMoat',
         ],
-        SELECTED: (new URLSearchParams(window.location.search).get('tags') || '').split(','),
+        SELECTED: getSelectedTags(),
     };
-
-    if (top.TAGS.SELECTED[0] === '') top.TAGS.SELECTED = [];
 
     top.TAGS.ALL.forEach(tag => {
         const selected = top.TAGS.SELECTED.includes(tag);
