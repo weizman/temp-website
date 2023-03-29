@@ -15,7 +15,8 @@
         const selected = top.TAGS.SELECTED.includes(tag);
         const a = document.createElement('a');
         a.style.fontWeight = selected ? 'bold' : '';
-        a.textContent += tag;
+        a.style.cursor = 'pointer';
+        a.textContent += tag + ' | ';
         a.onclick = () => {
             if (selected) {
                 top.TAGS.SELECTED.splice(top.TAGS.SELECTED.indexOf(tag), 1);
