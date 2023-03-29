@@ -32,7 +32,7 @@ title: Home
       const tags = '{{ post.tags }}'.split(',');
       let remove = true;
       top.TAGS.SELECTED.forEach(tag1 => tags.forEach(tag2 => remove = remove && tag1 !== tag2));
-      if (remove) document.getElementsByName('{{ post.title }}')[0].remove();
+      if (remove && top.TAGS.SELECTED.length) document.getElementsByName('{{ post.title }}')[0].remove();
       document.currentScript.remove();
     }
   </script>
