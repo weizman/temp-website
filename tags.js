@@ -11,6 +11,8 @@
         SELECTED: (new URLSearchParams(window.location.search).get('tags') || '').split(','),
     };
 
+    if (top.TAGS.SELECTED[0] === '') top.TAGS.SELECTED = [];
+
     top.TAGS.ALL.forEach(tag => {
         const selected = top.TAGS.SELECTED.includes(tag);
         const a = document.createElement('a');
