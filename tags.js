@@ -18,7 +18,7 @@
         const a = document.createElement('a');
         a.style.fontWeight = selected ? 'bold' : '';
         a.style.cursor = 'pointer';
-        a.textContent += tag + ' | ';
+        a.textContent += tag;
         a.onclick = () => {
             if (selected) {
                 top.TAGS.SELECTED.splice(top.TAGS.SELECTED.indexOf(tag), 1);
@@ -30,6 +30,7 @@
             window.location.search = searchParams.toString();
         };
         parent.appendChild(a);
+        parent.append(' | ');
     });
 
     document.currentScript.remove();
