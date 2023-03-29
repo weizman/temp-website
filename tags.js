@@ -8,7 +8,7 @@
             'Posts', 'News', 'Supply-Chain-Security',
             'Discovery', 'Browser', 'Top', 'MetaMask', 'LavaMoat',
         ],
-        SELECTED: (new URLSearchParams(window.location.search).get('tags') || []).split(','),
+        SELECTED: (new URLSearchParams(window.location.search).get('tags') || '').split(','),
     };
 
     top.TAGS.ALL.forEach(tag => {
