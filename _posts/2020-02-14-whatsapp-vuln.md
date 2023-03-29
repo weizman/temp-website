@@ -54,7 +54,7 @@ e.__x_quotedStanzaID = e.__x_quotedStanzaID + '_'; // change the id of the origi
 ```
 before allowing the message send to execute, you'll get this:
 
-![1](./content/img/1.jpg)
+![1](../content/img/1.jpg)
 
 *(This works for WhatsApp iOS/Android/Windows Desktop/Mac Desktop/Web)*
 
@@ -67,7 +67,7 @@ What else can I take apart? What about messages with rich preview banners?
 
 This is where this research becomes way more interesting. Messages with rich preview banners are messages that include banners with extra information regarding a link that is in the body of the message. So for example, if I send a message with "https://facebook.com" as its body, the receiver will get this:
 
-![2](./content/img/2.jpg)
+![2](../content/img/2.jpg)
 
 On WhatsApp the banner is being generated on the side of the sender and this is an important point to understand. One can easily tamper with the banner properties before sending it to the receiver. Great recipe for trouble right here!
 
@@ -79,7 +79,7 @@ e.__x_body = e.__x_matchedText = 'https://example.com'
 
 And this is what I got:
 
-![3](./content/img/3.jpg)
+![3](../content/img/3.jpg)
 
 *(This works for WhatsApp iOS/Android/Windows Desktop/Mac Desktop/Web)*
 
@@ -91,7 +91,7 @@ Being familiar with all sorts of tricks used by malicious actors in the world of
 e.__x_body = e.__x_matchedText = 'Join Facebook! https://facebook.com+login_oage&welcome_to_facebook=true&timestamp=42837643@bit.ly/2SfZikR Become a friend of mine!'
 ```
 
-![4](./content/img/4.jpg)
+![4](../content/img/4.jpg)
 
 *(This works for WhatsApp iOS/Android/Windows Desktop/Mac Desktop/Web)*
 
@@ -125,7 +125,7 @@ e.__x_body = e.__x_matchedText = 'javascript:"https://example.com";alert(documen
 
 AND IT WORKED!
 
-![5](./content/img/5.jpg)
+![5](../content/img/5.jpg)
 
 *(This works for WhatsApp Windows Desktop/Mac Desktop/Web)*
 
@@ -144,7 +144,7 @@ I had to think of a way to manage to create a very small payload that would load
 
 Bypassing CSP rules is made easier by [Google's CSP Evaluator](https://csp-evaluator.withgoogle.com/). You just throw the URL address of the target website into the text box, and it immediately tells you its CSP configuration and how safe (or unsafe) the website is:
 
-![6](./content/img/6.jpg)
+![6](../content/img/6.jpg)
 
 You see that `object-src [missing]` down there? (😈)
 
@@ -198,7 +198,7 @@ I was very skeptical about being able to use the cool XSS I'd found on the deskt
 
 I clicked the same malicious message I used on the web app through the Windows desktop application and I was amazed to see this:
 
-![7](./content/img/7.jpg)
+![7](../content/img/7.jpg)
 
 *(This works for WhatsApp Windows Desktop/Mac Desktop/Web)*
 
@@ -215,7 +215,7 @@ But wait, earlier I've learned that my `javascript:` trick doesn't work on Chrom
 
 I decided to use my XSS to alert the userAgent of the currently running application, and the following major security flaw blew-my-mind:
 
-![8](./content/img/8.jpg)
+![8](../content/img/8.jpg)
 
 *(This works for WhatsApp Windows Desktop/Mac Desktop)*
 
@@ -227,7 +227,7 @@ And even worse - Since Chromium 69 is relatively old, exploiting a 1-day RCE is 
 
 I did not take the time to actually exploit a public RCE, and therefore didn’t get the chance to prove the existence of such a vulnerability, but the theoretical concept is as follows: if you run an old version of a vulnerable app, one can exploit that vulnerability and do bad things to you. I did however demonstrated how I use `fetch()` API, for example, to read files from the local OS like the content of `C:\Windows\System32\drivers\etc\hosts` file in this case:
 
-![9](./content/img/9.jpg)
+![9](../content/img/9.jpg)
 
 *(This works for WhatsApp Windows Desktop/Mac Desktop)*
 

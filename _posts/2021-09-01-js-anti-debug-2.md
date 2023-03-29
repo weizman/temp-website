@@ -33,7 +33,7 @@ What happens there, is that the code constantly logs the created `div` element t
 Once the devtools is asked to log details regarding the element, one of the details it tries to fetch in order to present it is the `id` of the element, as it is a very commonly used and an important property.
 So normally, if you create a `div` element and set it with some id, for calling `console.log()` with it you'll get:
 
-![](./content/img/2-1.jpg)
+![](../content/img/2-1.jpg)
 
 But what happened in the code example above, is that the creator of the code overrode the native getter of the `id` property of the `div` element with a getter of its own, a getter function which when is called claims to know with certainty that the devtools are open.
 And that certainty is in fact justified when you think about it. A reference to that `div` element is accessible only via the inner scope of function `xyz`.
@@ -46,7 +46,7 @@ I thought to myself "is the console the only way to get the devtools to call a g
 
 ### The [Chromium Devtools Scope Pane](https://developers.google.com/web/tools/chrome-devtools/javascript#check-values)
 
-![](./content/img/2-2.jpg)
+![](../content/img/2-2.jpg)
 
 That's right - our getter is called in order to present the element in the scope pane (on the right) as well as in the console.
 Now this is more interesting then before for 2 reasons:
@@ -243,7 +243,7 @@ var x = function x(a) {
 alert(3 === x(3));
 ```
 
-![](./content/img/2-1.gif)
+![](../content/img/2-1.gif)
 
 ### The [debug-tracker-demo-site](https://debug-tracker.ue.r.appspot.com/)
 
@@ -252,7 +252,7 @@ It knows how to handle async situations as well, and can handle recursion too (a
 
 It is up and running, and it already has a few demo scripts for you to play around with in case you can't come up with an example of a javascript code for you to investigate. This is the result:
 
-![](./content/img/2-2.gif)
+![](../content/img/2-2.gif)
 
 ### Real life use cases
 
