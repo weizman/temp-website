@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: post
 title: CVE-2019-18426 - WhatsApp Vulnerabilities Disclosure - Open Redirect + CSP Bypass + Persistent XSS + FS read permissions + potential for RCE
 url: https://weizman.github.io/
 date: 14/02/2020

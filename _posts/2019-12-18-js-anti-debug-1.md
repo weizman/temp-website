@@ -1,5 +1,6 @@
 ---
-layout: page
+enabled: true
+layout: post
 title: Javascript Anti Debugging - Abusing SourceMappingURL
 url: https://weizman.github.io/
 date: 18/12/2019

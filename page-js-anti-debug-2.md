@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: post
 title: Javascript Anti Debugging - Abusing Chromium Devtools Scope Pane
 url: https://weizman.github.io/
 date: 01/09/2021

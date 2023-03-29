@@ -1,4 +1,5 @@
 ---
+enabled: true
 layout: post
 title: Proto Tree 🌳
 url: https://weizman.github.io/

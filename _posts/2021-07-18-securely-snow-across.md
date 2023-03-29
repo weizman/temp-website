@@ -1,5 +1,6 @@
 ---
-layout: page
+enabled: true
+layout: post
 title: My contribution attempt to the browser javascript supply chain attack problem
 url: https://weizman.github.io/
 date: 18/07/2021

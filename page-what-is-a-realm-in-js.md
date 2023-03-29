@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: post
 title: What is a realm in JavaScript?
 url: https://weizman.github.io/
 date: 28/10/2022
