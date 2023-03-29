@@ -12,18 +12,18 @@
     };
 
     top.TAGS.ALL.forEach(tag => {
-        const selected = top.SELECTED.includes(tag);
+        const selected = top.TAGS.SELECTED.includes(tag);
         const a = document.createElement('a');
         a.style.fontWeight = selected ? 'bold' : '';
         a.textContent += tag;
         a.onclick = () => {
             if (selected) {
-                top.SELECTED.splice(top.SELECTED.indexOf(tag), 1);
+                top.TAGS.SELECTED.splice(top.TAGS.SELECTED.indexOf(tag), 1);
             } else {
-                top.SELECTED.push(tag);
+                top.TAGS.SELECTED.push(tag);
             }
             const searchParams = new URLSearchParams(window.location.search);
-            searchParams.set('tags', top.SELECTED.join(','));
+            searchParams.set('tags', top.TAGS.SELECTED.join(','));
             window.location.search = searchParams.toString();
         };
         parent.appendChild(a);
