@@ -1,6 +1,6 @@
 ---
 enabled: true
-tags: CVEs,Vulnerabilities,Security,JavaScript,Research,Videos,Published,Podcasts,News,Discovery,Browser
+tags: Conference,CVEs,Vulnerabilities,Security,JavaScript,Research,Videos,Published,Podcasts,News,Discovery,Browser
 layout: post
 title: Pwning WhatsApp - The Dark Side Of Web based Messaging Apps [OWASP 2020]
 ---

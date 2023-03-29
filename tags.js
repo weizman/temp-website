@@ -15,10 +15,10 @@
 
     top.TAGS = {
         ALL: [
-            'CVEs', 'Vulnerabilities', 'Security', 'JavaScript',
+            'Top', 'CVEs', 'Vulnerabilities', 'Security', 'JavaScript',
             'Research', 'Anti-Debug', 'Videos', 'Published', 'Podcasts',
             'Posts', 'News', 'Supply-Chain-Security',
-            'Discovery', 'Browser', 'Top', 'MetaMask', 'LavaMoat', 'Conference',
+            'Discovery', 'Browser', 'MetaMask', 'LavaMoat', 'Conference',
         ],
         SELECTED: getSelectedTags(),
     };
