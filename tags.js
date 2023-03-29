@@ -1,6 +1,6 @@
 (function(){
     function getSelectedTags() {
-        let tags = new URLSearchParams(document.currentScript.src).get('tags');
+        let tags = new URLSearchParams(document.currentScript.src.split('?')[1]).get('tags');
         if (tags) {
             return tags.split(',');
         }
