@@ -18,7 +18,7 @@
             'CVEs', 'Vulnerabilities', 'Security', 'JavaScript',
             'Research', 'Anti-Debug', 'Videos', 'Published', 'Podcasts',
             'Posts', 'News', 'Supply-Chain-Security',
-            'Discovery', 'Browser', 'Top', 'MetaMask', 'LavaMoat', 'conference',
+            'Discovery', 'Browser', 'Top', 'MetaMask', 'LavaMoat', 'Conference',
         ],
         SELECTED: getSelectedTags(),
     };
