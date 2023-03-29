@@ -1,6 +1,7 @@
 ---
 enabled: true
 layout: post
+tags: JavaScript,Research,Published,Posts
 title: What is a realm in JavaScript?
 url: https://weizman.github.io/
 date: 28/10/2022

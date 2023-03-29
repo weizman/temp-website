@@ -1,6 +1,7 @@
 ---
 enabled: true
 layout: post
+tags: Security,JavaScript,Published,Posts,Supply-Chain-Security
 title: Integrating Snow ❄️ into MetaMask 🦊
 url: https://weizman.github.io/
 date: 18/11/2022

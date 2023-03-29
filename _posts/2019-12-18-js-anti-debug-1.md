@@ -1,6 +1,7 @@
 ---
 enabled: true
 layout: post
+tags: Security,JavaScript,Research,Anti-Debug,Published,Posts
 title: Javascript Anti Debugging - Abusing SourceMappingURL
 url: https://weizman.github.io/
 date: 18/12/2019
