@@ -248,7 +248,7 @@ realm.
 
 * 3rd frame - here we use Snow to apply LavaMoat's protection to all future realms in addition to the top main realm.
 
-![lavamoat-snow-animation](../content/img/snow-mm.gif)
+![lavamoat-snow-animation](/content/img/snow-mm.gif)
 
 Snow (stands for **S**ecuring **N**ested **O**wnership of **W**indows) is a browser javascript based security tool that focuses on providing an API to which you provide a callback that it'll guarantee to call for every new realm that is created in the web app (including the top main realm):
 
