@@ -9,7 +9,7 @@ description: I mapped the entire prototype chain in JavaScript as a tree!
 keywords: research, prototype, chain, security, iframe, window, JavaScript, tree
 image: snow-metamask-2.jpg
 ---
-
+ 
 ## The prototype chain in JavaScript
 
 There isn't anything new to add when mentioning the [prototype chain in JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Inheritance_and_the_prototype_chain).
