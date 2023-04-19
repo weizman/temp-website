@@ -62,6 +62,16 @@ And since this works, I can leak any type of dynamic information I want from the
 
 So far so good. But as I always do when I learn of a new trick to send requests from the browser - I tried to see if I can use this one to bypass [CSP](https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP) rules.
 
+<ins class="adsbygoogle"
+style="display:block; text-align:center;"
+data-ad-layout="in-article"
+data-ad-format="fluid"
+data-ad-client="ca-pub-1379968351324902"
+data-ad-slot="5348991370"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+
 ### [The request made by SourceMappingURL bypasses CSP completely](https://us-central1-smap-251411.cloudfunctions.net/csp)
 
 Wow! That one was a cool discovery in my research! So if I go on https://example.com for example and it responds with Content-Security-Policy: default-src https://example.com as one of its headers (which means requests under https://example.com are only allowed to be made to https://example.com), I would be able to bypass that rule completely by using the SourceMappingURL feature by doing:
@@ -138,6 +148,16 @@ Also, on top of that request, the attacker can also leak any type of information
 
 And on top of everything, it will be extremely hard for any researcher to find this malicious activity since the request leaves no trace of its occurrence (and even harder if the attacker actually decides to avoid malicious code execution on that specific browser once it was marked as a “devtools opener”).
 
+<ins class="adsbygoogle"
+style="display:block; text-align:center;"
+data-ad-layout="in-article"
+data-ad-format="fluid"
+data-ad-client="ca-pub-1379968351324902"
+data-ad-slot="5348991370"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+
 ### “I don’t quite understand… I need some live examples”
 
 That’s fair! This concept is not super easy to grasp just by reading, it is definitely worth seeing it works on live. Lucky for you, I’ve created a [thorough technical demo](https://us-central1-smap-251411.cloudfunctions.net/scenario) that attempts to fully explain and demonstrate everything mentioned here (I hope this demo is still up and running as it is located on PerimeterX's servers and I don't have control over it).
@@ -167,3 +187,13 @@ This technique has been responsibly [disclosed](https://bugs.chromium.org/p/chro
 #### Hope you guys enjoyed this! :)
 
 This research was conducted and published by [Gal Weizman](http://github.com/weizman/).
+
+<ins class="adsbygoogle"
+style="display:block; text-align:center;"
+data-ad-layout="in-article"
+data-ad-format="fluid"
+data-ad-client="ca-pub-1379968351324902"
+data-ad-slot="5348991370"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>

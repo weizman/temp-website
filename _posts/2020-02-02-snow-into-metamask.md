@@ -77,6 +77,16 @@ darkening buttons steals the logged in user's cookies, that would count as a cal
 The reason supply chain attacks are problematic in the js ecosystem also lies in how all pieces of js code that run in a certain context have almost the same privileges - whether they are of the app itself or of a dependency the app consumes, 
 they all have similar access to DOM, storage, network, etc.
 
+<ins class="adsbygoogle"
+style="display:block; text-align:center;"
+data-ad-layout="in-article"
+data-ad-format="fluid"
+data-ad-client="ca-pub-1379968351324902"
+data-ad-slot="5348991370"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+
 ### How supply chain attacks may affect MetaMask?
 
 With MetaMask it's not very different. 
@@ -209,6 +219,16 @@ that doesn't apply by default to child realms an attacker might create/get a hol
 **That type of attack can only leverage a same origin realm** and not a cross origin one, because same origin realms
 are fully and synchronously accesible via the top main realm.
 
+<ins class="adsbygoogle"
+style="display:block; text-align:center;"
+data-ad-layout="in-article"
+data-ad-format="fluid"
+data-ad-client="ca-pub-1379968351324902"
+data-ad-slot="5348991370"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+
 ## The missing solution (layer 2)
 
 While it is very unlikely (thanks to LavaMoat) an attacker can leverage a fully scuttled global object to create a new realm to attack with, applying general protections (such as but not limited to LavaMoat's scuttling) to any child realm that comes to life under the top main realm, recursively and automatically, would have been considered as a **strong second line of defense against a supply chain attacker.**
@@ -313,3 +333,13 @@ A good example to that is [Across](https://github.com/lavamoat/across/) which is
 **Snow is rather young but unlocks a great potential against supply chain attacks if used correctly.**
 
 MetaMask can benefit a lot from combining LavaMoat existing solution with Snow missing solution to apply the power of LavaMoat to all realms in MetaMask rather then just the top main one, as it could be a **great line of defense** against an attacker who manages to bypass LavaMoat.
+
+<ins class="adsbygoogle"
+style="display:block; text-align:center;"
+data-ad-layout="in-article"
+data-ad-format="fluid"
+data-ad-client="ca-pub-1379968351324902"
+data-ad-slot="5348991370"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
