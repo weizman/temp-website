@@ -5,7 +5,7 @@ tags: Discovery,Browser,Top,Security,JavaScript,Research,Anti-Debug,Published,Po
 title: Javascript Anti Debugging - Abusing Chromium Devtools Scope Pane
 url: https://weizman.github.io/
 date: 01/09/2021
-description: Abusing the Chromium Devtools Scope Pane can allow execution of Javascript by the devtools while the main thread is paused by the debugger
+description: Abusing the Chromium Devtools Scope Pane can allow execution of Javascript by the devtools while the main thread is paused by the debugger. A walk through a very interesting discovery that JavaScript security researcher should very much be aware of.
 keywords: browsers, anti debugging, javascript, web, security, devtools, scope, research, debugger
 ---
 

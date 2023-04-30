@@ -1,5 +1,5 @@
 ---
-enabled: true
+enabled: false
 tags: JavaScript,Research,Posts,News,Browser
 layout: post
 title: List EVERY event that exists in the browser

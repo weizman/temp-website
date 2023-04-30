@@ -5,7 +5,7 @@ tags: Browser,Top,CVEs,Vulnerabilities,Security,JavaScript,Research,Published,Po
 title: CVE-2019-18426 - WhatsApp Vulnerabilities Disclosure - Open Redirect + CSP Bypass + Persistent XSS + FS read permissions + potential for RCE
 url: https://weizman.github.io/
 date: 14/02/2020
-description: WhatsApp Vulnerabilities Disclosure - Open Redirect + CSP Bypass + Persistent XSS + FS read permissions + potential for RCE
+description: WhatsApp Vulnerabilities Disclosure - Open Redirect + CSP Bypass + Persistent XSS + FS read permissions + potential for RCE! A super critical vulnerability discovery and breakdown to learn from and be aware of. Here's how it looks like when a highly used b2c product leaves so many users so vulnerable to a number of client side vulnerabilities.
 keywords: whatsapp, vulnerability, csp, open redirect, xss, rce, research, exploit, bounty
 ---
 

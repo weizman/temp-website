@@ -5,7 +5,7 @@ tags: Browser,Top,MetaMask,LavaMoat,Security,JavaScript,Research,Published,Posts
 title: My contribution attempt to the browser javascript supply chain attack problem
 url: https://weizman.github.io/
 date: 18/07/2021
-description: Introducing Securely, Snow and Across to help fight browser javascript supply chain attacks
+description: Today I share my "side project" for the past year, three browser javascript security libraries that aim to perform as tools for creating web apps that are more resilient to and limiting of unwanted code execution such as XSS and javascript supply chain attacks - This is my contribution attempt to the JavaScript security ecosystem!
 keywords: browser, javascript, supply chain attack, security, xss, securely, snow, across
 ---
 
