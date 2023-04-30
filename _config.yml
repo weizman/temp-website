@@ -12,5 +12,6 @@ description:      '<a href="https://github.com/weizman">Github</a> | <a href="ht
 url:              https://weizman.github.io/
 baseurl:          /
 about:            /page-about
+future: true
 
 paginate:         5000

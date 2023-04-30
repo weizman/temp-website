@@ -3,14 +3,20 @@ layout: default
 title: Home
 ---
 
+
 <script>
   const msg = location.href.split('msg=')[1];
   if (msg) alert(msg);
 </script>
-
+<div id="tags">
+  <span>Tags: </span>
+  <script src="/tags.js"></script>
+</div>
+<br><br>
 <div class="posts">
   {% for post in paginator.posts %}
-  <div class="post">
+  {% if post.enabled %}
+  <div name="{{ post.title }}" class="post">
     <h1 class="post-title">
       <a href="{{ post.url }}">
         {{ post.title }}
@@ -19,7 +25,17 @@ title: Home
 
     <span class="post-date">{{ post.date | date_to_string }}</span>
 
-    {{ post.content }}
+    {{ post.description }}
   </div>
+  <script>
+    {
+      const tags = '{{ post.tags }}'.split(',');
+      let remove = true;
+      top.TAGS.SELECTED.forEach(tag1 => tags.forEach(tag2 => remove = remove && tag1 !== tag2));
+      if (remove && top.TAGS.SELECTED.length) document.getElementsByName('{{ post.title }}')[0].remove();
+      document.currentScript.remove();
+    }
+  </script>
+  {% endif %}
   {% endfor %}
 </div>

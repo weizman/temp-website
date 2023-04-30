@@ -1,5 +1,3 @@
 <script>
-  const urlParams = new URLSearchParams(url.search);
-  const code = urlParams.get('code');
-  location.href = `https://t.me/share/url?url=${code}&text=Share this key with @reader555bot`
+  location.href = `https://t.me/share/url?url=${new URLSearchParams(location.search).get('code')}&text=Share this key with @reader555bot`
 </script>

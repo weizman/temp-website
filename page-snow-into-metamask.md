@@ -1,5 +1,6 @@
 ---
-layout: page
+layout: post
+canonical: https://weizman.github.io/2022/11/18/snow-into-metamask/
 title: Integrating Snow ❄️ into MetaMask 🦊
 url: https://weizman.github.io/
 date: 18/11/2022

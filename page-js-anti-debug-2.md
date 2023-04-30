@@ -1,5 +1,6 @@
 ---
-layout: page
+layout: post
+canonical: https://weizman.github.io/2021/09/01/js-anti-debug-2/
 title: Javascript Anti Debugging - Abusing Chromium Devtools Scope Pane
 url: https://weizman.github.io/
 date: 01/09/2021
