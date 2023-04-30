@@ -5,7 +5,7 @@ tags: Browser,Top,JavaScript,Research,Published,Posts
 title: What is a realm in JavaScript?
 url: https://weizman.github.io/
 date: 28/10/2022
-description: An easy to understand explanation of what realms are in JavaScript
+description: Realms are an old concept in the JavaScript ecosystem, but with the rise of supply chain types of attacks realms became a powerful tool for attackers to bypass well known browser runtime security tools. In order to address this concern, we first must understand - what is a realm in JavaScript? 
 keywords: research, realms, security, iframe, window, JavaScript
 image: realms.jpg
 
