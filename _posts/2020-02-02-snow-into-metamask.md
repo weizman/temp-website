@@ -5,7 +5,7 @@ tags: Browser,Top,MetaMask,LavaMoat,Security,JavaScript,Published,Posts,Supply-C
 title: Integrating Snow ❄️ into MetaMask 🦊
 url: https://weizman.github.io/
 date: 18/11/2022
-description: Argument in favor of integrating LavaMoat's Snow into MetaMask
+description: Here's why our very own Snow JS, a browser security technology, should be integrated into the MetaMask browser extension. We explain the problem of supply chain attacks and how LavaMoat, a technology used by MetaMask, provides a layer of defense against such attacks. However, LavaMoat's protection is limited to the main realm, and Snow is proposed as a tool to extend this protection to all child realms. Snow aims to provide a second layer of security to enhance the app's defense against supply chain attacks.
 keywords: research, realms, security, iframe, window, JavaScript, MetaMask, LavaMoat, Snow, supply chain attacks
 image: snow-metamask-2.jpg
 
