@@ -26,3 +26,7 @@ keywords: Gal, Weizman, Browser, javascript, security, web, research, discoverie
 * [How This Chrome, Edge And Opera Security Bug Left Users At Risk—For A Whole Year](https://www.forbes.com/sites/daveywinder/2020/08/11/how-this-chrome-edge-and-opera-security-bug-left-billions-of-users-at-risk-for-a-whole-year-android-windows-mac/?sh=7d5bccc82069) - Covered By Forbes (08/11/2020)
 * [WhatsApp Security Warning For iPhone Users As One-Click Attack Risk Confirmed](https://www.forbes.com/sites/daveywinder/2020/02/06/whatsapp-security-warning-for-iphone-users-as-one-click-attack-risk-confirmed/?sh=702ad59c7aba) - Covered By Forbes (06/02/2020)
 * [Abusing SourceMappingURL](https://www.digitalwhisper.co.il/files/Zines/0x75/DW117-3-JSAntiDebug.pdf) - DigitalWhisper (01/05/2020)
+
+### Patents 💡
+
+* [Identifying a script that originates synchronous and asynchronous actions](https://patents.justia.com/patent/20210064685) - At PerimeterX (25/08/2020)
