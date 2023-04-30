@@ -1,7 +1,7 @@
 ---
 enabled: true
 layout: post
-tags: Browser,Top,MetaMask,LavaMoat,Security,JavaScript,Research,Published,Posts,News,Supply-Chain-Security
+tags: Browser,Top,MetaMask,LavaMoat,Security,JavaScript,Research,Supply-Chain-Security
 title: My contribution attempt to the browser javascript supply chain attack problem
 url: https://weizman.github.io/
 date: 18/07/2021

@@ -1,6 +1,6 @@
 ---
 enabled: false
-tags: JavaScript,Research,Posts,News,Browser
+tags: JavaScript,Research,Browser
 layout: post
 title: List EVERY event that exists in the browser
 ---

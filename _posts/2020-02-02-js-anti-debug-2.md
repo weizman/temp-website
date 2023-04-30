@@ -1,7 +1,7 @@
 ---
 enabled: true
 layout: post
-tags: Discovery,Browser,Top,Security,JavaScript,Research,Anti-Debug,Published,Posts
+tags: Discovery,Browser,Top,Security,JavaScript,Research,Anti-Debug,
 title: Javascript Anti Debugging - Abusing Chromium Devtools Scope Pane
 url: https://weizman.github.io/
 date: 01/09/2021

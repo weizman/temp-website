@@ -1,7 +1,7 @@
 ---
 enabled: false
 layout: post
-tags: Browser,Top,MetaMask,LavaMoat,CVEs,Vulnerabilities,Security,JavaScript,Research,Anti-Debug,Videos,Published,Podcasts,Posts,News,Supply-Chain-Security
+tags: Browser,Top,MetaMask,LavaMoat,CVEs,Vulnerabilities,Security,JavaScript,Research,Anti-Debug,Supply-Chain-Security
 title: Proto Tree 🌳
 url: https://weizman.github.io/
 date: 27/03/2023

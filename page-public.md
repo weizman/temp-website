@@ -2,8 +2,8 @@
 layout: page
 title: Gal Weizman - External Media
 url: https://weizman.github.io/
-description: External media by Gal Weizman including discoveries, interviews, podcasts, lectures, talks and more
-keywords: Gal, Weizman, Browser, javascript, security, web, research, discoveries, interviews, podcasts, lectures, talks
+description: External media by Gal Weizman including discoveries, interviews,  lectures, talks and more
+keywords: Gal, Weizman, Browser, javascript, security, web, research, discoveries, interviews,  lectures, talks
 ---
 
 ### Podcasts 🎙️
