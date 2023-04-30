@@ -86,6 +86,7 @@ html {
 
 /* Sidebar nav */
 .sidebar-nav {
+  font-size: 18px;
   margin-bottom: 1rem;
 }
 .sidebar-nav-item {
