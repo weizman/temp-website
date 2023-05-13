@@ -15,7 +15,7 @@ keywords: javascript, web, browser, lavamoat, research, prototype, chain, recurs
 
 This was [already communicated](https://metamask.io/news/security/using-lavamoat-to-solve-software-supply-chain-security/) 
 multiple times online, so I won't go too much into details today, but the bottom line is 
-that **MetaMask is putting more effort than usual into securing the client side of web applications in all sorts of ways.** 
+that **MetaMask is putting more effort than most of the world into securing the client side of web applications in all sorts of ways.** 
 
 We call this initiative [the LavaMoat toolbox](https://github.com/lavamoat/) in which we focus on the **security side of JavaScript and the client 
 side apps we build on top of it**, where we face some interesting and very unique challenges.
