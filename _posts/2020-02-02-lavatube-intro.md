@@ -22,7 +22,7 @@ side apps we build on top of it**, where we face some interesting and very uniqu
 
 We previously covered some of the tools in the toolbox:
 * LavaMoat - [Using LavaMoat To Solve Software Supply Chain Security](https://metamask.io/news/security/using-lavamoat-to-solve-software-supply-chain-security/)
-* Snow - [Introducing Snow](https://github.com/lavamoat/snow/wiki/Introducing-Snow)
+* Snow - [Introducing Snow - Securing Nested Ownership of Windows](https://github.com/lavamoat/snow/wiki/Introducing-Snow)
 
 But today we'll talk about a smaller problem we had and the cool little experimental LavaMoat tool we built for facing it - **[LavaTube](https://github.com/LavaMoat/LavaTube/)!**
 
