@@ -26,4 +26,14 @@ We previously covered some of the tools in the toolbox:
 
 But today we'll talk about a smaller problem we had and the cool little experimental LavaMoat tool we built for facing it - **[LavaTube](https://github.com/LavaMoat/LavaTube/)!**
 
-### The problem
+### Background
+
+In MetaMask we work hard on shipping our very own plugin system we call [MetaMask Snaps](https://metamask.io/snaps/).
+Aside from it being a super interesting initiative in the Web3 ecosystem that **will unlock some really interesting capabilities**, 
+it is quite a complicated task, **especially when you take JavaScript client side security as serious as we do.**
+
+Without making things too complicated, you should know we implement multiple security layers for both MetaMask and Snaps, and some of those layers overlap.
+One important security layer both implement is the use of [SES Compartments](https://github.com/endojs/endo/tree/master/packages/ses#compartment).
+
+SES Compartments allow you to execute code 
+
