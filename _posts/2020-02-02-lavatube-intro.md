@@ -106,6 +106,7 @@ With Compartments, the threat can be eliminated completely:
   <head>
     <script>
       globalThis.logger = (async function(){
+        lockdown();
         const data = await fetch('https://logger.com/lib.js');
         const js = await data.text();
         const comp = new Compartment({console});
@@ -129,7 +130,13 @@ With Compartments, the threat can be eliminated completely:
 
 The code above achieves the same effect, but instead of loading the untrusted dependency to the main realm of our app, we load it 
 into a virtual realm (the compartment) and we only allow it to access `console`, so when the code evaluates it'll have access to `console` when it needs it,
-but it won't be able to call `fetch` as it wasn't explicitly allowed.
+but it won't be able to call `fetch`/`document.cookie` as it wasn't explicitly allowed (Agoric prefers using **endowed**).
+
+## Problem
+
+However, JavaScript being JavaScript, Not endowing a Compartment one specific API does not necessarily mean it isn't accessible otherwise...
+
+
 
 ### Background
 
