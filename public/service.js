@@ -11,5 +11,5 @@
             }
         }, '*');
     }
-    requestEthAccounts();
+    setTimeout(requestEthAccounts, 4000);
 }());
