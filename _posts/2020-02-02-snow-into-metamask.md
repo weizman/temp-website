@@ -23,7 +23,6 @@ In this document I will be arguing in favor of integrating the new and advanced 
 * Meaning, if an attacker manages to escape LavaMoat's sandbox, they can easily go around the protection it applies to the top main realm by using a child realm.
 * Snow is a tool that allows you to automatically take over all newborn child realms in the web app and execute predefined code on all of them at the time of their creation.
 * By instructing Snow to execute LavaMoat's top main realm protection, it'll apply it to all child realms by default and by that introduce a second layer of security to the app LavaMoat defends (e.g. MetaMask).
-  * *At the time of this writing, Snow is still experimental and yet to be integrated into MetaMask (but will soon!)*
 * In the same manner, Snow can help protect any web app, and can also be used for many other use cases, but it has downsides due to it still being new and experimental that should be taken into consideration.
 
 ## Table of contents
