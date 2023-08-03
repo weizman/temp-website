@@ -61,8 +61,8 @@ This also means **Snow becomes less of a fit for traditional websites** (e.g. bo
 
 Which is unfortunate considering this was the main target audience of Snow in the beginning, but this is what's right - **security is more important.**
 
-Because on the other hand, this move will allow apps that can adopt Snow to **become truly secured against the same origin realms problem**. We can already see this approach being vital in protecting the @MetaMask app (which is the sole maintainer of Snow atm).
+Because on the other hand, this move will allow apps that can adopt Snow to **become truly secured against the same origin realms problem**. We can already see this approach being vital in protecting the [@MetaMask](https://metamask.io) app (which is the sole maintainer of Snow atm).
 
 IMPORTANT NOTE: this does not mean websites and third party tools will fail to adopt Snow into them, it just means it MIGHT be potentially harder. This version for example works just fine on most major websites in the world.
 
-> _**Thank you** [@agoric](https://github.com/agoric) for the inspiration with SES to think better about security._
+> _**Thank you** [@agoric](https://github.com/agoric) for the inspiration with SES to think better about security ❤️._
