@@ -1,6 +1,7 @@
 ---
 enabled: true
 layout: post
+image: snow-stops-playing-nice.jpg
 tags: Top,Security,JavaScript,Research,Supply-Chain-Security,Browser,MetaMask,LavaMoat
 title: Snow stops playing nice - security first at the cost of everything else
 url: https://weizman.github.io/
