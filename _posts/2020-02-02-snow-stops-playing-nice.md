@@ -10,6 +10,8 @@ description: Today marks a big day in the life of Snow ❄️, where we come to 
 keywords: browsers, javascript, web, security, csp, research, Snow, iframe
 ---
 
+_Taken from the Pull Request that introduces this significant change [#133](https://github.com/LavaMoat/snow/pull/133#Motivation)_
+
 > _tl;dr - Today marks a big day in the life of [Snow](https://github.com/lavamoat/snow), where we come to the mature realization that in order for the project to stop chasing defensive security it has to take some bold steps at the cost of adoption and functional behaviour._
 > _Here, I attempt to lay out the process of trying, failing and learning the hard truth the hard way, and what should be our steps forward to find real security for same origin realms._
 
