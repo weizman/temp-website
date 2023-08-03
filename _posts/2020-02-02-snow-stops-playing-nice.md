@@ -5,7 +5,7 @@ tags: Top,Security,JavaScript,Research,Supply-Chain-Security,Browser,MetaMask,La
 title: Snow stops playing nice - security first at the cost of everything else
 url: https://weizman.github.io/
 date: 03/08/2023
-description: Today marks a big day in the life of [Snow](https://github.com/lavamoat/snow), where we come to the mature realization that in order for the project to stop chasing defensive security it has to take some bold steps at the cost of adoption and functional behaviour. Here, I attempt to lay out the process of trying, failing and learning the hard truth the hard way, and what should be our steps forward to find real security for same origin realms.
+description: Today marks a big day in the life of Snow ❄️, where we come to the mature realization that in order for the project to stop chasing defensive security it has to take some bold steps at the cost of adoption and functional behaviour. Here, I attempt to lay out the process of trying, failing and learning the hard truth the hard way, and what should be our steps forward to find real security for same origin realms.
 keywords: browsers, javascript, web, security, csp, research, Snow, iframe
 ---
 
