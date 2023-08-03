@@ -5,8 +5,8 @@ tags: Top,Security,JavaScript,Research,Supply-Chain-Security,Browser,MetaMask,La
 title: Snow stops playing nice - security first at the cost of everything else
 url: https://weizman.github.io/
 date: 03/08/2023
-description: Abusing SourceMappingURL feature can allow attackers to create one of the strongest Cross Browsers Javascript Anti Debugging techniques that was ever seen. In this post I walk through the discovery and explain why this finding is so powerful and important to be aware of.
-keywords: browsers, anti debugging, javascript, web, security, csp, SourceMappingURL, research, debugger, devtools
+description: Today marks a big day in the life of [Snow](https://github.com/lavamoat/snow), where we come to the mature realization that in order for the project to stop chasing defensive security it has to take some bold steps at the cost of adoption and functional behaviour. Here, I attempt to lay out the process of trying, failing and learning the hard truth the hard way, and what should be our steps forward to find real security for same origin realms.
+keywords: browsers, javascript, web, security, csp, research, Snow, iframe
 ---
 
 > tl;dr - Today marks a big day in the life of [Snow](https://github.com/lavamoat/snow), where we come to the mature realization that in order for the project to stop chasing defensive security it has to take some bold steps at the cost of adoption and functional behaviour.
