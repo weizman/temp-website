@@ -54,7 +54,8 @@ This means that:
 
 1. Bypassing Snow should become **significantly harder** (hopefully)
 2. Snow might no longer allow certain operations to take place and instead **will throw an error to protect the page completely**. Most of these operations will still be rather unique and unneeded for the average website, but when they happen, **Snow will bail on the operation in sake of keeping the app protected.**
-	2.1. Also, Snow's protection **will still require CSP integration**, there's no escape from that ([#118](https://github.com/LavaMoat/snow/pull/118) was right about that).
+	
+ 	2.1. Also, Snow's protection **will still require CSP integration**, there's no escape from that ([#118](https://github.com/LavaMoat/snow/pull/118) was right about that).
 
 This also means **Snow becomes less of a fit for traditional websites** (e.g. booking.com) and **third party vendors** aiming to be integrated in all sorts of wacky JS envs (e.g. PX CodeDefender), but a **better fit for those who can tolerate some initial Snow integration pain** in order to become a **truly same-origin-realms-attacks resilient app.**
 
