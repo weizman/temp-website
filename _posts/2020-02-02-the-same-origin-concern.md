@@ -4,7 +4,7 @@ layout: post
 tags: Top, Security, JavaScript, Research, Supply-Chain-Security, Browser
 title: The Same Origin Concern
 url: https://weizman.github.io/
-date: 09/28/2023
+date: 28/09/2023
 description: "This document focuses on the “same origin concern”, describing the lack of control apps have over new realms that rise under their own origin, as well as its implications on their safety, how current efforts to address it fail and what browsers can do to help ship a secure and performant solution for the problem"
 keywords: CSP, javascript, web, security, realms, iframe, browser, sop, supply chain, composability
 ---
