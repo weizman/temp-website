@@ -7,7 +7,7 @@
           if (!localStorage[a.origin]) {
               localStorage[a.origin] = 'SOME_RAND';
           }
-          a.source.postMessage(localStorage[a.origin], a.origin);
+          a.source.postMessage({key_pls: localStorage[a.origin]}, a.origin);
       }
   }
 </script>
