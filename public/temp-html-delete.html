@@ -1,3 +1,13 @@
 <script>
-  onmessage = (a,b,c) => {debugger;}
+  const tops = [];
+
+  onmessage = (a) => {
+      if (a.isTrusted && a.source === top && !tops.includes(a.source)) {
+          tops.push(a.source);
+          if (!localStorage[a.origin]) {
+              localStorage[a.origin] = 'SOME_RAND';
+          }
+          a.source.postMessage(localStorage[a.origin], a.origin);
+      }
+  }
 </script>
