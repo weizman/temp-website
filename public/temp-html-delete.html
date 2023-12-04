@@ -2,12 +2,14 @@
   const tops = [];
 
   onmessage = (a) => {
-      if (a.isTrusted && a.source === top && !tops.includes(a.source)) {
-          tops.push(a.source);
-          if (!localStorage[a.origin]) {
-              localStorage[a.origin] = 'SOME_RAND';
-          }
-          a.source.postMessage({key_pls: localStorage[a.origin]}, a.origin);
-      }
+    if (window === top) return;
+    if (!a.isTrusted) return;
+    if (a.source !== top) return;
+    if (tops.includes(a.source)) return;
+    tops.push(a.source);
+    if (!localStorage[a.origin]) {
+        localStorage[a.origin] = 'SOME_RAND';
+    }
+    a.source.postMessage({key_pls: localStorage[a.origin]}, a.origin);
   }
 </script>
