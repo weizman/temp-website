@@ -1,4 +1,4 @@
-if (location.href.includes('silent') {
+if (location.href.includes('silent')) {
   console.log('fetched script:', location.href.split('msg=')[1]);
 }
 else {
