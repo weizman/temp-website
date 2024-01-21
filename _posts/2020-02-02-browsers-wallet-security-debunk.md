@@ -21,8 +21,9 @@ I'll address the claims it makes, how [@metamask](https://metamask.io/) 🦊 is 
 
 [B=Browser/H=Hardware/W=Wallet]
 
-![image](https://github.com/weizman/weizman.github.io/assets/13243797/b2a9111a-208e-45cb-a444-41ca8fbe709d)
-
+<center>
+<img src=https://github.com/weizman/weizman.github.io/assets/13243797/b2a9111a-208e-45cb-a444-41ca8fbe709d/>
+</center>
 
 Its main claim is that HWs are secured whereas BWs aren't simply because the former never exposes the private key outside the hardware whereas the latter stores it in more vulnerable infrastructures being the browser & OS.
 
@@ -161,11 +162,11 @@ Not to speak for other wallets, but for MetaMask the answer would be “very wel
 
 Learn more about the LavaMoat stack that’s making this possible:
 
-* LavaMoat https://metamask.io/news/security/using-lavamoat-to-solve-software-supply-chain-security/
+* [LavaMoat](https://metamask.io/news/security/using-lavamoat-to-solve-software-supply-chain-security/)
 
-* Scuttling https://twitter.com/weizmangal/status/1674751159003914240?s=46&t=3av-wxCFEbML6grYvIm18A
+* [Scuttling](https://twitter.com/weizmangal/status/1674751159003914240?s=46&t=3av-wxCFEbML6grYvIm18A)
 
-* Snow https://twitter.com/weizmangal/status/1679873336510402561?s=46&t=3av-wxCFEbML6grYvIm18A
+* [Snow](https://twitter.com/weizmangal/status/1679873336510402561?s=46&t=3av-wxCFEbML6grYvIm18A)
 
 * LavaDome (soon, stay tuned 😉)
 
