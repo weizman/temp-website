@@ -17,7 +17,7 @@
         ALL: [
             'Top', 'CVEs', 'Vulnerabilities', 'Security', 'JavaScript',
             'Research', 'Anti-Debug', 'Supply-Chain-Security', 'The-Client-Side',
-            'Discovery', 'Browser', 'MetaMask', 'LavaMoat', 'Web3',
+            'Discovery', 'Browser', 'MetaMask', 'LavaMoat', 'Web3', 'Featured-on-X',
         ],
         SELECTED: getSelectedTags(),
     };
