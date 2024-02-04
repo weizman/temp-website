@@ -2,7 +2,7 @@
 enabled: true
 layout: post
 tags: Top,Security,JavaScript,Research,The-Client-Side,Browser,Featured-on-X
-title: A Way to Observe the JS Prototype Chain 
+title: A Way to Observe the JS Prototype Chain [𝕏]
 url: https://weizman.github.io/
 date: 27/07/2023
 description: The JavaScript prototype chain is complicated and hard to study, so shouldn't there be an online tool for that already?
