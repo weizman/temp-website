@@ -1,7 +1,7 @@
 ---
 enabled: true
 layout: post
-tags: Top,Vulnerabilities,Security,JavaScript,Research,Supply-Chain-Security,The-Client-Side,Browser,MetaMask,LavaMoat,Web3
+tags: Top,Vulnerabilities,Security,JavaScript,Research,Supply-Chain-Security,The-Client-Side,Browser,MetaMask,LavaMoat,Web3,Featured-on-X
 title: MetaMask Wallet Security Threat Model - The Browser's Prespective
 url: https://weizman.github.io/
 date: 21/01/2024
