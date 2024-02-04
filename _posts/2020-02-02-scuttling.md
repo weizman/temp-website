@@ -4,7 +4,7 @@ layout: post
 tags: Top,Security,JavaScript,Research,Supply-Chain-Security,The-Client-Side,Browser,MetaMask,LavaMoat,Web3
 title: MetaMask JavaScript Security Stack (Part 1 - scuttling)
 url: https://weizman.github.io/
-date: 21/01/2024
+date: 30/06/2023
 description: A series exploring the JavaScript security stack of the MetaMask browser wallet (part 1 - LavaMoat scuttling)
 keywords: metamask, lavamoat, snow, browser, security, extensions, javascript, iframe, xss, supply chain, research, keylogging, csp, scuttling
 ---
