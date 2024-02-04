@@ -14,7 +14,7 @@ keywords: metamask, lavamoat, snow, browser, security, extensions, javascript, i
 <div id=container>
     <style>
         .post {
-            max-width: 50vh;
+            max-width: 80vh;
         }
         IMG {
             border: solid 1px lightgray;
