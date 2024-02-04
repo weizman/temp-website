@@ -9,10 +9,7 @@ description: A series exploring the JavaScript security stack of the MetaMask br
 keywords: metamask, lavamoat, snow, browser, security, extensions, javascript, iframe, xss, supply chain, research, keylogging, csp, scuttling
 ---
 
-
-<blockquote><p>Originally <a href="https://twitter.com/WeizmanGal/status/1674751159003914240">posted on X</a></p></blockquote>
-        <div id=container>
-    <style>
+<style>
         .post {
             max-width: 80vh;
         }
@@ -22,6 +19,11 @@ keywords: metamask, lavamoat, snow, browser, security, extensions, javascript, i
             margin: 15px;
         }
     </style>
+
+<blockquote><p>Originally <a href="https://twitter.com/WeizmanGal/status/1674751159003914240">posted on X</a></p></blockquote>
+        
+<div id=container>
+    
 
 MetaMask 🦊 is an amazing app for many reasons.<br>
 <br>
