@@ -2,7 +2,7 @@
 enabled: true
 layout: post
 tags: Browser,Top,JavaScript,Research,Security,Supply-Chain-Security,The-Client-Side,MetaMask,LavaMoat,Featured-on-X
-title: Introducing Snow ❄️
+title: Introducing Snow ❄️ [𝕏]
 url: https://weizman.github.io/
 date: 04/01/2023
 description: Introducing Snow JS, a JavaScript security tool for securing same origin realms as part of the MetaMask LavaMoat security toolbox
