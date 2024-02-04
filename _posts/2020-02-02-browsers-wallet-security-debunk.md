@@ -2,7 +2,7 @@
 enabled: true
 layout: post
 tags: Top,Vulnerabilities,Security,JavaScript,Research,Supply-Chain-Security,The-Client-Side,Browser,MetaMask,LavaMoat,Web3,Featured-on-X
-title: MetaMask Wallet Security Threat Model - The Browser's Prespective
+title: MetaMask Wallet Security Threat Model - The Browser's Prespective [𝕏]
 url: https://weizman.github.io/
 date: 21/01/2024
 description: Debunking a recently published academic paper on browser wallets security proving browser wallets like MetaMask are in fact secure
