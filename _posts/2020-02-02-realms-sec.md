@@ -2,7 +2,7 @@
 enabled: true
 layout: post
 tags: Browser,Top,JavaScript,Research,Security,Supply-Chain-Security,The-Client-Side,Featured-on-X
-title: Realms Security
+title: Realms Security [𝕏]
 url: https://weizman.github.io/
 date: 19/11/2022
 description: Let's understand realms security
