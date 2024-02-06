@@ -5,7 +5,7 @@ tags: Top,Security,JavaScript,Research,Supply-Chain-Security,Browser,Web3,Vulner
 title: Is client side security dead - or the future?
 url: https://weizman.github.io/
 date: 10/02/2024
-description: here is my take
+description: Client side security is a niche tech field that seems to be unneeded for the most part. As someone who's very passionate about it, that's something that's hard for me to accept. After being addressed by a well known security researcher, I dive into the mixed feelings I have with the field as well as present my take on the industry and most importantly, strongly argue in details why I think client side security isn't dying - but in fact is on the rise.
 keywords: research, security, JavaScript, Web3, supply chain attacks, web, iframe, metamask, lavamoat, origin, dom, client side
 image: clientside.jpg
 
@@ -18,7 +18,7 @@ client side security is a niche tech field that seems to be unneeded for the mos
 As someone who's very passionate about it, that's something that's hard for me to accept.
 After being addressed by a well known security researcher ([Shubham Shah](https://shubs.io/)),
 I dive into the mixed feelings I have with the field as well as present my take on the industry
-and most importantly, strongly argue in details why I think client **side security isn't dying - but in fact is on the rise.**
+and most importantly, strongly argue in details why I think **client side security isn't dying - but in fact is on the rise.**
 
 
 ## Does client side security still matter?
