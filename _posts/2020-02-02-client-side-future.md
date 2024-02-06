@@ -7,7 +7,7 @@ url: https://weizman.github.io/
 date: 10/02/2023
 description: here is my take
 keywords: research, security, JavaScript, Web3, supply chain attacks, web, iframe, metamask, lavamoat, origin, dom, client side
-image: xxx.jpg
+image: clientside.jpg
 
 ---
 
@@ -188,7 +188,7 @@ I mostly have two main reasons in mind:
 
 ### Software Composability
 
-This one is a reason I had in mind even before joining [MetaMask](https://github.com/MetaMask/metamask-extension/). In fact, our shared take on it is what drove [LavaMoat](https://github.com/LavaMoat/LavaMoat/) to adopt Snow into its set of security tools.
+This one is a reason I had in mind even before joining [MetaMask](https://github.com/MetaMask/metamask-extension/). In fact, our shared take on it is what drove [LavaMoat](https://github.com/LavaMoat/LavaMoat/) to adopt [Snow](https://github.com/lavamoat/snow) into its set of security tools.
 
 The bottom line is that **the evolution of web application development had put us in a place where telling what code our application is going to execute is pretty much impossible**.
 
@@ -307,7 +307,7 @@ and minimize the amount of damage they can do if they get breached.
 
 #### The Same Origin Concern
 
-Snow is another security tool we use to prevent JS code from **being able to create new same origin realms** (aka iframes).
+[Snow](https://github.com/lavamoat/snow) is another security tool we use to prevent JS code from **being able to create new same origin realms** (aka iframes).
 This is a vital tool in case sandboxed code we don't trust manages to use the limited set of capabilities we endowed it to form a new realm,
 because new realms offer access to all capabilities the browser offers - including those we intentionally didn't endow it.
 
@@ -316,7 +316,7 @@ because new realms offer access to all capabilities the browser offers - includi
 DOM API is historically designed so that you can travel **from one node to basically any other node** (and even the document itself and its owner window object) 
 effortlessly, and preventing that was proven to be very hard (see the [CaJa project](https://github.com/googlearchive/caja/blob/master/src/com/google/caja/plugin/domado.js)).
 
-LavaDome attempts to solve some subset of this problem, but a more complete solution to this problem is far from existing.
+[LavaDome](https://github.com/LavaMoat/LavaDome/) attempts to solve some subset of this problem, but a more complete solution to this problem is far from existing.
 
 ### Are those actual problems though?
 
