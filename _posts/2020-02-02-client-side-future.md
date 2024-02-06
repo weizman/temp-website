@@ -4,7 +4,7 @@ layout: post
 tags: Top,Security,JavaScript,Research,Supply-Chain-Security,Browser,Web3,Vulnerabilities,MetaMask,LavaMoat,The-Client-Side
 title: Is client side security dead - or the future?
 url: https://weizman.github.io/
-date: 09/09/2023
+date: 10/02/2023
 description: here is my take
 keywords: research, security, JavaScript, Web3, supply chain attacks, web, iframe, metamask, lavamoat, origin, dom, client side
 image: xxx.jpg
