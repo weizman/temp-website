@@ -302,7 +302,7 @@ Based on the experience of coming up with the threats the [MetaMask](https://git
 
 #### JavaScript Sandboxing
 
-[LavaMoat](https://github.com/LavaMoat/LavaMoat/) is a security tool written in JavaScript and built on SES we maintain, with which we're able to **sandbox each of our [MetaMask](https://github.com/MetaMask/metamask-extension/) JavaScript dependencies** to confine them
+[LavaMoat](https://github.com/LavaMoat/LavaMoat/) is a security tool written in JavaScript and built on [SES](https://github.com/endojs/endo/tree/master/packages/ses) we maintain, with which we're able to **sandbox each of our [MetaMask](https://github.com/MetaMask/metamask-extension/) JavaScript dependencies** to confine them
 and minimize the amount of damage they can do if they get breached.
 
 #### The Same Origin Concern
