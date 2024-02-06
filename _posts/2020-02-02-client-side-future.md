@@ -37,7 +37,7 @@ had got to the point where it's time to digest it and self-reflect it, in terms 
 
 To me, that usually means to write. Writing helps me clear my head and put my thoughts in order. In regards with the client side security industry, it's time to do just that - so **buckle up.**
 
-### Shubham's tweet
+## Shubham's tweet
 
 So first of all, what's all the fuzz about? 
 
@@ -62,12 +62,12 @@ But what really got me, was the fear of ever saying the following words:
 Because knowing the industry and relating to Shubham sees things, I can see myself ending up in a similar place.
 And I take this harder than Shubham **maybe**, because of the relationship I have with client side security, **for better or worse.**
 
-### My relationship with client side security
+## My relationship with client side security
 
 > In this section I'll lay out some context about me and the path I went through for you to better judge my perspective on client side security and the
 promising future I see for it. I encourage you to read it, but you can still decide to [skip on to my take](#my-take-on-client-side-security).
 
-#### Buckle up
+### Buckle up
 
 As an 18yo Israeli, I was to serve the Israeli Defense Forces by duty. 
 
@@ -94,7 +94,7 @@ but most importantly a chance for me to find my own color and to become an exper
 
 And so began the bumpy ride of mine I call "my career".
 
-#### The ride of my life
+### The ride of my life
 
 One decade forward, and I've been focusing **almost entirely on JavaScript security.** 
 Working for the best in the field, I've gained experience in **almost every client side security field** one can imagine - whether it's 
@@ -115,7 +115,7 @@ vulnerability research and exploitation skills
 
 After learning more about this industry, combined with personal choices, I changed my mind and decided to pass on this industry, which got me to think - **_if not this, what then?_**
 
-#### The wrong choice?
+### The wrong choice?
 
 This was a 3 months turbulence of emotions around the fear of **whether I wasted the most important years of my career on this one niche field no one has any interest of?**
 
@@ -137,10 +137,10 @@ And that's how I joined Bionic for a standard FullStack software development pos
 And while Bionic turned out to be a great experience (both for working there and for it to be later acquired), 
 I left Bionic only 1.5 years later - because **the passion for client side security didn't die off, it just went stronger** only to result in a great next opportunity.
 
-#### The right choice
+### The right choice
 
 While working at Bionic, I kept learning about the world of client side security, and two initiatives I found **fascinating** were
-[LavaMoat](https://weizmangal.com/?tags=LavaMoat) and [SES](https://github.com/endojs/endo/tree/master/packages/ses).
+[LavaMoat](https://github.com/LavaMoat/LavaMoat/) and [SES](https://github.com/endojs/endo/tree/master/packages/ses).
 
 After partly wrapping my head around them and the problem they address, it came clear to me **JavaScript security is far from a solved problem - and that
 directly affects browser client side security.**
@@ -148,17 +148,17 @@ directly affects browser client side security.**
 At the time I was working on my own side project called [Snow](https://github.com/lavamoat/snow) to address another non-solved problem in client side 
 security I refer to as [the Same Origin Concern](https://weizmangal.com/2023/09/28/the-same-origin-concern/).
 
-I reached out to [@kumavis](https://github.com/kumavis) (the creator of LavaMoat) to discuss the different problems we both attempt to address, and it made sense to
-both of us that my work could be a great addition to the LavaMoat project which focuses on securing JavaScript both for their main 
-product ([MetaMask](https://weizmangal.com/?tags=MetaMask)) and for anyone in the world. 
+I reached out to [@kumavis](https://github.com/kumavis) (the creator of [LavaMoat](https://github.com/LavaMoat/LavaMoat/)) to discuss the different problems we both attempt to address, and it made sense to
+both of us that my work could be a great addition to the [LavaMoat](https://github.com/LavaMoat/LavaMoat/) project which focuses on securing JavaScript both for their main 
+product ([MetaMask](https://github.com/MetaMask/metamask-extension/)) and for anyone in the world. 
 
 So why am I telling you all this?
 
-### My take on client side security
+## My take on client side security
 
 What does the future hold for client side security? Given my experience and perspective, I'll try to answer that.
 
-#### The death of client side security?
+### The death of client side security?
 
 Referring back to Shubham's take, applications are architected so that the **backend of an app carries the core responsibility for the security** of the app.
 
@@ -176,19 +176,19 @@ mostly focus on securing other components of their applications (probably foreve
 
 That's the conclusion I was arriving at when I joined Bionic to gradually migrate away from my passion for client side security.
 
-But right before giving up for good, I decided to go for one last round by joining MetaMask's LavaMoat effort, to see once and for all **whether
+But right before giving up for good, I decided to go for one last round by joining [MetaMask](https://github.com/MetaMask/metamask-extension/)'s [LavaMoat](https://github.com/LavaMoat/LavaMoat/) effort, to see once and for all **whether
 there's still something to it, or is client side security basically a lost cause?**
 
-#### Client side security's second chance
+### Client side security's second chance
 
-Joining LavaMoat, meeting brilliant people focusing on securing the JavaScript ecosystem, I rediscovered the reasons for why **client side
+Joining [LavaMoat](https://github.com/LavaMoat/LavaMoat/), meeting brilliant people focusing on securing the JavaScript ecosystem, I rediscovered the reasons for why **client side
 security is going to matter a lot in the future** and why I personally feel **confident betting on it more than ever.**
 
 I mostly have two main reasons in mind:
 
-#### Software Composability
+### Software Composability
 
-This one is a reason I had in mind even before joining MetaMask. In fact, our shared take on it is what drove LavaMoat to adopt Snow into its set of security tools.
+This one is a reason I had in mind even before joining [MetaMask](https://github.com/MetaMask/metamask-extension/). In fact, our shared take on it is what drove [LavaMoat](https://github.com/LavaMoat/LavaMoat/) to adopt Snow into its set of security tools.
 
 The bottom line is that **the evolution of web application development had put us in a place where telling what code our application is going to execute is pretty much impossible**.
 
@@ -210,7 +210,7 @@ Shopify, Wix and more are platforms allowing developers to upload plugins aimed 
 the benefit they give, forming more powerful and versatile services for their users - a form of practice we'll see more and more as we go on thanks to the web
 allowing JS software to easily consume smaller programs.
 
-No reason to look too far either - MetaMask is also a platform which allows the extension of its basic services using developers-made plugins called "snaps".
+No reason to look too far either - [MetaMask](https://github.com/MetaMask/metamask-extension/) is also a platform which allows the extension of its basic services using developers-made plugins called "snaps".
 
 The "snaps" plugin system required great client side security engineering (conducted by us internally) for the same reason the formers went through 
 similar such careful care - those plugins are designed to run in the client side, within the app/platform itself, and that means it must endow them with some
@@ -236,7 +236,7 @@ But one thing's for sure: **composability driven software is a great turn** - it
 specifically are well suit for such engineering methodology. The further we advance, **the more software's going to rely on other software**, and therefore the need for supporting
 this long term process securely is **more important than ever** (in which the client side takes a major role IMO).
 
-#### Web3
+### Web3
 
 > This is a more controversial one. 
 Based on who usually reads my stuff, you either see and expects the upsides the Web3 paradigm barres with it (and therefore
@@ -267,16 +267,16 @@ But in Web3 architecture, **that's no longer possible** - for better or worse, *
 **This turns the tables** - if before **the server was such a great way to design safe applications that client side security was barely even relevant**, in Web3 context, **client side
 is the only way to secure that part of the application.**
 
-This came very clear to me working on MetaMask, and is why I'm so proud of the JavaScript security work we do - Since the MetaMask crypto wallet is a browser
+This came very clear to me working on [MetaMask](https://github.com/MetaMask/metamask-extension/), and is why I'm so proud of the JavaScript security work we do - Since the [MetaMask](https://github.com/MetaMask/metamask-extension/) crypto wallet is a browser
 extension that is theoretically vulnerable to the same threats described in context of dapps (and even more so being the critical bridge between dapps and the Ethereum network),
-in order to not die, MetaMask is **forever obligated to ship the most secured client side product ever**.
+in order to not die, [MetaMask](https://github.com/MetaMask/metamask-extension/) is **forever obligated to ship the most secured client side product ever**.
 
 And while slightly less so, **dapps and other Web3 client side services are under a similar obligation** - otherwise the idea behind Web3 **won't ever truly take off**.
 
 Therefore, if you see some sense in the Web3 industry and believes it's here to stay to whatever extent you can imagine, you should agree **the need for advanced
 client side security technology is more critical than ever.**
 
-### "Dear Gal from the past"
+## "Dear Gal from the past"
 
 I guess this is my way of telling 5/10 years ago Gal: 
 
@@ -298,27 +298,27 @@ a more and more **closed gap** both because **addressing traditional client side
 
 But given the POVs above, I believe **client side security will become more advance and more complicated**, thus naturally will **introduce new attack surfaces for researchers**.
 
-Based on the experience of coming up with the threats the MetaMask app is potentially exposed to, I have multiple examples to back this claim up:
+Based on the experience of coming up with the threats the [MetaMask](https://github.com/MetaMask/metamask-extension/) app is potentially exposed to, I have multiple examples to back this claim up:
 
-##### JavaScript Sandboxing
+#### JavaScript Sandboxing
 
-LavaMoat is a security tool written in JavaScript and built on SES we maintain, with which we're able to **sandbox each of our MetaMask JavaScript dependencies** to confine them
+[LavaMoat](https://github.com/LavaMoat/LavaMoat/) is a security tool written in JavaScript and built on SES we maintain, with which we're able to **sandbox each of our [MetaMask](https://github.com/MetaMask/metamask-extension/) JavaScript dependencies** to confine them
 and minimize the amount of damage they can do if they get breached.
 
-##### The Same Origin Concern
+#### The Same Origin Concern
 
 Snow is another security tool we use to prevent JS code from **being able to create new same origin realms** (aka iframes).
 This is a vital tool in case sandboxed code we don't trust manages to use the limited set of capabilities we endowed it to form a new realm,
 because new realms offer access to all capabilities the browser offers - including those we intentionally didn't endow it.
 
-##### DOM Confinement
+#### DOM Confinement
 
 DOM API is historically designed so that you can travel **from one node to basically any other node** (and even the document itself and its owner window object) 
 effortlessly, and preventing that was proven to be very hard (see the [CaJa project](https://github.com/googlearchive/caja/blob/master/src/com/google/caja/plugin/domado.js)).
 
 LavaDome attempts to solve some subset of this problem, but a more complete solution to this problem is far from existing.
 
-#### Are those actual problems though?
+### Are those actual problems though?
 
 **Remember the context here**: for the traditional web, where the client side isn't complicated and there's a server taking the responsibility for securing the app - these problems
 aren't too relevant, and **current browsers' threat model is rather enough.**
@@ -328,7 +328,7 @@ considered traditionally** - and the implications of that are big, because if br
 similar confinement is now necessary in a lower resolution, where **two entities within a single origin aren't trustworthy by default anymore** - which results in the security
 gaps listed above.
 
-And **that's** why I believe **the web would have to adjust accordingly** - whether by virtualized solutions such as those we compose at MetaMask or by advocating for
+And **that's** why I believe **the web would have to adjust accordingly** - whether by virtualized solutions such as those we compose at [MetaMask](https://github.com/MetaMask/metamask-extension/) or by advocating for
 browser-level solutions to properly address these gaps (probably both).
 
 And with that in mind, **I expect a comeback for client side security** - for the industry, for the vendors and most importantly - **for the researchers**! 
