@@ -64,22 +64,21 @@ And I take this harder than Shubham **maybe**, because of the relationship I hav
 
 ## My relationship with client side security
 
-<details>
-<summary><i>
-In this section I'll lay out some context about me and the path I went through for you to better judge my perspective on client side security and the promising future I see for it. 
+> In this section I'll lay out some context about me and the path I went through for you to better judge my perspective on client side security and the promising future I see for it.
 I encourage you to read it for the important context, but you can still decide to [skip on to my take on the client side security industry](#my-take-on-client-side-security).
-<u>(click to expand)</u>
-</i></summary>
 
 ### The beginning
 
-As an 18yo Israeli, I was to serve the Israeli Defense Forces by duty. 
+As an 18yo Israeli, I was to serve the Israeli Defense Forces by duty...
 
 There are many roles to take as part of this obligation, and the intelligent and/or fortunate ones serve in the Israeli Intelligence Corps, 
 a batch of units which are mostly responsible for collecting valuable intel for national security. The most impactful way for achieving 
 that is by practicing what you might know as "Offensive Cyber Security", which is a primary reason why Israel is considered to be a world-class leader in cyber-security.
 
-The most popular one, which I ended up at, is called 8200.
+<details>
+<summary>
+The most popular one, which I ended up at, is called 8200...
+</summary>
 
 If truth to be told, on that spectrum between intelligent and fortunate, I was probably a lot closer to fortunate than intelligent.
 The proof of that was the fact that the professionality gap between the training course I was accepted 
@@ -292,6 +291,7 @@ _**Don't panic.**_
 _While client side security might feel like some useless niche sometimes, remember **it's also a matter of timing**._
 
 _Telling what turns the tech industry is going to take is hard as it is such a difficult to predict industry that takes seemingly random curves occasionally.
+
 Those curves can be surprising and can **lead particular technological fields to the road of adoption or complete failure - it's hard to tell.**_
 
 _And as for client side security, similarly to many other niche fields, **it might turn out just fine**._
