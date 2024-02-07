@@ -69,13 +69,13 @@ I encourage you to read it for the important context, but you can still decide t
 
 ### The beginning
 
-As an 18yo Israeli, I was to serve the Israeli Defense Forces by duty...
+As an 18yo Israeli, I was to serve the Israeli Defense Forces by duty.
 
 There are many roles to take as part of this obligation, and the intelligent and/or fortunate ones serve in the Israeli Intelligence Corps, 
 a batch of units which are mostly responsible for collecting valuable intel for national security. The most impactful way for achieving 
 that is by practicing what you might know as "Offensive Cyber Security", which is a primary reason why Israel is considered to be a world-class leader in cyber-security.
 
-<details>
+<details markdown="1">
 <summary>
 The most popular one, which I ended up at, is called 8200...
 </summary>
