@@ -13,12 +13,12 @@ image: clientside.jpg
 
 **_tl;dr_**
 
-> This is one of my **favorite** write-ups so far:
+> This is one of my **favorite** essays so far:
 client side security is a niche tech field that seems to be unneeded for the most part.
 As someone who's very passionate about it, that's something that's hard for me to accept.
-After being addressed by a well known security researcher ([Shubham Shah](https://shubs.io/)),
-I dive into the mixed feelings I have with the field as well as present my take on the industry
-and most importantly, strongly argue in details why I think **client side security isn't dying - but in fact is on the rise.**
+After ([Shubham Shah](https://shubs.io/)) addressed this topic in his [tweet](https://twitter.com/infosec_au/status/1698322940159557987),
+I elaborate into the mixed feelings I have with this field, as well as present my take on the industry and most importantly,
+strongly argue why I think client side security isn't dying - but in fact **is more crucial now than was ever before**.
 
 
 ## Does client side security still matter?
@@ -33,9 +33,9 @@ To this day I battle my strong desire and pure passion for the field of client s
 the understandable wish for a long, stable and thriving career as an individual in the tech industry.
 
 Shubham's tweet made me realize that the fact that this dilemma had taken me through multiple emotional rides throughout my career already, 
-had got to the point where it's time to digest it and self-reflect it, in terms of its **relationship with the cyber-security industry**, the **importance of its role in the ecosystem**, and its **future**.
+had got to the point where it's time to digest and self-reflect client side security, in terms of its **relationship with the cyber-security industry**, the **importance of its role in the ecosystem**, and its **future**.
 
-To me, that usually means to write. Writing helps me clear my head and put my thoughts in order. In regards with the client side security industry, it's time to do just that - so **buckle up.**
+To me, that usually means to write. Writing helps me clear my head and put my thoughts in order. In regards with the client side security industry, it's time to do just that - so **here goes.**
 
 ## Shubham's tweet
 
@@ -67,7 +67,7 @@ And I take this harder than Shubham **maybe**, because of the relationship I hav
 > In this section I'll lay out some context about me and the path I went through for you to better judge my perspective on client side security and the
 promising future I see for it. I encourage you to read it, but you can still decide to [skip on to my take](#my-take-on-client-side-security).
 
-### Buckle up
+### The beginning
 
 As an 18yo Israeli, I was to serve the Israeli Defense Forces by duty. 
 
@@ -82,7 +82,7 @@ The proof of that was the fact that the professionality gap between the training
 to and the team I ended up in was the result of no less than an accident (a story for another day).
 
 Naturally, such a gap introduced significant difficulties for me, as I struggled a lot to keep up with the rest of the team. 
-I was surrounded by highly competent individuals, which became highly skilled in each of their own distinct field of expertise, whereas I was a colorless weak link. 
+I was surrounded by highly competent individuals, who were each highly skilled in each of their own distinct field of expertise, whereas I was a colorless weak link. 
 
 **It was no picnic.**
 
@@ -94,7 +94,7 @@ but most importantly a chance for me to find my own color and to become an exper
 
 And so began the bumpy ride of mine I call "my career".
 
-### The ride of my life
+### The choice
 
 One decade forward, and I've been focusing **almost entirely on JavaScript security.** 
 Working for the best in the field, I've gained experience in **almost every client side security field** one can imagine - whether it's 
@@ -135,7 +135,7 @@ And that's how I joined Bionic for a standard FullStack software development pos
 **fully betting on client side security might not be the smartest thing to do.**
 
 And while Bionic turned out to be a great experience (both for working there and for it to be later acquired), 
-I left Bionic only 1.5 years later - because **the passion for client side security didn't die off, it just went stronger** only to result in a great next opportunity.
+I left Bionic only 1.5 years later - because **the passion for client side security didn't die off, it only became stronger**, leading me to my next great next opportunity.
 
 ### The right choice
 
@@ -192,7 +192,7 @@ This one is a reason I had in mind even before joining [MetaMask](https://github
 
 The bottom line is that **the evolution of web application development had put us in a place where telling what code our application is going to execute is pretty much impossible**.
 
-Saying that 10 years ago would have sound **ridicules**, but since then supply chain driven development became so prominent that most web apps nowadays are 
+Saying that 10 years ago would have sounded **ridicules**, but since then supply chain driven development became so prominent that most web apps nowadays are 
 composed of around **90% of code written by other entities - entities we can hardly verify nor blindly trust.**
 
 **And trust is far from enough too**, because even if the maintainer is verified to be trustworthy for years, meaning they have no malicious intentions - **a malicious entity
