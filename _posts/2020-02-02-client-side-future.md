@@ -159,7 +159,7 @@ product ([MetaMask](https://github.com/MetaMask/metamask-extension/)) and for an
 </details>
 <br>
 
-... So why am I telling you all this?
+... So why am I telling you all this 👆?
 
 ## My take on client side security
 
