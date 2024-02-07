@@ -283,7 +283,7 @@ And while slightly less so, **dapps and other Web3 client side services are unde
 Therefore, if you see some sense in the Web3 industry and believes it's here to stay to whatever extent you can imagine, you should agree **the need for advanced
 client side security technology is more critical than ever.**
 
-## "Dear Gal from the past"
+## Client side security's critical role in the future
 
 I guess this is my way of telling 5/10 years ago Gal: 
 
