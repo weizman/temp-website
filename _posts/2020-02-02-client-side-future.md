@@ -77,7 +77,7 @@ that is by practicing what you might know as "**Offensive Cyber Security**", whi
 
 <details markdown="1">
 <summary>
-The most popular one, which I ended up at, is called **8200** ...
+The most popular one, which I ended up at, is called <b>8200</b> ...
 </summary>
 <br>
 
