@@ -77,8 +77,9 @@ that is by practicing what you might know as "Offensive Cyber Security", which i
 
 <details markdown="1">
 <summary>
-The most popular one, which I ended up at, is called 8200...
+The most popular one, which I ended up at, is called 8200 ...
 </summary>
+<br>
 
 If truth to be told, on that spectrum between intelligent and fortunate, I was probably a lot closer to fortunate than intelligent.
 The proof of that was the fact that the professionality gap between the training course I was accepted 
