@@ -156,6 +156,7 @@ both of us that my work could be a great addition to the [LavaMoat](https://gith
 product ([MetaMask](https://github.com/MetaMask/metamask-extension/)) and for anyone in the world. 
 
 </details>
+<br>
 
 ... So why am I telling you all this?
 
