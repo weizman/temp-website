@@ -65,7 +65,7 @@ And I take this harder than Shubham **maybe**, because of the relationship I hav
 ## My relationship with client side security
 
 > In this section I'll lay out some context about me and the path I went through for you to better judge my perspective on client side security and the promising future I see for it.
-I encourage you to read it for the important context, but you can still decide to [skip on to my take on the client side security industry](#my-take-on-client-side-security).
+I encourage you to read it for the important context, but you can still decide to [skip to my take on client side security](#my-take-on-client-side-security).
 
 ### The beginning
 
