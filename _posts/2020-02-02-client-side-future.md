@@ -64,8 +64,12 @@ And I take this harder than Shubham **maybe**, because of the relationship I hav
 
 ## My relationship with client side security
 
-> In this section I'll lay out some context about me and the path I went through for you to better judge my perspective on client side security and the
-promising future I see for it. I encourage you to read it, but you can still decide to [skip on to my take](#my-take-on-client-side-security).
+<details>
+<summary><i>
+In this section I'll lay out some context about me and the path I went through for you to better judge my perspective on client side security and the promising future I see for it. 
+I encourage you to read it for the important context, but you can still decide to [skip on to my take on the client side security industry](#my-take-on-client-side-security).
+<u>(click to expand)</u>
+</i></summary>
 
 ### The beginning
 
@@ -152,7 +156,9 @@ I reached out to [@kumavis](https://github.com/kumavis) (the creator of [LavaMoa
 both of us that my work could be a great addition to the [LavaMoat](https://github.com/LavaMoat/LavaMoat/) project which focuses on securing JavaScript both for their main 
 product ([MetaMask](https://github.com/MetaMask/metamask-extension/)) and for anyone in the world. 
 
-So why am I telling you all this?
+</details>
+
+... So why am I telling you all this?
 
 ## My take on client side security
 
