@@ -240,10 +240,10 @@ In the past years, attempts to create such security tools were already made (com
 but quite unsuccessfully. Perhaps because the timing was off, or because my take is simply wrong - **time will tell**.
 
 But one thing's for sure: **composability driven software is a great turn** - it's far more efficient ("build on the shoulders of giants") and the JS language as well as its ecosystem
-specifically are well suit for such engineering methodology. The further we advance, **the more software's going to rely on other software**, and therefore the need for supporting
+specifically are well suited for such engineering methodology. The further we advance, **the more software's going to rely on other software**, and therefore the need for supporting
 this long term process securely is **more important than ever** (in which the client side takes a major role IMO).
 
-### Web3
+### Decentralization
 
 > This is a more controversial one. 
 Based on who usually reads my stuff, you either see and expects the upsides the Web3 paradigm barres with it (and therefore
@@ -252,12 +252,14 @@ If that's the case, stick around regardless.
 If you like technology and information security, **you might find this angle interesting** to think about, regardless of your stance.
 
 Even if I'm way off about the former argument, and the problem of composable software is completely addressable from the server 
-end - **what if there wasn't a server to help in the first place?**
+end (which it isn't) - **what if there wasn't a server to help in the first place?**
 
-In the Web3 space, that's **kind of the case**. 
+Many would claim there is a decentralized revolution in action, making this argument worth of examination at least.
 
-Instead of web apps you have dapps (decentralized apps) which are normal web applications on the client side, 
-but they connect to something slightly different from a traditional server (a common example would be the Ethereum network),
+In the Web3 space for example, that's **kind of the case**.
+
+Instead of web apps you have [dapps](https://www.techtarget.com/iotagenda/definition/blockchain-dApp) (decentralized apps) which are normal web applications on the client side, 
+but they connect to something slightly different from a traditional server (a common example would be the [Ethereum](https://ethereum.org/) network),
 and those dapps can practically operate without a traditional server to begin with.
 
 While somewhat unrealistic on one hand, a big portion of the Web3 industry actually expects dapps to not incorporate a server that stores/processes
@@ -266,21 +268,27 @@ user information - that's actually **a big part of the Web3 idea for many people
 **This strongly applies to credentials** - in the Ethereum ecosystem for example, authenticating to dapps and operating them is expected to be done via the private key
 of the user in front of the Ethereum network rather than some centralized-managed server (it isn't really authentication but that's good enough for the explanation).
 
-This **dramatically shifts away** from the traditional security paradigm referred to earlier, where the server is not only expected to participate in ensuring the safety
-of the user of an app, but is also expected to do the heavy lifting of it.
+This **dramatically shifts away** from the traditional security paradigm referred to earlier, where servers are not only expected to participate in ensuring the safety
+of applications' users, but are also expected to do the heavy lifting.
 
 But in Web3 architecture, **that's no longer possible** - for better or worse, **the most sensitive actions being performed in dapps take place in the client side** (from start to finish).
 
 **This turns the tables** - if before **the server was such a great way to design safe applications that client side security was barely even relevant**, in Web3 context, **client side
 is the only way to secure that part of the application.**
 
-This came very clear to me working on [MetaMask](https://github.com/MetaMask/metamask-extension/), and is why I'm so proud of the JavaScript security work we do - Since the [MetaMask](https://github.com/MetaMask/metamask-extension/) crypto wallet is a browser
+It's also important to clarify - **this extends beyond just Web3**. The idea of decentralized services is realized on other forms as well, 
+such as financial services (aka [DeFi](https://www.investopedia.com/decentralized-finance-defi-5113835), e.g. [Bitcoin](https://bitcoin.org/en/)), 
+P2P applications and more, but in this essay we focus on client side security in context of browsers, 
+whereas client side security of other decentralized services will be affected differently depending on their supporting infrastructure.
+
+This came very clear to me working on [MetaMask](https://github.com/MetaMask/metamask-extension/), 
+and is why I'm so proud of the JavaScript security work we do - Since the [MetaMask](https://github.com/MetaMask/metamask-extension/) crypto wallet is a browser
 extension that is theoretically vulnerable to the same threats described in context of dapps (and even more so being the critical bridge between dapps and the Ethereum network),
 in order to not die, [MetaMask](https://github.com/MetaMask/metamask-extension/) is **forever obligated to ship the most secured client side product ever**.
 
-And while slightly less so, **dapps and other Web3 client side services are under a similar obligation** - otherwise the idea behind Web3 **won't ever truly take off**.
+And while slightly less so, **dapps and other Web3 client side services are under a similar obligation** - otherwise the idea behind Web3 (and decentralization in general) **won't ever truly take off**.
 
-Therefore, if you see some sense in the Web3 industry and believes it's here to stay to whatever extent you can imagine, you should agree **the need for advanced
+Therefore, if you see some sense in the decentralized movement and believes it's here to stay to whatever extent you can imagine, you should agree **the need for advanced
 client side security technology is more critical than ever.**
 
 ## Client side security's critical role in the future
@@ -324,7 +332,7 @@ because new realms offer access to all capabilities the browser offers - includi
 DOM API is historically designed so that you can travel **from one node to basically any other node** (and even the document itself and its owner window object) 
 effortlessly, and preventing that was proven to be very hard (see the [CaJa project](https://github.com/googlearchive/caja/blob/master/src/com/google/caja/plugin/domado.js)).
 
-[LavaDome](https://github.com/LavaMoat/LavaDome/) attempts to solve some subset of this problem, but a more complete solution to this problem is far from existing.
+[LavaDome](https://github.com/LavaMoat/LavaDome/) attempts to solve a subset of this problem, but a more complete solution doesn't seem to be coming any time soon.
 
 ### Are those actual problems though?
 
@@ -336,7 +344,15 @@ considered traditionally** - and the implications of that are big, because if br
 similar confinement is now necessary in a lower resolution, where **two entities within a single origin aren't trustworthy by default anymore** - which results in the security
 gaps listed above.
 
-And **that's** why I believe **the web would have to adjust accordingly** - whether by virtualized solutions such as those we compose at [MetaMask](https://github.com/MetaMask/metamask-extension/) or by advocating for
-browser-level solutions to properly address these gaps (probably both).
+And **that's** why I believe **the web would have to adjust accordingly** - whether by virtualized solutions such as those we compose at [MetaMask](https://github.com/MetaMask/metamask-extension/) 
+or by advocating for browser-level solutions to properly address these gaps (probably both).
+
+Furthermore - it's important to note that the success/failure of client side security is affected by more means than just technological gaps 
+(such as financial/political motives within the global cyber security ecosystem), but this essay focuses strictly on the technological angle.
 
 And with that in mind, **I expect a comeback for client side security** - for the industry, for the vendors and most importantly - **for the researchers**! 
+
+> I don't just guess - you're welcome to further explore the work we advocate for around web and client side security which we find so important for MetaMask to become
+safer as well as allow other builders to secure their apps too: 
+[Gal Weizman: JavaScript realms used to bypass and eliminate web apps security tools - A problem with a WIP solution](https://weizmangal.com/2023/10/03/w3c-realms/) , 
+> [Gal Weizman: JavaScript Realms: The Blank Spot In Web App Runtime Security](https://www.youtube.com/watch?v=l2l_qnEhx3M) and more
