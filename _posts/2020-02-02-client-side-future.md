@@ -292,9 +292,9 @@ _**Don't panic.**_
 
 _While client side security might feel like some useless niche sometimes, remember **it's also a matter of timing**._
 
-_Telling what turns the tech industry is going to take is hard as it is such a difficult to predict industry that takes seemingly random curves occasionally.
+_Telling what turns the tech industry is going to take is hard as it is such a difficult to predict industry that takes seemingly random curves occasionally._
 
-Those curves can be surprising and can **lead particular technological fields to the road of adoption or complete failure - it's hard to tell.**_
+_Those curves can be surprising and can **lead particular technological fields to the road of adoption or complete failure - it's hard to tell.**_
 
 _And as for client side security, similarly to many other niche fields, **it might turn out just fine**._
 "
