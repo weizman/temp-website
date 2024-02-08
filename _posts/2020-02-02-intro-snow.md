@@ -50,7 +50,6 @@ image: realms.jpg
                         </a>
                         <a target="_blank" href="Https://github.com/lavamoat/snow"><small class="pre-url">Https://github.com/lavamoat/snow</small></a>
                     </div>
-
                 </div>
             </div>
         </div>
@@ -116,7 +115,6 @@ image: realms.jpg
                         </a>
                         <a target="_blank" href="https://github.com/weizman/awesome-javascript-realms-security#tools"><small class="pre-url">https://github.com/weizman/awesome-javascript-realms-security#tools</small></a>
                     </div>
-
                 </div>
             </div>
         </div>

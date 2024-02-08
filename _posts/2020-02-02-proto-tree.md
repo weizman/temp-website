@@ -2,7 +2,7 @@
 enabled: true
 layout: post
 tags: Top,Security,JavaScript,Research,The-Client-Side,Browser,Featured-on-X
-title: A Way to Observe the JS Prototype Chain [𝕏]
+title: Proto Tree 🌳 - A Way to Observe the JS Prototype Chain [𝕏]
 url: https://weizman.github.io/
 date: 27/07/2023
 description: The JavaScript prototype chain is complicated and hard to study, so shouldn't there be an online tool for that already?
@@ -53,13 +53,10 @@ keywords: browser, security, javascript, research, prototype, chain
                             <strong>ProtoTree - the javascript prototype chain as a tree</strong>
                             Observe the javascript prototype chain as an interactive tree in the browser
                         </a>
-                        <a target="_blank" href="https://weizmangal.com/ProtoTree/?filters=XMLHttpRequest"><small class="pre-url">https://weizmangal.com/ProtoTree/?filters=XMLHttpRequest</small></a>
-                    </div>
-
-                </div>
-            </div>
-        </div>
-    </div><hr>
+                        <a target="_blank" href="https://weizmangal.com/ProtoTree/?filters=XMLHttpRequest">
+                            <small class="pre-url">https://weizmangal.com/ProtoTree/?filters=XMLHttpRequest</small>
+                        </a>
+                    </div></div></div></div></div><hr>
     <span class="nop nop-start">1. </span> Learning!<br>
     <br>
     * Who're the ancestors of HTMLBodyElement? <br>
@@ -72,9 +69,6 @@ keywords: browser, security, javascript, research, prototype, chain
     <a class="entity-url" data-preview="true" href="https://weizmangal.com/ProtoTree/?filters=SVG">weizmangal.com/ProtoTree/?filters=SVG</a><br>
     <br>
     This goes as far as you want it to!
-
-
-
     <span class="entity-image"><a href="https://pbs.twimg.com/media/F2Duk90bcAAJ9UW.jpg" target="_blank"><img alt="The result of running ProtoTree in Chrome and filtering by &quot;HTMLBodyElement&quot;" src="https://pbs.twimg.com/media/F2Duk90bcAAJ9UW.jpg" class=" b-loaded"></a></span>
     <sup class="tw-permalink"><i class="fas fa-link"></i></sup>
     <hr>
@@ -132,5 +126,4 @@ keywords: browser, security, javascript, research, prototype, chain
     <br>
     Made with love for the community ❤️
     <sup class="tw-permalink"><i class="fas fa-link"></i></sup>
-
 </div>
