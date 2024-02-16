@@ -64,15 +64,7 @@ That's cool, but not that powerful.
 
 What else can I take apart? What about messages with rich preview banners?
 
-<ins class="adsbygoogle"
-style="display:block; text-align:center;"
-data-ad-layout="in-article"
-data-ad-format="fluid"
-data-ad-client="ca-pub-1379968351324902"
-data-ad-slot="5348991370"></ins>
-<script>
-     (adsbygoogle = window.adsbygoogle || []).push({});
-</script>
+<ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="fluid" data-ad-client="ca-pub-1379968351324902" data-ad-slot="5348991370"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
 
 ### 2. Dangerous Open-Redirect flaw in messages with rich preview banner using "@"
 
@@ -201,15 +193,7 @@ Win! External payload was successfully fetched and executed in the context of Wh
 
 Oh, and that `hard_expire_time.innerHTML` trick? It was the shortest way I could think of at the moment to make the DOM load my Object element (`hard_expire_time` is an element in the DOM of the website).
 
-<ins class="adsbygoogle"
-style="display:block; text-align:center;"
-data-ad-layout="in-article"
-data-ad-format="fluid"
-data-ad-client="ca-pub-1379968351324902"
-data-ad-slot="5348991370"></ins>
-<script>
-     (adsbygoogle = window.adsbygoogle || []).push({});
-</script>
+<ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="fluid" data-ad-client="ca-pub-1379968351324902" data-ad-slot="5348991370"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
 
 ### 5. From Persistent-XSS to Reading from the File System on Mac/Windows with a potential for RCE
 
@@ -287,12 +271,4 @@ And that's pretty much it. I have to admit I've put a lot of effort and time int
 
 > This research was conducted and published by [Gal Weizman](http://github.com/weizman/).
 
-<ins class="adsbygoogle"
-style="display:block; text-align:center;"
-data-ad-layout="in-article"
-data-ad-format="fluid"
-data-ad-client="ca-pub-1379968351324902"
-data-ad-slot="5348991370"></ins>
-<script>
-     (adsbygoogle = window.adsbygoogle || []).push({});
-</script>
+<ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="fluid" data-ad-client="ca-pub-1379968351324902" data-ad-slot="5348991370"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script>

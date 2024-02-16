@@ -45,15 +45,7 @@ This is the last progress I could find online regarding this trick, even though 
 
 I thought to myself "is the console the only way to get the devtools to call a getter function I control?". Because if that so, this trick is nice but it can't serve attackers really - printing to the console or clearing it will be the opposite of what an attacker tries to achieve by using anti debugging techniques - which is hiding. I decided to debug the javascript snippet above and step over each line one step at a time. And then I noticed an unexpected behavior - the alert jumps as soon as I step over the `Object.defineProperty` line, without counting on the `console.log(div)` line to do the job afterwards. So how is the overridden getter function being called without running the `console.log(div)` line? This means the `div` element is probably being presented elsewhere in the devtools frame.
 
-<ins class="adsbygoogle"
-style="display:block; text-align:center;"
-data-ad-layout="in-article"
-data-ad-format="fluid"
-data-ad-client="ca-pub-1379968351324902"
-data-ad-slot="5348991370"></ins>
-<script>
-     (adsbygoogle = window.adsbygoogle || []).push({});
-</script>
+<ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="fluid" data-ad-client="ca-pub-1379968351324902" data-ad-slot="5348991370"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
 
 ### The [Chromium Devtools Scope Pane](https://developers.google.com/web/tools/chrome-devtools/javascript#check-values)
 
@@ -151,15 +143,7 @@ function malicious() {
 
 You get the idea - **run anything you want in any scope you choose without the need to wait for the debugger to free the code from being paused!**
 
-<ins class="adsbygoogle"
-style="display:block; text-align:center;"
-data-ad-layout="in-article"
-data-ad-format="fluid"
-data-ad-client="ca-pub-1379968351324902"
-data-ad-slot="5348991370"></ins>
-<script>
-     (adsbygoogle = window.adsbygoogle || []).push({});
-</script>
+<ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="fluid" data-ad-client="ca-pub-1379968351324902" data-ad-slot="5348991370"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
 
 ### The [debug-tracker](https://www.npmjs.com/package/debug-tracker-poc) (Take it to the next level)
 
@@ -311,12 +295,4 @@ I will repeat what I wrote in the [first part](https://weizman.github.io/page-js
 
 This research was conducted and published by [Gal Weizman](/page-about).
 
-<ins class="adsbygoogle"
-style="display:block; text-align:center;"
-data-ad-layout="in-article"
-data-ad-format="fluid"
-data-ad-client="ca-pub-1379968351324902"
-data-ad-slot="5348991370"></ins>
-<script>
-     (adsbygoogle = window.adsbygoogle || []).push({});
-</script>
+<ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="fluid" data-ad-client="ca-pub-1379968351324902" data-ad-slot="5348991370"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script>

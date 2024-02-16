@@ -86,6 +86,7 @@ Evil extensions can gain such access to websites, because as part of browsers th
 But according to that same model, extensions DO NOT have that kind of power over other extensions (obviously).
 <sup class="tw-permalink"><i class="fas fa-link"></i></sup>
 <hr>
+<div><ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="fluid" data-ad-client="ca-pub-1379968351324902" data-ad-slot="5348991370"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script></div>
 The other part of this claim talks about how such extensions can manipulate the UI the user interacts with to set them up to perform unwanted actions.<br>
 <br>
 While very true, this claim is in fact pro BW over HW and not the other way around.<br>
@@ -230,4 +231,5 @@ Key takeaways:<br>
 Choose MetaMask 🦊<br>
 <br>
 ~ Thank you <a href="https://x.com/@danfinlay">@danfinlay</a> for introducing me to this paper
+<div><ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="fluid" data-ad-client="ca-pub-1379968351324902" data-ad-slot="5348991370"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script></div>
 </div>

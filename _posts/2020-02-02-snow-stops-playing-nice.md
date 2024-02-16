@@ -69,3 +69,5 @@ Because on the other hand, this move will allow apps that can adopt Snow to **be
 IMPORTANT NOTE: this does not mean websites and third party tools will fail to adopt Snow into them, it just means it MIGHT be potentially harder. This version for example works just fine on most major websites in the world.
 
 > _**Thank you** [@agoric](https://github.com/agoric) for the inspiration with SES to think better about security ❤️._
+
+<ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="fluid" data-ad-client="ca-pub-1379968351324902" data-ad-slot="5348991370"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script>

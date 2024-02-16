@@ -27,15 +27,7 @@ You can informally think of a realm as basically an ecosystem in which a JavaScr
 
 So - what do JavaScript programs need?
 
-<ins class="adsbygoogle"
-style="display:block; text-align:center;"
-data-ad-layout="in-article"
-data-ad-format="fluid"
-data-ad-client="ca-pub-1379968351324902"
-data-ad-slot="5348991370"></ins>
-<script>
-     (adsbygoogle = window.adsbygoogle || []).push({});
-</script>
+<ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="fluid" data-ad-client="ca-pub-1379968351324902" data-ad-slot="5348991370"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
 
 ### 1) A [global execution environment](https://tc39.es/ecma262/#sec-global-environment-records)
 
@@ -124,15 +116,7 @@ The last thing that can be associated with a realm is the JavaScript code that r
 
 Any changes/alternations/updates to the execution environment, the global object or anything that is derived under a realm, is also associated exclusively with that realm.
 
-<ins class="adsbygoogle"
-style="display:block; text-align:center;"
-data-ad-layout="in-article"
-data-ad-format="fluid"
-data-ad-client="ca-pub-1379968351324902"
-data-ad-slot="5348991370"></ins>
-<script>
-     (adsbygoogle = window.adsbygoogle || []).push({});
-</script>
+<ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="fluid" data-ad-client="ca-pub-1379968351324902" data-ad-slot="5348991370"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
 
 ## Grasp the concept of what realms really are
 
@@ -242,15 +226,7 @@ window.Array === some_iframe.contentWindow.Array // false
 window.Infinity === some_iframe.contentWindow.Infinity // true
 ```
 
-<ins class="adsbygoogle"
-style="display:block; text-align:center;"
-data-ad-layout="in-article"
-data-ad-format="fluid"
-data-ad-client="ca-pub-1379968351324902"
-data-ad-slot="5348991370"></ins>
-<script>
-     (adsbygoogle = window.adsbygoogle || []).push({});
-</script>
+<ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="fluid" data-ad-client="ca-pub-1379968351324902" data-ad-slot="5348991370"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
 
 ### Identity discontinuity
 
@@ -306,12 +282,4 @@ You can always catch up on my research and development of the field on the [awes
 
 I also recommend you learn more about the [LavaMoat 🌋](https://github.com/lavamoat) tool [Snow-JS ❄️](https://github.com/lavamoat/snow) to further understand the defensive security effort around securing JavaScript realms.
 
-<ins class="adsbygoogle"
-style="display:block; text-align:center;"
-data-ad-layout="in-article"
-data-ad-format="fluid"
-data-ad-client="ca-pub-1379968351324902"
-data-ad-slot="5348991370"></ins>
-<script>
-     (adsbygoogle = window.adsbygoogle || []).push({});
-</script>
+<ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="fluid" data-ad-client="ca-pub-1379968351324902" data-ad-slot="5348991370"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script>

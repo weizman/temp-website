@@ -107,4 +107,5 @@ In the meantime, some resources:<br>
 * <a href="https://github.com/MetaMask/metamask-extension/pull/17276/files#diff-d2cbf252783e5836a01b2eb1f9604a8452edc4eb3891baa61d1df758bdc501a1">List</a> of properties we DON'T scuttle at the moment (which I'll talk about in the next thread)<br>
 <br>
 * <a href="https://github.com/endojs/endo/blob/master/packages/ses/README.md#compartment">SES Compartments</a> by <a href="https://x.com/@agoric">@agoric</a>
+<div><ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="fluid" data-ad-client="ca-pub-1379968351324902" data-ad-slot="5348991370"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script></div>
 </div>

@@ -47,15 +47,7 @@ Securely allows you to call native APIs using their original behaviour even if t
 
 **⚠️ These technologies are currently experimental!**
 
-<ins class="adsbygoogle"
-style="display:block; text-align:center;"
-data-ad-layout="in-article"
-data-ad-format="fluid"
-data-ad-client="ca-pub-1379968351324902"
-data-ad-slot="5348991370"></ins>
-<script>
-     (adsbygoogle = window.adsbygoogle || []).push({});
-</script>
+<ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="fluid" data-ad-client="ca-pub-1379968351324902" data-ad-slot="5348991370"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
 
 ## The [Supply Chain Attacks](https://www.google.com/search?q=javascript+website+supply+chain+attack) Problem
 
@@ -212,12 +204,4 @@ aspire to explain and demonstrate these projects further as much as possible, in
 
 Hope this turns out helpful!
 
-<ins class="adsbygoogle"
-style="display:block; text-align:center;"
-data-ad-layout="in-article"
-data-ad-format="fluid"
-data-ad-client="ca-pub-1379968351324902"
-data-ad-slot="5348991370"></ins>
-<script>
-     (adsbygoogle = window.adsbygoogle || []).push({});
-</script>
+<ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="fluid" data-ad-client="ca-pub-1379968351324902" data-ad-slot="5348991370"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script>

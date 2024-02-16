@@ -161,6 +161,8 @@ product ([MetaMask](https://github.com/MetaMask/metamask-extension/)) and for an
 
 ... So why am I telling you all this 👆?
 
+<ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="fluid" data-ad-client="ca-pub-1379968351324902" data-ad-slot="5348991370"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+
 ## My take on client side security
 
 What does the future hold for client side security? Given my experience and perspective, I'll try to answer that.
@@ -356,3 +358,5 @@ And with that in mind, **I expect a comeback for client side security** - for th
 safer as well as allow other builders to secure their apps too: 
 [Gal Weizman: JavaScript realms used to bypass and eliminate web apps security tools - A problem with a WIP solution](https://weizmangal.com/2023/10/03/w3c-realms/) , 
 > [Gal Weizman: JavaScript Realms: The Blank Spot In Web App Runtime Security](https://www.youtube.com/watch?v=l2l_qnEhx3M) and more
+
+<ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="fluid" data-ad-client="ca-pub-1379968351324902" data-ad-slot="5348991370"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script>

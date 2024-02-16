@@ -89,4 +89,5 @@ image: realms.jpg
     where I cover everything there is to know about realms and {offensive/defensive} security of realms including best tools and practices<a class="entity-url" data-preview="true" href="https://github.com/weizman/awesome-javascript-realms-security" style="display: none;">github.com/weizman/awesom…</a>
     <sup class="tw-permalink"><i class="fas fa-link"></i></sup>
     <hr>
+<div><ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="fluid" data-ad-client="ca-pub-1379968351324902" data-ad-slot="5348991370"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script></div>
 </div>

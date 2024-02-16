@@ -24,3 +24,5 @@ keywords: CSP, javascript, web, security, realms, iframe, browser, sop, supply c
 * Problem is,  as part of this effort, we learned that **a shim representation of the solution is insufficient** in terms of both performance, but most importantly security.
 * Which helped us arrive at some conclusions, the main one being that **adequately securing this layer of concern performantly can only be done with some help from the browser itself.**
 * In this document we wish to further explain the motivation for this, the problem we encounter, the solution we attempted at and the solution we believe would be best to properly address it.
+
+<ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="fluid" data-ad-client="ca-pub-1379968351324902" data-ad-slot="5348991370"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script>

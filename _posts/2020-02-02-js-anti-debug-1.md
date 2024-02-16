@@ -62,15 +62,7 @@ And since this works, I can leak any type of dynamic information I want from the
 
 So far so good. But as I always do when I learn of a new trick to send requests from the browser - I tried to see if I can use this one to bypass [CSP](https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP) rules.
 
-<ins class="adsbygoogle"
-style="display:block; text-align:center;"
-data-ad-layout="in-article"
-data-ad-format="fluid"
-data-ad-client="ca-pub-1379968351324902"
-data-ad-slot="5348991370"></ins>
-<script>
-     (adsbygoogle = window.adsbygoogle || []).push({});
-</script>
+<ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="fluid" data-ad-client="ca-pub-1379968351324902" data-ad-slot="5348991370"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
 
 ### [The request made by SourceMappingURL bypasses CSP completely](https://us-central1-smap-251411.cloudfunctions.net/csp)
 
@@ -148,15 +140,7 @@ Also, on top of that request, the attacker can also leak any type of information
 
 And on top of everything, it will be extremely hard for any researcher to find this malicious activity since the request leaves no trace of its occurrence (and even harder if the attacker actually decides to avoid malicious code execution on that specific browser once it was marked as a “devtools opener”).
 
-<ins class="adsbygoogle"
-style="display:block; text-align:center;"
-data-ad-layout="in-article"
-data-ad-format="fluid"
-data-ad-client="ca-pub-1379968351324902"
-data-ad-slot="5348991370"></ins>
-<script>
-     (adsbygoogle = window.adsbygoogle || []).push({});
-</script>
+<ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="fluid" data-ad-client="ca-pub-1379968351324902" data-ad-slot="5348991370"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
 
 ### “I don’t quite understand… I need some live examples”
 
@@ -188,12 +172,4 @@ This technique has been responsibly [disclosed](https://bugs.chromium.org/p/chro
 
 This research was conducted and published by [Gal Weizman](http://github.com/weizman/).
 
-<ins class="adsbygoogle"
-style="display:block; text-align:center;"
-data-ad-layout="in-article"
-data-ad-format="fluid"
-data-ad-client="ca-pub-1379968351324902"
-data-ad-slot="5348991370"></ins>
-<script>
-     (adsbygoogle = window.adsbygoogle || []).push({});
-</script>
+<ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="fluid" data-ad-client="ca-pub-1379968351324902" data-ad-slot="5348991370"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
