@@ -201,7 +201,7 @@ This one is a reason I had in mind even before joining [MetaMask](https://github
 
 The bottom line is that **the evolution of web application development had put us in a place where telling what code our application is going to execute is pretty much impossible**.
 
-Saying that 10 years ago would have sounded **ridicules**, but since then supply chain driven development became so prominent that most web apps nowadays are 
+Saying that 10 years ago would have sounded **ridiculous**, but since then supply chain driven development became so prominent that most web apps nowadays are 
 composed of around **90% of code written by other entities - entities we can hardly verify nor blindly trust.**
 
 **And trust is far from enough too**, because even if the maintainer is verified to be trustworthy for years, meaning they have no malicious intentions - **a malicious entity
