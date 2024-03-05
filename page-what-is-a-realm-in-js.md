@@ -1,6 +1,7 @@
 ---
 enabled: true
 layout: post
+canonical: https://weizman.github.io/2022/10/28/what-is-a-realm-in-js/
 tags: Browser,Top,JavaScript,Research,
 title: What is a realm in JavaScript?
 url: https://weizman.github.io/
