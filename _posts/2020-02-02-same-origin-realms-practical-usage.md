@@ -1,0 +1,219 @@
+---
+enabled: false
+layout: post
+tags: Top,JavaScript,Research,The-Client-Side,Browser,Discovery
+title: TBD
+url: https://weizman.github.io/
+date: XX/XX/2024
+description: TBD
+---
+
+> TBD
+
+---
+
+In the past months I've been focusing on pushing a W3C proposal (within [WICG](https://github.com/wicg)) called [Realms-Initialization-Control](https://github.com/WICG/Realms-Initialization-Control) to address the ["same origin concern"](https://weizmangal.com/2023/09/28/the-same-origin-concern/). The solution I originally proposed (which may end up being slightly different), attempts to follow the "layering approach", so that it can be adopted by developers with close to zero fraction. Problem is, the layering approach means introducing a new way to inject JavaScript code into web applications, which might not be ideal. On the other side of that spectrum, more restrictive solutions can be considered, which would be harder to misconfigure and abuse, but might be too restrictive for developers to adopt too.
+
+In this piece I'll focus on that spectrum and the research I had to make in order to tell which path is more appropriate to choose and why. I thought I'd share my way and findings as they shed light on interesting aspects of the web that weren't well investigated prior to this.
+
+Unless you're familiar with my work, about 90% of what I just said won't make sense to you. Let's back it up then.
+
+## The [Same Origin Concern](https://weizmangal.com/2023/09/28/the-same-origin-concern/)
+
+This is a problem I've been vocal about for a few years now. I was first exposed to it by working for [PerimeterX](https://PerimeterX.com) on a 3rd party JavaScript runtime security library, which was basically responsible for redefining powerful APIs at runtime within web pages of our customers in order to keep track of their use, mitigate what they can do and more, and by that grant our customers some visibility into potentially bad things that take place on their client side:
+
+```javascript
+window.localStorage.getItem = function(key, secret = '') {
+    if (secret !== 'AGREED_UPON_SECRET') {
+        return null // protect access to localStorage items!
+    }
+    return localStorage[key]
+}
+```
+
+The example above is a reduced one, but it brings the point across - I can redefine the (powerful) localStorage API to behave slightly different, so that in order to access the values it contains, one must provide an agreed upon secret. If that secret is safely shared with trusted parts of the application and not untrusted ones, we could theoretically virtualize this API to be more picky about who can access it and who can't, which allows us to introduce advanced security controls to already existing capabilities.
+
+That is the essence of what I was working on in PerimeterX (the product was called "Code Defender"), and is referred to as a layering approach because you introduce another layer of logic on top of existing APIs at runtime.
+
+I'm a great advocator of the layering approach, because it amplifies the strengths of the web and JavaScript, being highly dynamic, configurable and expressive technologies - you can redefine pretty much anything to behave pretty much however you want it to, and by that you can invent pretty much any security control to web applications. That is power we should harness.
+
+Problem is, with how the web is designed, there are some major blockers that undermine the layering approach quite significantly.
+
+The one I'm most worried about ever since I realized it working for PerimeterX is the [Same Origin Concern](https://weizmangal.com/2023/09/28/the-same-origin-concern/), where a web application is granted APIs with which it can create new realms that expose a fresh new set of the same APIs the main realm exposes.
+
+That's bad news for the layering approach, because it makes it useless - attackers don't have to obey the mitigated APIs anymore, they can just find fresh instances of them elsewhere:
+
+```javascript
+function getLocalStorageNaively() {
+    return window.localStorage
+}
+function getLocalStorageBypass() {
+    const ifr = document.createElement('iframe')
+    return document.body.appendChild(ifr).contentWindow.localStorage
+}
+getLocalStorageNaively().getItem('sensitive_pii') // null
+getLocalStorageBypass().getItem('sensitive_pii') // +977-5555-333
+```
+
+I was the first to build and maintain a project that was entirely focused on addressing this problem.
+
+Ironically, it was the layering approach on top of which the [snow](https://github.com/lavamoat/snow) project relied, and it was quickly acquired by [MetaMask's](https://github.com/metamask) new security project [LavaMoat](https://github.com/lavamoat/lavamoat), making this project the only one building against this issue in public as an open sourced software.
+
+All snow did was to take your mitigating code (such as the localStorage example) and make sure it runs against every new same origin realm (e.g. iframes/popups), thus eliminating the ability for attackers to leverage the same origin concern to escape the security controls you dictated to your web page:
+
+```javascript
+// Use Snow
+SNOW((win) => {
+    win.localStorage.getItem = function(key, secret = '') {
+        if (secret !== 'AGREED_UPON_SECRET') {
+            return null // protect access to localStorage items!
+        }
+        return localStorage[key]
+    }
+})
+// Snow protects same origin realms
+getLocalStorageNaively().getItem('sensitive_pii') // null
+getLocalStorageBypass().getItem('sensitive_pii') // null
+```
+
+## A happy ending?
+
+Well, not quite.
+
+Sadly, solving this problem at user-land (by using JavaScript at runtime), is basically impossible due to some core characteristics of the web's design. You can learn more about that by browsing through the many [open issues](https://github.com/lavamoat/snow/issues) that were left against the snow repository. Some are addressable, some aren't.
+
+This made things clear - addressing the same origin concern must become a browser native solution.
+
+## The [Realms-Initialization-Control](https://github.com/WICG/Realms-Initialization-Control) proposal
+
+The idea was to migrate the exact value snow brings into the browser, and a proposal was submitted against the [Web Incubator Community Group](https://github.com/wicg).
+
+[Both Shopify and Akamai showed enough interest](https://github.com/WICG/proposals/issues/144) in such a solution which helped officially getting it in to the incubating program, and with [Yoav Weiss's](https://github.com/yoavweiss) help, I've been working on it ever since.
+
+So the idea is vey similar to snow's approach - provide developers some API to declare some path to a remote script with, and make the browser load that script for every new same origin realm that comes to existence.
+
+Based on the previous example, by placing the same localStorage security controls in a remote script `/scripts/realm.js`:
+
+```javascript
+window.localStorage.getItem = function(key, secret = '') {
+    if (secret !== 'AGREED_UPON_SECRET') {
+        return null // protect access to localStorage items!
+    }
+    return localStorage[key]
+}
+```
+
+And delivering it via the new proposed API (for example, via the CSP header):
+
+```
+CSP: "run-on-same-origin-realm /scripts/realm.js"
+```
+
+Would theoretically provide the same value snow does:
+
+```html
+<html>
+<script>
+localStorage.getItem('sensitive_pii') // null
+</script>
+<iframe id="xyz" src="about:blank"></iframe>
+<script>
+const ifr = document.getElementById('xyz');
+ifr.contentWindow.getItem('sensitive_pii') // null
+</script>
+</html>
+```
+
+Only this would be more resilient and secure given it is implemented by the browser.
+
+Sounds like a plan, right?
+
+## The spectrum
+
+Google's [Artur](https://x.com/arturjanc) and [David](https://x.com/ddworken), who participate in W3C as well and care about such proposals, brought up a good point - shipping the proposal at its current state will introduce yet another way to inject JavaScript code into web applications, which would result into more browser internals complexity and potential risk if configured improperly.
+
+Instead, they suggest an alternative proposal they call `no-sync`, which would basically be a boolean header (false by default) that when is enabled for a certain realm, makes sync access to/from that realm from/to other realms impossible - even if they share the same origin.
+
+On the one end of the spectrum, this `no-sync` is very strict, because if websites want to make legitimate use of same-origin sync-access features, they won't be able to do so and adopt it at the same time. But on the other hand, it will eliminate the same origin concern successfully, and will do so without introducing new ways to run JavaScript in new realms and web pages, which might end up introducing more complexity to the web.
+
+On the other end of the spectrum, the RIC proposal is way more lax, because it allows achieving both states - more security (by implementing security controls using JavaScript and the layering approach without having to worry about the same origin concern) but without having to disable same-origin sync-access features.
+
+All parties agreed that the answer to this question ("which is the path we should choose?") will be found if we could tell to which extent does the web depend on the same-origin sync-access feature.
+
+Which is to say, if we learn there aren't enough websites that make any use of same origin realms such as iframes by synchronously accessing them, then maybe the `no-sync` idea is something we could go for, but if we learn the opposite, that would mean too many websites rely on this capability, so that shipping the `no-sync` feature would only serve those who can adapt themselves, which might not be the case for many other websites that will just end up rejecting adoption of such a feature for disabling core functionality they rely on (some claim CSP suffered from a somewhat similar destiny).
+
+## Time to find out!
+
+It was decided we run this experiment. The question we ask is:
+
+> "do websites form same origin reams and access them synchronously? and if so, how often?"
+
+In order to get there, here are the steps we must take:
+
+* Define same-origin sync-access
+* Find where this happens within the browser (we're doing Chromium for close-to arbitrary reasons)
+* Introduce some way to keep track of such operations and count them
+* Learn the results
+
+## Define
+
+What are same-origin sync-access operations?
+
+Basically, it's the event in which one realm accesses properties of another, given the two realms share the same origin (thus they obey the same origin policy).
+
+Some examples would be:
+
+```html
+<script class="top-to-iframe">
+    window[0];
+    frames[0];
+    iframe.contentWindow;
+    iframe.contentDocument;
+</script>
+<script class="iframe-to-top">
+    top;
+    parent;
+</script>
+<script class="opener-to-openee">
+    opened.document;
+</script>
+<script class="openee-to-opener">
+    opener.document;
+</script>
+<iframe srcdoc="<script>parent.document;</script>"></iframe>
+<iframe src="javascript:parent.document;"></iframe>
+```
+
+## Find
+
+So, where does this happen in the code?
+
+I mean, when realm A tries to access properties of realm B, how does Chromium makes sure they belong to the same origin and where exactly does it approve it?
+
+To be honest, it took me a few weeks of research, and I was only somewhat on point, but it turns out there are some interesting things about how origin security takes place within the Chromium source code which would have taken me more time to figure out by myself it wasn't for the help of [Camille](https://github.com/camillelamy) and [Yuki](https://github.com/yuki3) from Google, which I think are worth sharing.
+
+At first, I was looking at [`DOMWindow::RecordWindowProxyAccessMetrics`](https://source.chromium.org/chromium/chromium/src/+/main:third_party/blink/renderer/core/frame/dom_window.cc;l=989?q=DOMWindow::RecordWindowProxyAccessMetrics):
+
+![](/content/img/chromium-source-1.png)
+
+It caught my eye because it was already counting realm-to-realm origin-access related operation, but the exact opposite of what I needed - it counted cross-origin access.
+
+> Counters are small chunks of code that tell some remote server when that chunk of code was executed by some remote user (assuming they allowed the browser to share such metrics) so that they can be later aggregated and investigated by browser developers
+
+This particular counter mapped the different properties realms use to access other cross-origin realms, and now they keep track of how often that happens.
+
+So whenever a browser somewhere in the world loads a webpage that loads two realms that are cross-origin to each other, and one of them calls `top/parent/etc` which resolves to that other realm - that counter counts!
+
+Here's a list of the properties for which the counter counts:
+
+![](/content/img/chromium-source-2.png)
+
+You can see live results of this counter for yourself - it's all public (here's [WindowProxyCrossOriginAccessTop](https://chromestatus.com/metrics/feature/timeline/popularity/4128) for example).
+
+In order to make sure the counter only counts cross-origin access and not same-origin access, it makes sure that's the case before performing the count. This happens at line 1025 in the attached image above. If the current realm does not share the same origin as the accessing realm - `return` (as in, bail on counting).
+
+If that's the case, all we need to do is replace that `return` statement with some new same-origin counter, right?
+
+Apparently, it isn't this simple.
+
+It turns out verifying the origin of two realms that share it everytime they want to access each other's properties synchronously is very performance costly, so instead when such a realm is initialized it is handed some special token called a "security token" (TBD EXPLAIN BASED ON YUKI EXPLANATION)
