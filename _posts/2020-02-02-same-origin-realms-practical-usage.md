@@ -214,6 +214,40 @@ In order to make sure the counter only counts cross-origin access and not same-o
 
 If that's the case, all we need to do is replace that `return` statement with some new same-origin counter, right?
 
-Apparently, it isn't this simple.
+Apparently, it isn't this simple (the following explanation is based on Google's [Yuki](https://github.com/yuki3)'s explanation to me):
 
-It turns out verifying the origin of two realms that share it everytime they want to access each other's properties synchronously is very performance costly, so instead when such a realm is initialized it is handed some special token called a "security token" (TBD EXPLAIN BASED ON YUKI EXPLANATION)
+It turns out that verifying the origin of two realms that share it everytime they want to access each other's properties synchronously is very performance costly when they are cross-origin to each other, because it means they are two separate "V8::Contexts" (different rendering processes). This happens within V8's [CrossOriginAccessCheckCallback](https://source.chromium.org/chromium/chromium/src/+/main:out/linux-Debug/gen/third_party/blink/renderer/bindings/modules/v8/v8_window.cc;drc=88bf01b7324e7ea6551d70d6d90f9c993496be4a;l=24597), which calls [SecurityOrigin::CanAccess](https://source.chromium.org/chromium/chromium/src/+/main:third_party/blink/renderer/platform/weborigin/security_origin.cc;drc=ac1f7fd6d07e651a809282e4b2e08592477bebaa;l=331) (where same-origin is determined), and is an act of crossing V8 contexts - which is the performance problematic part. 
+
+So, this is a legitimate method to test for same-origin that would work properly, but won't scale performance-wise. Therefore, Chromium deploys another technique for avoiding this costly check whenever it can by utilizing what they call a "security token". The security token is assigned to every new V8::Context (in this case, a realm), and is either a default token, or an origin derived token.
+
+The default token is assigned on some specific cases, to express a refusal to be necessarily friendly to other realms, thus forcing the slow-path check to take place. One example is "opaque origins" which are estranged to other origins by default (e.g. `data:` or sandboxed iframes). Outside of that, the object representing the security origin of the realm will be set with a non-default token:
+
+![](/content/img/chromium-source-3.png)
+
+That non-default token will be derived from properties that will necessarily be the same for two same origin realms and different for two cross-origin ones (naturally), which in practice are a combo of the protocol (e.g. `http:`), the host (e.g. `example.com`), the port (e.g. `8080`) and the id of the hosting [agent cluster](https://weizmangal.com/page-what-is-a-realm-in-js/#:~:text=children%20to%20separate-,agent%20clusters,-which%20run%20in) (because two realms should not have access to each other even if they share on origin if they are hosted by two different agent clusters):
+
+![](/content/img/chromium-source-4.png)
+
+When two realms share an identical token, this security architecture allows telling they both belong to the same origin without having to cross V8 contexts to verify it.
+
+This is pretty cool, and it kind of explains the strange behaviour I observed within RecordWindowProxyAccessMetrics that prevented me from leveraging it for spotting same-origin sync-access operations, where it just would not be called for two different realms that share an origin - the fact they share a security token, making them go through the fast-path, is why they never went through this function (I think).
+
+Within this context, [Yuki](https://github.com/yuki3) explained how introducing this counter upstream isn't possible because of the perf issues, and that the right approach would be to apply a change and examine the behaviour locally instead.
+
+The change would be to disable the non-default security token functionality, and force all tokens to be default ones. This would force the slow-path always, but it also means that whenever one realm will try to reach for the internals of another, it will first check whether they share an origin or not through the slow-path, which is where we can successfully inject a counter that can take the origin potential match into account.
+
+So first step is to disable non-default tokens:
+
+![](/content/img/chromium-source-5.png)
+
+Now because of this change, we know that all access attempts (including same origin ones) will be processed by CrossOriginAccessCheckCallback, which asks [`BindingSecurity::ShouldAllowAccessTo`](https://source.chromium.org/chromium/chromium/src/+/main:third_party/blink/renderer/bindings/core/v8/binding_security.h;drc=2f43be088d7ee5f2c2f51d628167bab43cddae97;l=66) whether access should be allowed (or in other words - do they share an origin?). This means that we should capture the boolean return value into a variable, log it, and pass it on:
+
+![ShouldAllowAccessTo function is generated by python scripts among other functions that compile into multiple OS architectures](/content/img/chromium-source-6.png)
+
+That's it! Compile, run and it works!
+
+![](/content/img/chromium-source-7.png)
+
+This of course works for cross-origin too:
+
+![](/content/img/chromium-source-8.png)
