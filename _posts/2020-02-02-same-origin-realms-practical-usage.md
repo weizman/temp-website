@@ -150,10 +150,10 @@ It was decided we run this experiment. The question we ask is:
 
 In order to get there, here are the steps we must take:
 
-* Define same-origin sync-access
-* Find where this happens within the browser (we're doing Chromium for close-to arbitrary reasons)
-* Introduce some way to keep track of such operations and count them
-* Learn the results
+* **Define** what same-origin sync-access is
+* **Find** where this happens within the browser (we're doing Chromium for close-to arbitrary reasons)
+* **Introduce** some way to keep track of such operations and count them
+* **Discover** the results
 
 ## Define
 
@@ -188,7 +188,7 @@ Some examples would be:
 
 So, where does this happen in the code?
 
-I mean, when realm A tries to access properties of realm B, how does Chromium makes sure they belong to the same origin and where exactly does it approve it?
+I mean, when realm A tries to access properties of realm B, how does Chromium make sure they belong to the same origin and where exactly does it approve it?
 
 To be honest, it took me a few weeks of research, and I was only somewhat on point, but it turns out there are some interesting things about how origin security takes place within the Chromium source code which would have taken me more time to figure out by myself it wasn't for the help of [Camille](https://github.com/camillelamy) and [Yuki](https://github.com/yuki3) from Google, which I think are worth sharing.
 
@@ -216,9 +216,9 @@ If that's the case, all we need to do is replace that `return` statement with so
 
 Apparently, it isn't this simple (the following explanation is based on Google's [Yuki](https://github.com/yuki3)'s explanation to me):
 
-It turns out that verifying the origin of two realms that share it everytime they want to access each other's properties synchronously is very performance costly when they are cross-origin to each other, because it means they are two separate "V8::Contexts" (different rendering processes). This happens within V8's [CrossOriginAccessCheckCallback](https://source.chromium.org/chromium/chromium/src/+/main:out/linux-Debug/gen/third_party/blink/renderer/bindings/modules/v8/v8_window.cc;drc=88bf01b7324e7ea6551d70d6d90f9c993496be4a;l=24597), which calls [SecurityOrigin::CanAccess](https://source.chromium.org/chromium/chromium/src/+/main:third_party/blink/renderer/platform/weborigin/security_origin.cc;drc=ac1f7fd6d07e651a809282e4b2e08592477bebaa;l=331) (where same-origin is determined), and is an act of crossing V8 contexts - which is the performance problematic part. 
+It turns out that when one realm attempts to synchronously access another, the act of checking whether they belong to the same origin or not is very costly in terms of performance, because it means they can potentially be two separate "V8::Contexts" (different rendering processes) if they do not share an origin. This happens within V8's [CrossOriginAccessCheckCallback](https://source.chromium.org/chromium/chromium/src/+/main:out/linux-Debug/gen/third_party/blink/renderer/bindings/modules/v8/v8_window.cc;drc=88bf01b7324e7ea6551d70d6d90f9c993496be4a;l=24597), which calls [SecurityOrigin::CanAccess](https://source.chromium.org/chromium/chromium/src/+/main:third_party/blink/renderer/platform/weborigin/security_origin.cc;drc=ac1f7fd6d07e651a809282e4b2e08592477bebaa;l=331) (where same-origin is determined), and is an act of crossing V8 contexts - which is the performance problematic part.
 
-So, this is a legitimate method to test for same-origin that would work properly, but won't scale performance-wise. Therefore, Chromium deploys another technique for avoiding this costly check whenever it can by utilizing what they call a "security token". The security token is assigned to every new V8::Context (in this case, a realm), and is either a default token, or an origin derived token.
+So, while this is a legitimate method to test for same-origin that would work properly, it won't scale performance-wise. Therefore, Chromium deploys another technique for avoiding this costly check whenever it can by utilizing what they call a "security token". The security token is assigned to every new V8::Context (in this case, a realm), and is either a default token, or an origin derived token.
 
 The default token is assigned on some specific cases, to express a refusal to be necessarily friendly to other realms, thus forcing the slow-path check to take place. One example is "opaque origins" which are estranged to other origins by default (e.g. `data:` or sandboxed iframes). Outside of that, the object representing the security origin of the realm will be set with a non-default token:
 
@@ -231,6 +231,8 @@ That non-default token will be derived from properties that will necessarily be 
 When two realms share an identical token, this security architecture allows telling they both belong to the same origin without having to cross V8 contexts to verify it.
 
 This is pretty cool, and it kind of explains the strange behaviour I observed within RecordWindowProxyAccessMetrics that prevented me from leveraging it for spotting same-origin sync-access operations, where it just would not be called for two different realms that share an origin - the fact they share a security token, making them go through the fast-path, is why they never went through this function (I think).
+
+## Introduce
 
 Within this context, [Yuki](https://github.com/yuki3) explained how introducing this counter upstream isn't possible because of the perf issues, and that the right approach would be to apply a change and examine the behaviour locally instead.
 
@@ -251,3 +253,23 @@ That's it! Compile, run and it works!
 This of course works for cross-origin too:
 
 ![](/content/img/chromium-source-8.png)
+
+## Discover
+
+Now that we have a local Chromium build that captures and documents realm-to-realm same-origin sync-access occurrences, we can focus on the original goal we had, which is to tell how often such occurrences take place across the web to tell which of the two strategies to protect applications against the same origin concern we should go with.
+
+### Booking.com
+
+> https://account.booking.com/sign-in?...
+
+Starting off with booking.com, seems like the login page makes excessive usage of realm-to-realm sync-access, because it goes in never-ending high-frequent intervals, for reasons I don't get. The only thing I managed to prove without diving too deep is that the connection is being made with the `about:blank` iframe in the image, because the access attempts stop when I remove it from DOM:
+
+![](/content/img/chromium-source-9.png)
+
+### Google
+
+> https://accounts.google.com/v3/signin/identifier?...
+
+Google's login page also seems to make great use of realm-to-realm same-origin sync-access. Again, it's hard to tell for what reason, but it does seem consistent. In the image below is where the same-origin iframe they created is being accessed via the `contentWindow` accessor deterministically:
+
+![](/content/img/chromium-source-10.png)
