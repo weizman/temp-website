@@ -258,7 +258,7 @@ This of course works for cross-origin too:
 
 Now that we have a local Chromium build that captures and documents realm-to-realm same-origin sync-access occurrences, we can focus on the original goal we had, which is to tell how often such occurrences take place across the web to tell which of the two strategies to protect applications against the same origin concern we should go with.
 
-### Booking.com
+### Booking (login)
 
 > https://account.booking.com/sign-in?...
 
@@ -266,10 +266,24 @@ Starting off with booking.com, seems like the login page makes excessive usage o
 
 ![](/content/img/chromium-source-9.png)
 
-### Google
+### Google (login)
 
 > https://accounts.google.com/v3/signin/identifier?...
 
 Google's login page also seems to make great use of realm-to-realm same-origin sync-access. Again, it's hard to tell for what reason, but it does seem consistent. In the image below is where the same-origin iframe they created is being accessed via the `contentWindow` accessor deterministically:
 
 ![](/content/img/chromium-source-10.png)
+
+### BBC
+
+> https://www.bbc.com/*
+
+In contrast to the former sites, the different pages of BBC did not seem to activate any realm-to-realm same-origin sync-access at all.
+
+### Google (maps)
+
+> https://www.google.com/maps
+
+Seems like most of the maps web app does not trigger realm-to-realm same-origin sync-access, except for when you select a spot (like a restaurant) and scrolls all he way down to the "online results" (bottom-right) tab, which seems to load external information and uses same-origin iframes for that purpose.
+
+![](/content/img/chromium-source-11.png)
