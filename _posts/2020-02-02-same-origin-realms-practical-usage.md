@@ -256,34 +256,58 @@ This of course works for cross-origin too:
 
 ## Discover
 
-Now that we have a local Chromium build that captures and documents realm-to-realm same-origin sync-access occurrences, we can focus on the original goal we had, which is to tell how often such occurrences take place across the web to tell which of the two strategies to protect applications against the same origin concern we should go with.
+Now that we have a local Chromium build that captures and documents realm-to-realm same-origin sync-access occurrences, we can focus on the original goal we had, which is to tell how often such occurrences take place across the web to tell which of the two strategies to protect applications against the same origin concern we should go with. The strategy we'll go with is to focus on sites that get the highest exposure on the web, which could be one of two entities:
+* big websites (most visited ones)
+* embeddable sites/scripts (social login pages, popular third party scripts, etc)
 
-### Booking (login)
+### Embeddables
 
-> https://account.booking.com/sign-in?...
+Since this could go on forever, we'll have to stay focused, so for today we'll stick to the embeddables category, as these have probably more impact given how thousands of websites embed them, so let's start there.
 
-Starting off with booking.com, seems like the login page makes excessive usage of realm-to-realm sync-access, because it goes in never-ending high-frequent intervals, for reasons I don't get. The only thing I managed to prove without diving too deep is that the connection is being made with the `about:blank` iframe in the image, because the access attempts stop when I remove it from DOM:
+#### Google (ads)
 
-![](/content/img/chromium-source-9.png)
+Starting off with https://securepubads.g.doubleclick.net/pagead/managed/js/gpt/m202411180101/pubads_impl.js which seems to be responsible for introducing ads into web pages such as https://www.ladbible.com/news/uk-news/best-time-to-put-your-heating-on-uk-339473-20241128. Quick look shows there are same origin iframes within the page that based on their name and contents are ads that were created by Google's ad service:
 
-### Google (login)
+![](/content/img/chromium-source-12.png)
 
-> https://accounts.google.com/v3/signin/identifier?...
+Here's how its DOM structure looks like:
 
-Google's login page also seems to make great use of realm-to-realm same-origin sync-access. Again, it's hard to tell for what reason, but it does seem consistent. In the image below is where the same-origin iframe they created is being accessed via the `contentWindow` accessor deterministically:
+![](/content/img/chromium-source-13.png)
+
+Here's the part within https://securepubads.g.doubleclick.net/pagead/managed/js/gpt/m202411180101/pubads_impl.js that takes that same-origin `about:blank` iframe and uses `document.write` (as well as some other same-origin sync-access APIs) to inject a new ad html into it:
+
+![](/content/img/chromium-source-14.png)
+
+This behaviour was observed on other websites that make use of Google's ads services, which makes it clear that this well-used script currently depends on the realm-to-realm same-origin sync-access feature. By the way, the same script creates another `about:blank` iframe and sync-accesses it for other unknown reasons, as can be seen here:
+
+![](/content/img/chromium-source-15.png)
+
+#### Google (social login)
+
+Google's login page https://accounts.google.com/ServiceLogin?hl=iw&passive=true&continue=https://www.google.com/ also seems to make great use of realm-to-realm same-origin sync-access. Again, it's hard to tell for what reason, but it does seem consistent. In the image below is where the same-origin iframe they created is being accessed via the `contentWindow` accessor deterministically:
 
 ![](/content/img/chromium-source-10.png)
 
-### BBC
+#### Sentry (metrics)
 
-> https://www.bbc.com/*
+Sentry also depend on realm-to-realm same-origin sync-access, but conditionally - on init, they create a same-origin iframe and grab a fresh instance of the `fetch` API only if they conclude that the `fetch` instance of the top was monkey patched by some other JS code in the page (which is not very rare, depends on what other scripts the website includes). 
 
-In contrast to the former sites, the different pages of BBC did not seem to activate any realm-to-realm same-origin sync-access at all.
+![](/content/img/chromium-source-16.png)
 
-### Google (maps)
+#### Facebook (pixel)
 
-> https://www.google.com/maps
+Facebook's Pixel demonstrates clear indicators for realm-to-realm same-origin sync-access within their super popular third party library https://connect.facebook.net/en_US/fbevents.js which is loaded just about everywhere, but in contrast to the former examples, I was not able to successfully reach the branch in code that actually executes such behaviour: 
 
-Seems like most of the maps web app does not trigger realm-to-realm same-origin sync-access, except for when you select a spot (like a restaurant) and scrolls all he way down to the "online results" (bottom-right) tab, which seems to load external information and uses same-origin iframes for that purpose.
+![](/content/img/chromium-source-17.png)
 
-![](/content/img/chromium-source-11.png)
+#### X (embedded posts)
+
+X's embedded posts via https://platform.twitter.com/widgets.js seem to also introduce some same origin iframe `IFRAME#rufous-sandbox` and to synchronously access its internals for unknown reasons:
+
+![](/content/img/chromium-source-18.png)
+
+## Conclusion
+
+Given how the examples above are of sites and scripts that are highly popular and well-used across the web, it seems fair to conclude that without proper adjustments, websites across the web that embed these won't be able to easily opt into features such as the proposed `no-sync` one, as it will prevent the scenarios that were displayed above, and thus break them.
+
+Therefore, it's fair to say that a more lax solution such as the proposed RIC one could be opt into without breaking sites nor require them to adjust whatsoever.
