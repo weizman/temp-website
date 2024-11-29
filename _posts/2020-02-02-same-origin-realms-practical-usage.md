@@ -134,7 +134,7 @@ Google's [Artur](https://x.com/arturjanc) and [David](https://x.com/ddworken), w
 
 Instead, they suggest an alternative proposal they call `no-sync`, which would basically be a boolean header (false by default) that when is enabled for a certain realm, makes sync access to/from that realm from/to other realms impossible - even if they share the same origin.
 
-On the one end of the spectrum, this `no-sync` is very strict, because if websites want to make legitimate use of same-origin sync-access features, they won't be able to do so and adopt it at the same time. But on the other hand, it will eliminate the same origin concern successfully, and will do so without introducing new ways to run JavaScript in new realms and web pages, which might end up introducing more complexity to the web.
+On the one end of the spectrum, this `no-sync` is very strict, because if websites want to make legitimate use of same-origin sync-access features, they won't be able to do so and adopt it at the same time. But on the other hand, it will eliminate the same origin concern successfully, and will do so without introducing new ways to run JavaScript in new realms and web pages, which might have ended up introducing more complexity to the web.
 
 On the other end of the spectrum, the RIC proposal is way more lax, because it allows achieving both states - more security (by implementing security controls using JavaScript and the layering approach without having to worry about the same origin concern) but without having to disable same-origin sync-access features.
 
@@ -146,7 +146,7 @@ Which is to say, if we learn there aren't enough websites that make any use of s
 
 It was decided we run this experiment. The question we ask is:
 
-> "do websites form same origin reams and access them synchronously? and if so, how often?"
+> "do websites form same origin realms and access them synchronously? and if so, how often?"
 
 In order to get there, here are the steps we must take:
 
