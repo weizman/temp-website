@@ -90,7 +90,7 @@ The idea was to migrate the exact value snow brings into the browser, and a prop
 
 [Both Shopify and Akamai showed enough interest](https://github.com/WICG/proposals/issues/144) in such a solution which helped officially getting it in to the incubating program, and with [Yoav Weiss's](https://github.com/yoavweiss) help, I've been working on it ever since.
 
-So the idea is vey similar to snow's approach - provide developers some API to declare some path to a remote script with, and make the browser load that script for every new same origin realm that comes to existence.
+So the idea is very similar to snow's approach - provide developers some API to declare some path to a remote script with, and make the browser load that script for every new same origin realm that comes to existence.
 
 Based on the previous example, by placing the same localStorage security controls in a remote script `/scripts/realm.js`:
 
