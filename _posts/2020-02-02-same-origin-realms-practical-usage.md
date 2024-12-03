@@ -1,10 +1,11 @@
 ---
-enabled: false
+enabled: true
 layout: post
 tags: Top,JavaScript,Research,The-Client-Side,Browser,Discovery
 title: What same origin iframes are used for?
 url: https://weizman.github.io/
 date: 4/12/2024
+image: iframes.png
 description: iframes can either share the origin of their embedder or not. While cross-origin iframes are highly useful and are well-used across the web, what are same-origin iframes used for? Aside for malicious ways to use such iframes, are there any legitimate use cases for them? This research will focus on finding the answer to this question
 ---
 
